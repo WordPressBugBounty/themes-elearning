@@ -20,12 +20,10 @@ if ( ! function_exists( 'elearning_entry_meta_date' ) ) {
 		$meta_style = get_theme_mod( 'elearning_meta_style', 'tg-meta-style-one' );
 
 		/* translators: %s: post date. */
-		$date_text = ( 'tg-meta-style-one' === $meta_style ) ? esc_html_x( 'Posted on %s', 'post date', 'elearning' ) : '%s';
-
+		$date_text   = ( 'tg-meta-style-one' === $meta_style ) ? esc_html_x( 'Posted on %s', 'post date', 'elearning' ) : '%s';
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		if ( ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) && 'modified-date' === get_theme_mod( 'elearning_blog_post_date_type', 'published-date' ) ) {
+			$time_string = '<time class="updated modified-date" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf(
@@ -85,7 +83,6 @@ if ( ! function_exists( 'elearning_entry_meta_category' ) ) {
 				printf( '<span class="cat-links">' . $categories_text . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
-
 	}
 }
 
@@ -200,4 +197,33 @@ if ( ! function_exists( 'elearning_posts_navigation' ) ) {
  */
 function elearning_is_amp() {
 	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+}
+
+if ( ! function_exists( 'elearning_get_post_id' ) ) {
+	/**
+	 * Store the post ids.
+	 *
+	 * Since blog page takes the first post as its id,
+	 * here we are storing the id of the post and for the blog page,
+	 * storing its value via getting the specific page id through:
+	 * `get_option( 'page_for_posts' )`
+	 *
+	 * @return false|int|mixed|string|void
+	 */
+	function elearning_get_post_id() {
+
+		$post_id        = '';
+		$page_for_posts = get_option( 'page_for_posts' );
+
+		// For single post and pages.
+		if ( is_singular() ) {
+			$post_id = get_the_ID();
+		} elseif ( ! is_front_page() && is_home() && $page_for_posts ) { // For the static blog page.
+
+			$post_id = $page_for_posts;
+		}
+
+		// Return the post ID.
+		return $post_id;
+	}
 }

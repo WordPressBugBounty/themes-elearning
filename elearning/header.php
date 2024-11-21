@@ -31,14 +31,19 @@ defined( 'ABSPATH' ) || exit;
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'elearning' ); ?></a>
 	<?php do_action( 'elearning_before_header' ); ?>
 
-	<header id="masthead" class="<?php elearning_css_class( 'elearning_header_class' ); ?>">
-		<?php elearning_header(); ?>
-	</header><!-- #masthead -->
+		<header id="tg-masthead" class="tg-header-builder <?php elearning_css_class( 'elearning_header_class' ); ?>">
+			<?php elearning_header(); ?>
+		</header>
 
 	<?php do_action( 'elearning_after_header' ); ?>
 
 	<?php do_action( 'elearning_before_main' ); ?>
 	<main id="main" class="site-main">
+		<?php if ( get_header_image() ) : ?>
+			<div id="site-header">
+				<?php the_custom_header_markup(); ?>
+			</div>
+		<?php endif; ?>
 		<?php elearning_page_header(); ?>
 		<div id="content" class="site-content">
 			<div class="tg-container tg-container--flex tg-container--flex-space-between">

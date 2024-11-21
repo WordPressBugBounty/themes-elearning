@@ -21,9 +21,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'elearning_before_footer' ); ?>
 
-	<footer id="colophon" class="site-footer tg-site-footer <?php elearning_footer_class(); ?>">
+	<footer id="colophon" class="site-footer tg-site-footer tg-footer tg-footer-builder <?php elearning_footer_class(); ?>">
 		<?php elearning_footer(); ?>
-	</footer><!-- #colophon -->
+	</footer>
 
 	<?php do_action( 'elearning_after_footer' ); ?>
 </div><!-- #page -->

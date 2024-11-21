@@ -25,6 +25,7 @@ var elearningFrontend = {
 		);
 
 		// Close menu when clicked outside.
+
 		if ( overlayWrapper ) {
 			overlayWrapper.addEventListener(
 				'click',
@@ -82,7 +83,7 @@ document.addEventListener(
 					menuPaddingTop = parseInt( menuStyle.paddingTop ) + adminBarHeight;
 
 					closeButton.style.top = adminBarHeight + 'px';
-					menu.style.paddingTop = menuPaddingTop + 'px';
+					menu.style.paddingTop = 80 + 'px';
 				}
 			}
 

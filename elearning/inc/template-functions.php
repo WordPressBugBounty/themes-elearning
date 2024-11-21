@@ -325,7 +325,7 @@ if ( ! function_exists( 'elearning_get_image_by_id' ) ) {
 	}
 }
 
-if ( ! function_exists( 'elearning_insert_primary_menu_item' ) ) {
+//if ( ! function_exists( 'elearning_insert_primary_menu_item' ) ) {
 
 	/**
 	 * Get search icon in primary menu list.
@@ -334,16 +334,16 @@ if ( ! function_exists( 'elearning_insert_primary_menu_item' ) ) {
 	 * @param object $args Menu arguments.
 	 * @return string Menu HTML.
 	 */
-	function elearning_insert_primary_menu_item( $items, $args ) {
-
-		if ( apply_filters( 'elearning_header_action_menu_location', 'menu-primary' ) === $args->theme_location ) {
-			$items .= apply_filters( 'elearning_header_search', eLearning_Utils::header_search_markup() );
-		}
-
-		return $items;
-	}
-	add_filter( 'wp_nav_menu_items', 'elearning_insert_primary_menu_item', 10, 2 );
-}
+//  function elearning_insert_primary_menu_item( $items, $args ) {
+//
+		//      if ( apply_filters( 'elearning_header_action_menu_location', 'menu-primary' ) === $args->theme_location ) {
+		//          $items .= apply_filters( 'elearning_header_search', eLearning_Utils::header_search_markup() );
+		//      }
+		//
+		//      return $items;
+//  }
+	//  add_filter( 'wp_nav_menu_items', 'elearning_insert_primary_menu_item', 10, 2 );
+//}
 
 if ( ! function_exists( 'elearning_menu_fallback' ) ) {
 
@@ -365,7 +365,7 @@ if ( ! function_exists( 'elearning_menu_fallback' ) ) {
 				'title_li' => false,
 			)
 		);
-		$output .= apply_filters( 'elearning_header_search', eLearning_Utils::header_search_markup() );
+		//      $output .= apply_filters( 'elearning_header_search', eLearning_Utils::header_search_markup() );
 		$output .= '</ul>';
 		$output .= '</div>';
 
@@ -425,7 +425,7 @@ if ( ! function_exists( 'elearning_header_button_append' ) ) {
 
 		return $items;
 	}
-	add_filter( 'wp_nav_menu_items', 'elearning_header_button_append', 8, 2 );
+	//  add_filter( 'wp_nav_menu_items', 'elearning_header_button_append', 8, 2 );
 }
 
 if ( ! function_exists( 'elearning_responsive_oembeds' ) ) {

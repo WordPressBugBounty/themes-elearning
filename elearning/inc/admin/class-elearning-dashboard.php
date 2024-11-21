@@ -60,7 +60,7 @@ class eLearning_Dashboard {
 			),
 			'footer'    => array(
 				'label' => __( 'Footer Options', 'elearning' ),
-				'link'  => admin_url( 'customize.php?autofocus[panel]=elearning_footer_panel' ),
+				'link'  => admin_url( 'customize.php?autofocus[panel]=elearning_footer' ),
 				'icon'  => 'dashicons-insert-after',
 			),
 		);
@@ -111,7 +111,7 @@ class eLearning_Dashboard {
 									<div class="inside">
 										<p>
 											<?php
-											echo sprintf(
+											printf(
 												/* translators: 1: Theme Name, 2: Demo Link. */
 												esc_html__( 'You do not need to build your site from scratch, %1$s provides a variety of %2$s', 'elearning' ),
 												esc_html( self::get_theme()->Name ),
@@ -130,7 +130,7 @@ class eLearning_Dashboard {
 									<div class="inside">
 										<p>
 											<?php
-											echo sprintf(
+											printf(
 												/* translators: 1: Theme Name, 2: Review Link. */
 												esc_html__( 'Love using %1$s? Help us by leaving a review %2$s', 'elearning' ),
 												esc_html( self::get_theme()->Name ),

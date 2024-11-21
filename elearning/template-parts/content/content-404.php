@@ -10,18 +10,24 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 ?>
+	<section class="error-404 not-found">
+		<img
+			src="<?php echo esc_url( get_template_directory_uri() . '/assets/svg/404.svg' ); ?>" alt=""
+		/>
 
-<section class="error-404 not-found">
-	<?php if ( 'page-header' !== eLearning_Utils::has_page_title() ) : ?>
-		<header class="page-header">
-			<h1 class="page-title tg-page-content__title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'elearning' ); ?></h1>
-		</header><!-- .page-header -->
-	<?php endif; ?>
+		<header class="tg-content-header">
+			<p><?php esc_html_e( 'Oops! Page Not Found', 'elearning' ); ?></p>
+		</header>
 
-	<div class="page-content">
-		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'elearning' ); ?></p>
-		<?php
-		get_search_form();
-		?>
-	</div><!-- .page-content -->
-</section><!-- .error-404 -->
+		<div class="tg-page-content">
+			<p>
+				<?php esc_html_e( 'We’re sorry, the page you requested could not be found. Please go back to the homepage', 'elearning' ); ?>
+			</p>
+		</div><!-- .tg-page-content -->
+
+		<a class="tg-button" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<span>
+				<?php esc_html_e( 'Go Back', 'elearning' ); ?>
+			</span>
+		</a><!-- .button -->
+	</section><!-- .tg-error-404 -->

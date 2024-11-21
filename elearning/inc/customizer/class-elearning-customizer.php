@@ -8,11 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Include the customizer framework.
-require_once dirname( __FILE__ ) . '/core/class-elearning-customizer-framework.php';
-
-// Include the customizer base class.
-require_once dirname( __FILE__ ) . '/core/class-elearning-customize-base-option.php';
+require_once __DIR__ . '/functions.php';
 
 if ( ! class_exists( 'elearning_Customizer' ) ) :
 
@@ -25,10 +21,40 @@ if ( ! class_exists( 'elearning_Customizer' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'customize_register', array( $this, 'elearning_customize_register' ) );
-			add_action( 'customize_register', array( $this, 'elearning_customize_options_file_include' ), 1 );
-			add_filter( 'elearning_default_variants', array( $this, 'add_font_variants' ) );
-			add_filter( 'elearning_fontawesome_src', array( $this, 'fontawesome_src' ) );
-			add_action( 'elearning_get_fonts', array( $this, 'get_fonts' ) );
+			add_action( 'customize_register', array( $this, 'on_customizer_register' ) );
+			add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ), 11 );
+			add_filter( 'customizer_widgets_section_args', [ $this, 'modify_widgets_panel' ], 10, 3 );
+		}
+
+		public function on_customizer_register( $wp_customize ) {
+			$this->includes();
+			do_action( 'elearning_customize_register', $wp_customize );
+		}
+
+		protected function includes() {
+			require_once __DIR__ . '/panels-sections/panels-sections.php';
+			require_once __DIR__ . '/options/options.php';
+		}
+
+		/**
+		 * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+		 *
+		 * @since 3.0.0
+		 */
+		public function customize_preview_js() {
+
+			$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+			wp_enqueue_script(
+				'elearning-customizer-preview',
+				ELEARNING_PARENT_CUSTOMIZER_URI . '/assets/js/elearning-customize-preview' . $suffix . '.js',
+				array(
+					'customize-preview',
+					'wp-hooks',
+				),
+				ELEARNING_THEME_VERSION,
+				true
+			);
 		}
 
 		/**
@@ -43,231 +69,36 @@ if ( ! class_exists( 'elearning_Customizer' ) ) :
 			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/class-elearning-customizer-partials.php';
 		}
 
-		public function elearning_customize_options_file_include() {
-
-			// Include the required customize section and panels register file.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/class-elearning-customizer-register-panels-sections.php';
-
-			/**
-			 * Include the required customize options file.
-			 */
-			// Global.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-container-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-base-colors-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-link-colors-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-heading-colors-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-background-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-sidebar-layout-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-typography-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-headings-typography-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/global/class-elearning-customize-button-option.php';
-
-			// Header.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-site-identity-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-header-top-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-header-main-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-header-button-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-primary-menu-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-primary-menu-item-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-primary-menu-dropdown-item-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-transparent-header-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/header/class-elearning-customize-mobile-menu-option.php';
-
-			// Content.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/content/class-elearning-customize-page-header-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/content/class-elearning-customize-blog-archive-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/content/class-elearning-customize-single-blog-post-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/content/class-elearning-customize-blog-meta-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/content/class-elearning-customize-blog-sidebar-option.php';
-
-			// Footer.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/footer/class-elearning-customize-footer-bottom-bar-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/footer/class-elearning-customize-footer-widget-option.php';
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/footer/class-elearning-customize-scroll-to-top-option.php';
-
-			// Additional.
-			require ELEARNING_PARENT_CUSTOMIZER_DIR . '/options/additional/class-elearning-customize-optimization-option.php';
-		}
-
 		/**
-		 * Add font variants.
+		 * Modify widgets panel.
 		 *
-		 * @param array $array Font variants.
-		 * @return mixed
+		 * @param array      $section_args Array of Customizer widget section arguments.
+		 * @param string     $section_id   Customizer section ID.
+		 * @param int|string $sidebar_id   Sidebar ID.
 		 */
-		public function add_font_variants( $array ) {
+		public function modify_widgets_panel( array $section_args, string $section_id, $sidebar_id ): array {
+			$footer_widgets = [
+				'footer-sidebar-1',
+				'footer-sidebar-2',
+				'footer-sidebar-3',
+				'footer-sidebar-4',
+				'footer-bar-left-sidebar',
+				'footer-bar-right-sidebar',
+			];
+			$header_widgets = [
+				'header-top-left-sidebar',
+				'header-top-right-sidebar',
+			];
 
-			$array[] = '500';
-			$array[] = '500italic';
-			$array[] = '700italic';
-
-			return $array;
-		}
-
-		/**
-		 * Modify font awesome path.
-		 *
-		 * @param string $path Font awesome path.
-		 * @return string
-		 */
-		public function fontawesome_src( $path ) {
-			return '/assets/lib/font-awesome/css/font-awesome';
-		}
-
-		/**
-		 * Action hook to get the required Google fonts.
-		 */
-		public function get_fonts() {
-
-			$base_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$base_heading_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$site_title_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$site_tagline_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$primary_menu_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$primary_menu_dropdown_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$mobile_menu_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '400',
-			);
-
-			$post_page_title_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$blog_post_title_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h1_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h2_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h3_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h4_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h5_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$h6_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$widget_heading_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$widget_content_typography_default = array(
-				'font-family' => 'default',
-				'font-weight' => '500',
-			);
-
-			$base_typography                  = get_theme_mod( 'elearning_base_typography_body', $base_typography_default );
-			$base_heading_typography          = get_theme_mod( 'elearning_base_typography_heading', $base_heading_typography_default );
-			$site_title_typography            = get_theme_mod( 'elearning_typography_site_title', $site_title_typography_default );
-			$site_tagline_typography          = get_theme_mod( 'elearning_typography_site_description', $site_tagline_typography_default );
-			$primary_menu_typography          = get_theme_mod( 'elearning_typography_primary_menu', $primary_menu_typography_default );
-			$primary_menu_dropdown_typography = get_theme_mod( 'elearning_typography_primary_menu_dropdown_item', $primary_menu_dropdown_typography_default );
-			$mobile_menu_typography           = get_theme_mod( 'elearning_typography_mobile_menu', $mobile_menu_typography_default );
-			$post_page_title_typography       = get_theme_mod( 'elearning_typography_post_page_title', $post_page_title_typography_default );
-			$blog_post_title_typography       = get_theme_mod( 'elearning_typography_blog_post_title', $blog_post_title_typography_default );
-			$h1_typography                    = get_theme_mod( 'elearning_typography_h1', $h1_typography_default );
-			$h2_typography                    = get_theme_mod( 'elearning_typography_h2', $h2_typography_default );
-			$h3_typography                    = get_theme_mod( 'elearning_typography_h3', $h3_typography_default );
-			$h4_typography                    = get_theme_mod( 'elearning_typography_h4', $h4_typography_default );
-			$h5_typography                    = get_theme_mod( 'elearning_typography_h5', $h5_typography_default );
-			$h6_typography                    = get_theme_mod( 'elearning_typography_h6', $h6_typography_default );
-			$widget_heading_typography        = get_theme_mod( 'elearning_typography_widget_heading', $widget_heading_typography_default );
-			$widget_content_typography        = get_theme_mod( 'elearning_typography_widget_content', $widget_content_typography_default );
-
-			// Grouped typography options with default font-wight of 400.
-			$elearning_typography_options_one = array(
-				$base_typography,
-				$base_heading_typography,
-				$site_title_typography,
-				$site_tagline_typography,
-				$primary_menu_typography,
-				$primary_menu_dropdown_typography,
-				$mobile_menu_typography,
-			);
-
-			// Grouped typography options with default font-wight of 500.
-			$elearning_typography_options_two = array(
-				$post_page_title_typography,
-				$blog_post_title_typography,
-				$h1_typography,
-				$h2_typography,
-				$h3_typography,
-				$h4_typography,
-				$h5_typography,
-				$h6_typography,
-				$widget_heading_typography,
-				$widget_content_typography,
-			);
-
-			foreach ( $elearning_typography_options_one as $elearning_typography_option_one ) {
-
-				if ( isset( $elearning_typography_option_one['font-family'] ) && 'default' === $elearning_typography_option_one['font-family'] ) {
-					$elearning_typography_option_one['font-family'] = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
-				}
-
-				if ( isset( $elearning_typography_option_one['font-family'] ) ) {
-					elearning_Generate_Fonts::add_font( $elearning_typography_option_one['font-family'], isset( $elearning_typography_option_one['font-weight'] ) ? $elearning_typography_option_one['font-weight'] : '400' );
-				}
+			if ( in_array( $sidebar_id, $footer_widgets, true ) ) {
+				$section_args['panel'] = 'elearning_footer_builder';
 			}
 
-			foreach ( $elearning_typography_options_two as $elearning_typography_option_two ) {
-
-				if ( isset( $elearning_typography_option_two['font-family'] ) && 'default' === $elearning_typography_option_two['font-family'] ) {
-					$elearning_typography_option_two['font-family'] = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif';
-				}
-
-				if ( isset( $elearning_typography_option_two['font-family'] ) ) {
-					elearning_Generate_Fonts::add_font( $elearning_typography_option_two['font-family'], isset( $elearning_typography_option_two['font-weight'] ) ? $elearning_typography_option_two['font-weight'] : '500' );
-				}
+			if ( in_array( $sidebar_id, $header_widgets, true ) ) {
+				$section_args['panel'] = 'elearning_header_builder';
 			}
+
+			return $section_args;
 		}
 	}
 	new eLearning_Customizer();

@@ -1,11 +1,11 @@
 === elearning ===
 Contributors: masteriyo
 Author: Masteriyo
-Version: 1.0.11 
-Tested up to: 6.5
-Requires PHP: 5.6
+Version: 2.0.0 
+Tested up to: 6.7
+Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 1.0.11
+Stable tag: 2.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, news, education, rtl-language-support
@@ -51,6 +51,55 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 2.0.0 - 2024-11-21 =
+* Added       - New Header builder.
+* Enhancement - Introduced a new visual Header Builder with drag and drop functionality.
+* Added       - Header Builder component - Site Title and Logo.
+* Enhancement - Option to change color and typography for Site Title and Logo.
+* Enhancement - Option to change enable/disable for Site Title and Logo.
+* Enhancement - Option to change logo height.
+* Added       - Header Builder component - Primary Menu.
+* Enhancement - Option to change color, background, padding, margin and typography for primary menu component.
+* Enhancement - Option to change sub menu color, background, padding, border etc.
+* Added       - Header Builder component - Secondary, Tertiary and Quaternary Menu.
+* Enhancement - Option to change color and typography for secondary, tertiary and quaternary menu component.
+* Enhancement - Option to change sub menu typography.
+* Added       - Header Builder component - Button.
+* Enhancement - Option to change color, background, padding, border for button.
+* Added       - Header Builder component - Search.
+* Added       - Option to change search input color text and background color.
+* Added       - Option to change search icon color.
+* Added       - Header Builder component - HTML 1 and HTML 2.
+* Added       - Option to change HTML 1 and HTML 2 color, link color, font size, margin.
+* Added       - Header Builder component - Widget 1 and Widget 2.
+* Added       - Option to change Widget 1 and Widget 2 title and content color, link color and typography.
+* Added       - Header Builder component - Social.
+* Added       - Option to add new social icons.
+* Added       - Header Builder component - Cart.
+* Added       - Option to change cart icon color.
+* Added       - Option to change all header row container width, height, color, background, padding, margin, border etc.
+* Enhancement - UI/UX improvement in toggle, select, slider, radio-image, sortable, editor, typography, dimension, navigation and color control.
+* Added       - New customizer color Palette.
+* Enhancement - Introduced reset to default option in all control.
+* Enhancement - Customizer color picker.
+* Enhancement - Customizer background control.
+* Enhancement - Customizer Typography control.
+* Added       - New Footer builder.
+* Enhancement - Introduced a new visual Footer Builder with drag and drop functionality.
+* Added       - Footer Builder component - HTML 1 and HTML 2.
+* Added       - Option to change HTML 1 and HTML 2 color, link color, font size, margin.
+* Added       - Footer Builder component - Widget 1, Widget 2, Widget 3, Widget 4, Widget 5 and Widget 6.
+* Added       - Option to change Widgets title and content color, link color and typography.
+* Added       - Footer Builder component - Menu 1 and Menu 2.
+* Added       - Option to change Menu 1 and Menu 2 color and typography.
+* Added       - Footer Builder component - Social.
+* Added       - Option to add new social icons.
+* Added       - Option to add new social icons.
+* Added       - Footer Builder component - Copyright.
+* Added       - Option to change copyright color, link color, typography, margin.
+* Added       - Option to change footer column for particular row.
+* Added       - Option to change all footer row container width, height, color, background, padding, margin, border etc.
+
 = Version 1.0.11 - 2024-06-21 =
 * Fix - Nav menu color and typography option issue.
 

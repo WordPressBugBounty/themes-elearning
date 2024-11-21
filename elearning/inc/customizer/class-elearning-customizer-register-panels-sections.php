@@ -27,55 +27,55 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 
 			$configs = array(
 
-				array(
-					'name'     => 'elearning_global_panel',
-					'type'     => 'panel',
-					'title'    => esc_html__( 'Global', 'elearning' ),
-					'priority' => 10,
-				),
+				//              array(
+				//                  'name'     => 'elearning_global_panel',
+				//                  'type'     => 'panel',
+				//                  'title'    => esc_html__( 'Global', 'elearning' ),
+				//                  'priority' => 10,
+				//              ),
 
-				array(
-					'name'     => 'elearning_colors_section',
-					'type'     => 'section',
-					'title'    => esc_html__( 'Colors', 'elearning' ),
-					'panel'    => 'elearning_global_panel',
-					'priority' => 20,
-				),
+				//              array(
+				//                  'name'     => 'elearning_colors_section',
+				//                  'type'     => 'section',
+				//                  'title'    => esc_html__( 'Colors', 'elearning' ),
+				//                  'panel'    => 'elearning_global_panel',
+				//                  'priority' => 20,
+				//              ),
 
-				array(
-					'name'     => 'elearning_base_colors_section',
-					'type'     => 'section',
-					'title'    => esc_html__( 'Base Colors', 'elearning' ),
-					'panel'    => 'elearning_global_panel',
-					'section'  => 'elearning_colors_section',
-					'priority' => 10,
-				),
+				//              array(
+				//                  'name'     => 'elearning_base_colors_section',
+				//                  'type'     => 'section',
+				//                  'title'    => esc_html__( 'Base Colors', 'elearning' ),
+				//                  'panel'    => 'elearning_global_panel',
+				//                  'section'  => 'elearning_colors_section',
+				//                  'priority' => 10,
+				//              ),
+				//
+				//              array(
+				//                  'name'     => 'elearning_heading_colors_section',
+				//                  'type'     => 'section',
+				//                  'title'    => esc_html__( 'Heading Colors', 'elearning' ),
+				//                  'panel'    => 'elearning_global_panel',
+				//                  'section'  => 'elearning_colors_section',
+				//                  'priority' => 20,
+				//              ),
+				//
+				//              array(
+				//                  'name'     => 'elearning_link_colors_section',
+				//                  'type'     => 'section',
+				//                  'title'    => esc_html__( 'Link Colors', 'elearning' ),
+				//                  'panel'    => 'elearning_global_panel',
+				//                  'section'  => 'elearning_colors_section',
+				//                  'priority' => 20,
+				//              ),
 
-				array(
-					'name'     => 'elearning_heading_colors_section',
-					'type'     => 'section',
-					'title'    => esc_html__( 'Heading Colors', 'elearning' ),
-					'panel'    => 'elearning_global_panel',
-					'section'  => 'elearning_colors_section',
-					'priority' => 20,
-				),
-
-				array(
-					'name'     => 'elearning_link_colors_section',
-					'type'     => 'section',
-					'title'    => esc_html__( 'Link Colors', 'elearning' ),
-					'panel'    => 'elearning_global_panel',
-					'section'  => 'elearning_colors_section',
-					'priority' => 20,
-				),
-
-				array(
-					'name'     => 'elearning_background_section',
-					'type'     => 'section',
-					'title'    => esc_html__( 'Background', 'elearning' ),
-					'panel'    => 'elearning_global_panel',
-					'priority' => 30,
-				),
+					array(
+						'name'     => 'elearning_background_section',
+						'type'     => 'section',
+						'title'    => esc_html__( 'Background', 'elearning' ),
+						'panel'    => 'elearning_global_panel',
+						'priority' => 30,
+					),
 
 				array(
 					'name'     => 'elearning_layout_section',
@@ -236,7 +236,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 				),
 
 				array(
-					'name'     => 'elearning_content_panel',
+					'name'     => 'elearning_content',
 					'type'     => 'panel',
 					'title'    => esc_html__( 'Content', 'elearning' ),
 					'priority' => 30,
@@ -246,7 +246,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_archive_blog_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Blog/Archive', 'elearning' ),
-					'panel'    => 'elearning_content_panel',
+					'panel'    => 'elearning_content',
 					'priority' => 20,
 				),
 
@@ -254,7 +254,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_single_post_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Single Post', 'elearning' ),
-					'panel'    => 'elearning_content_panel',
+					'panel'    => 'elearning_content',
 					'priority' => 30,
 				),
 
@@ -262,7 +262,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_meta_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Meta', 'elearning' ),
-					'panel'    => 'elearning_content_panel',
+					'panel'    => 'elearning_content',
 					'priority' => 40,
 				),
 
@@ -270,12 +270,12 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_sidebar_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Sidebar', 'elearning' ),
-					'panel'    => 'elearning_content_panel',
+					'panel'    => 'elearning_content',
 					'priority' => 60,
 				),
 
 				array(
-					'name'     => 'elearning_footer_panel',
+					'name'     => 'elearning_footer',
 					'type'     => 'panel',
 					'title'    => esc_html__( 'Footer', 'elearning' ),
 					'priority' => 35,
@@ -300,7 +300,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_footer_widgets_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Footer Widgets', 'elearning' ),
-					'panel'    => 'elearning_footer_panel',
+					'panel'    => 'elearning_footer',
 					'priority' => 10,
 				),
 
@@ -308,7 +308,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_footer_bottom_bar_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Footer Bottom Bar', 'elearning' ),
-					'panel'    => 'elearning_footer_panel',
+					'panel'    => 'elearning_footer',
 					'priority' => 20,
 				),
 
@@ -316,7 +316,7 @@ if ( ! class_exists( 'elearning_Customize_Register_Section_Panels' ) ) :
 					'name'     => 'elearning_footer_scroll_to_top_section',
 					'type'     => 'section',
 					'title'    => esc_html__( 'Scroll to Top', 'elearning' ),
-					'panel'    => 'elearning_footer_panel',
+					'panel'    => 'elearning_footer',
 					'priority' => 30,
 				),
 

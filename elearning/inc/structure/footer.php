@@ -6,60 +6,15 @@ defined( 'ABSPATH' ) || exit;
 if ( ! function_exists( 'elearning_footer_markup' ) ) {
 
 	/**
-	 * Footer markup.
+	 * Adds footer markup.
+	 *
+	 * @return void
 	 */
 	function elearning_footer_markup() {
-		elearning_footer_widgets();
-		elearning_footer_bar();
+
+		elearning_footer_builder_markup();
 	}
 	add_action( 'elearning_footer', 'elearning_footer_markup' );
-}
-
-if ( ! function_exists( 'elearning_footer_widgets_markup' ) ) {
-
-	/**
-	 * Footer widgets markup.
-	 */
-	function elearning_footer_widgets_markup() {
-
-		if ( ! eLearning_Utils::has_footer_widgets() ) {
-			return;
-		}
-		?>
-		<div class="tg-site-footer-widgets">
-			<div class="<?php elearning_css_class( 'elearning_footer_widgets_container_class' ); ?>">
-				<?php get_sidebar( 'footer' ); ?>
-			</div><!-- /.tg-container-->
-		</div><!-- /.tg-site-footer-widgets -->
-		<?php
-	}
-	add_action( 'elearning_footer_widgets', 'elearning_footer_widgets_markup' );
-}
-
-if ( ! function_exists( 'elearning_footer_bar_markup' ) ) {
-
-	/**
-	 * Footer bar markup.
-	 */
-	function elearning_footer_bar_markup() {
-
-		if ( ! eLearning_Utils::has_footer_bar() ) {
-			return;
-		}
-		?>
-		<div class="tg-site-footer-bar <?php elearning_footer_bar_classes(); ?>">
-			<div class="<?php elearning_css_class( 'elearning_footer_bottom_bar_container_class' ); ?>">
-					<div class="tg-site-footer-section-1">
-						<?php elearning_get_footer_bar_section(); ?>
-					</div>
-				<div class="tg-site-footer-section-2">
-					<?php elearning_get_footer_bar_section( 'two' ); ?>
-				</div>
-			</div>
-		</div>
-		<?php
-	}
-	add_action( 'elearning_footer_bar', 'elearning_footer_bar_markup' );
 }
 
 if ( ! function_exists( 'elearning_scroll_to_top' ) ) {
