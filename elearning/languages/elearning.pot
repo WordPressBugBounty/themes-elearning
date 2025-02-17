@@ -1,4 +1,4 @@
-# Copyright (C) 2024 elearning
+# Copyright (C) 2025 elearning
 # This file is distributed under the same license as the elearning package.
 msgid ""
 msgstr ""
@@ -29,6 +29,15 @@ msgstr ""
 
 #: comments.php:71
 msgid "Comments are closed."
+msgstr ""
+
+#. translators: 1: Panel Title.
+#: functions.php:71
+msgid "Customizing &#9656; %s"
+msgstr ""
+
+#: functions.php:72
+msgid "Customizing"
 msgstr ""
 
 #: header.php:31
@@ -488,14 +497,6 @@ msgstr ""
 
 #: inc/customizer/class-elearning-customizer-register-panels-sections.php:318, inc/customizer/panels-sections/panels-sections.php:171
 msgid "Scroll to Top"
-msgstr ""
-
-#: inc/customizer/customind/core/Types/Section.php:88
-msgid "Customizing"
-msgstr ""
-
-#: inc/customizer/customind/core/Types/Section.php:84
-msgid "Customizing &#9656; %s"
 msgstr ""
 
 #: inc/customizer/options/additional/optimization.php:6, inc/customizer/options/header-builder/toggle-button.php:6

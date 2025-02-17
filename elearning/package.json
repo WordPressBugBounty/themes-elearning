@@ -1,0 +1,64 @@
+{
+  "name": "elearning",
+  "version": "2.0.2",
+  "description": "A Masteriyo theme",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/themegrill/elearning.git"
+  },
+  "author": "ThemeGrill",
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://gitlab.com/themegrill/elearning/issues"
+  },
+  "homepage": "https://gitlab.com/themegrill/elearning#README",
+  "devDependencies": {
+    "autoprefixer": "^8.5.1",
+    "browser-sync": "^2.26.13",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-wordpress": "^2.0.0",
+    "globby": "^8.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-is-binary": "^0.1.2",
+    "gulp-line-ending-corrector": "~1.0.3",
+    "gulp-notify": "^3.2.0",
+    "gulp-phpcs": "^2.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-prompt": "^1.0.1",
+    "gulp-readme-to-markdown": "^0.2.1",
+    "gulp-rtlcss": "^1.4.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-stylelint": "^7.0.0",
+    "gulp-tap": "^1.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-uglifycss": "^1.0.9",
+    "gulp-wp-pot": "^2.5.0",
+    "gulp-zip": "^4.1.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "stylelint": "^9.2.1",
+    "stylelint-config-wordpress": "^13.0.0",
+    "webfonts-generator": "^0.4.0"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.3.0",
+    "gulp-rename": "^1.4.0",
+    "node-sass": "^4.10.0",
+    "npm": "^6.14.11"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.php": [
+      "php -d display_errors=1 -l",
+      "composer run-script phpcs-pre-commit"
+    ]
+  }
+}

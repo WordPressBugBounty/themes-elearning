@@ -55,8 +55,23 @@ if ( defined( 'AMP__VERSION' ) && ( ! version_compare( AMP__VERSION, '1.0.0', '<
 // Load customind.
 require_once ELEARNING_PARENT_INC_DIR . '/customizer/customind/init.php';
 
+/**
+ * @var \Customind\Core\Customind
+ */
 global $customind;
 $customind->set_css_var_prefix( 'elearning' );
+$customind->set_i18n_data(
+	[
+		'domain' => 'elearning',
+	]
+);
+$customind->set_section_i18n(
+	[
+		/* Translators: 1: Panel Title. */
+		'customizing-action' => __( 'Customizing &#9656; %s', 'elearning' ),
+		'customizing'        => __( 'Customizing', 'elearning' ),
+	]
+);
 
 require ELEARNING_PARENT_INC_DIR . '/class-elearning-utils.php';
 require ELEARNING_PARENT_INC_DIR . '/hooks.php';
