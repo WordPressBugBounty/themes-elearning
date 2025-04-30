@@ -48,29 +48,55 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			// Content width.
-			$content_width_default = array(
-				'size' => 70,
-				'unit' => '%',
-			);
-			$content_width         = get_theme_mod( 'elearning_general_content_width', $content_width_default );
-			$parse_css            .= elearning_parse_slider_css(
-				$content_width_default,
-				$content_width,
-				'#primary',
-				'width'
-			);
+//			$content_width_default = array(
+//				'size' => 70,
+//				'unit' => '%',
+//			);
+//			$content_width         = get_theme_mod( 'elearning_general_content_width', $content_width_default );
+//			$parse_css            .= elearning_parse_slider_css(
+//				$content_width_default,
+//				$content_width,
+//				'#primary',
+//				'width'
+//			);
 
 			// Sidebar Width
 			$sidebar_width_default = array(
 				'size' => 30,
 				'unit' => '%',
 			);
+
 			$sidebar_width         = get_theme_mod( 'elearning_general_sidebar_width', $sidebar_width_default );
-			$parse_css            .= elearning_parse_slider_css(
+
+			$content_width_css = array(
+				'#primary' => array(
+					'width' => ( 100 - (float) $sidebar_width['size'] ) . '%',
+				),
+			);
+
+			$parse_css .= '@media screen and (min-width: ' . 768 . 'px) {';
+			$parse_css .= elearning_parse_css( 70, ( 100 - (float) $sidebar_width['size'] ), $content_width_css );
+			$parse_css .= elearning_parse_slider_css(
 				$sidebar_width_default,
 				$sidebar_width,
 				'#secondary',
 				'width'
+			);
+			$parse_css .= '}';
+
+			// Content margin.
+			$content_padding_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$content_padding = get_theme_mod( 'elearning_content_area_padding', $content_padding_default );
+
+			$parse_css .= elearning_parse_slider_css(
+				$content_padding_default,
+				$content_padding,
+				'.site-content',
+				'padding-top, padding-bottom'
 			);
 
 			// Base primary color.

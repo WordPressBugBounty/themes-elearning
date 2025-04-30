@@ -379,11 +379,11 @@ msgstr ""
 msgid "Footer Bottom Bar Right Sidebar"
 msgstr ""
 
-#: inc/customizer/class-elearning-customizer-register-panels-sections.php:75, inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-widget.php:81, inc/customizer/options/footer/scroll-to-top.php:20, inc/customizer/options/global/button.php:41, inc/customizer/options/global/container.php:105, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:35, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:69, inc/customizer/options/header/main-header.php:63, inc/customizer/options/header/page-header.php:76, inc/customizer/options/header/top-bar.php:65
+#: inc/customizer/class-elearning-customizer-register-panels-sections.php:75, inc/customizer/options/footer-builder/bottom-area.php:73, inc/customizer/options/footer-builder/main-area.php:97, inc/customizer/options/footer-builder/top-area.php:73, inc/customizer/options/footer/footer-bar.php:64, inc/customizer/options/footer/footer-widget.php:81, inc/customizer/options/footer/scroll-to-top.php:20, inc/customizer/options/global/button.php:41, inc/customizer/options/global/container.php:106, inc/customizer/options/header-builder/bottom-area.php:61, inc/customizer/options/header-builder/header-button.php:55, inc/customizer/options/header-builder/main-area.php:61, inc/customizer/options/header-builder/offset-area.php:14, inc/customizer/options/header-builder/search.php:35, inc/customizer/options/header-builder/top-area.php:64, inc/customizer/options/header/header-button.php:69, inc/customizer/options/header/main-header.php:63, inc/customizer/options/header/page-header.php:76, inc/customizer/options/header/top-bar.php:65
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/class-elearning-customizer-register-panels-sections.php:83, inc/customizer/options/global/container.php:19, inc/customizer/options/global/sidebar.php:34, inc/customizer/options/header/page-header.php:19, inc/meta-boxes/class-elearning-meta-box-page-settings.php:121
+#: inc/customizer/class-elearning-customizer-register-panels-sections.php:83, inc/customizer/options/global/container.php:19, inc/customizer/options/global/sidebar.php:66, inc/customizer/options/header/page-header.php:19, inc/meta-boxes/class-elearning-meta-box-page-settings.php:121
 msgid "Layout"
 msgstr ""
 
@@ -463,7 +463,7 @@ msgstr ""
 msgid "Blog/Archive"
 msgstr ""
 
-#: inc/customizer/class-elearning-customizer-register-panels-sections.php:256, inc/customizer/options/global/sidebar.php:64, inc/customizer/panels-sections/panels-sections.php:146
+#: inc/customizer/class-elearning-customizer-register-panels-sections.php:256, inc/customizer/options/global/sidebar.php:96, inc/customizer/panels-sections/panels-sections.php:146
 msgid "Single Post"
 msgstr ""
 
@@ -505,6 +505,14 @@ msgstr ""
 
 #: inc/customizer/options/additional/optimization.php:13, inc/customizer/options/content/blog-archive.php:168, inc/customizer/options/footer/footer-widget.php:14, inc/customizer/options/footer/scroll-to-top.php:12, inc/customizer/options/header-builder/logo.php:66, inc/customizer/options/header-builder/toggle-button.php:13, inc/customizer/options/header/breadcrumb.php:19, inc/customizer/options/header/header-search.php:14, inc/customizer/options/header/page-header.php:11, inc/customizer/options/header/site-identity.php:51, inc/customizer/options/header/top-bar.php:20, inc/customizer/options/header/transparent-header.php:18, inc/meta-boxes/class-elearning-meta-box-page-settings.php:227
 msgid "Enable"
+msgstr ""
+
+#: inc/customizer/options/additional/optimization.php:23
+msgid "Demo Migrated"
+msgstr ""
+
+#: inc/customizer/options/additional/optimization.php:30
+msgid "Demo migrated"
 msgstr ""
 
 #: inc/customizer/options/content/blog-archive.php:8, inc/customizer/options/content/blog-archive.php:17
@@ -771,7 +779,7 @@ msgstr ""
 msgid "Footer Bar"
 msgstr ""
 
-#: inc/customizer/options/footer/footer-bar.php:16, inc/customizer/options/global/button.php:13, inc/customizer/options/global/container.php:13, inc/customizer/options/header/breadcrumb.php:15, inc/customizer/options/header/header-button.php:15, inc/customizer/options/header/primary-menu.php:15, inc/customizer/options/header/top-bar.php:15, inc/customizer/options/header/transparent-header.php:14, inc/meta-boxes/class-elearning-meta-box-page-settings.php:82
+#: inc/customizer/options/footer/footer-bar.php:16, inc/customizer/options/global/button.php:13, inc/customizer/options/global/container.php:13, inc/customizer/options/global/sidebar.php:38, inc/customizer/options/header/breadcrumb.php:15, inc/customizer/options/header/header-button.php:15, inc/customizer/options/header/primary-menu.php:15, inc/customizer/options/header/top-bar.php:15, inc/customizer/options/header/transparent-header.php:14, inc/meta-boxes/class-elearning-meta-box-page-settings.php:82
 msgid "General"
 msgstr ""
 
@@ -903,31 +911,27 @@ msgstr ""
 msgid "Container Width"
 msgstr ""
 
-#: inc/customizer/options/global/container.php:71
-msgid "Content Width"
-msgstr ""
-
-#: inc/customizer/options/global/container.php:88
-msgid "Side Width"
-msgstr ""
-
-#: inc/customizer/options/global/container.php:120
+#: inc/customizer/options/global/container.php:121
 msgid "Inside Background"
 msgstr ""
 
-#: inc/customizer/options/global/container.php:135
+#: inc/customizer/options/global/container.php:136
 msgid "Outside Background"
 msgstr ""
 
-#: inc/customizer/options/global/sidebar.php:42, inc/meta-boxes/class-elearning-meta-box-page-settings.php:188, inc/meta-boxes/class-elearning-meta-box-page-settings.php:223, inc/meta-boxes/class-elearning-meta-box-page-settings.php:370
+#: inc/customizer/options/global/sidebar.php:49
+msgid "Side Width"
+msgstr ""
+
+#: inc/customizer/options/global/sidebar.php:74, inc/meta-boxes/class-elearning-meta-box-page-settings.php:188, inc/meta-boxes/class-elearning-meta-box-page-settings.php:223, inc/meta-boxes/class-elearning-meta-box-page-settings.php:370
 msgid "Default"
 msgstr ""
 
-#: inc/customizer/options/global/sidebar.php:53
+#: inc/customizer/options/global/sidebar.php:85
 msgid "Archive"
 msgstr ""
 
-#: inc/customizer/options/global/sidebar.php:75
+#: inc/customizer/options/global/sidebar.php:107
 msgid "Page"
 msgstr ""
 

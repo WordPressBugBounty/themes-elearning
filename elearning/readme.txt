@@ -1,11 +1,11 @@
 === elearning ===
 Contributors: masteriyo
 Author: Masteriyo
-Version: 2.0.2
-Tested up to: 6.7
+Version: 2.0.3
+Tested up to: 6.8
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, news, education, rtl-language-support
@@ -51,6 +51,11 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 2.0.3 - 2025-04-30 =
+* Enhancement - Content area width auto adjust on sidebar width change.
+* Added       - Option to remove the content area padding.
+* Fix         - Heading color changing issue.
+
 = Version 2.0.2 - 2025-02-17 =
 * Enhancement - Settings for blocks.
 * Fix         - Plugin conflict with Classic Widgets.

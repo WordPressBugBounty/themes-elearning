@@ -67,6 +67,21 @@
 		return `${selector}{background-color: ${backgroundColor};background-image: url( ${backgroundImage} );background-attachment: ${backgroundAttachment};background-position: ${backgroundPosition};background-size: ${backgroundSize};background-repeat: ${backgroundRepeat};}`;
 	}
 
+	function elearningGenerateSlidebarWidthCSS(
+		selector,
+		secondarySelector,
+		property,
+		value,
+	) {
+		let sidebarCss = value.size;
+		let primaryCss = 100 - value.size;
+		let css = '';
+		css = `${selector} {${property}: ${sidebarCss}${value.unit};}`;
+		css += `${secondarySelector} {${property}: ${primaryCss}${value.unit};}`;
+
+		return css;
+	}
+
 	/**
 	 * @param {string} str
 	 * @returns {boolean}
@@ -344,7 +359,7 @@
 
 				case 'elearning_heading_color':
 					css = elearningGenerateCommonCSS(
-						`.entry-content a:hover, .entry-content a:focus`,
+						`h1, h2, h3, h4, h5, h6, .entry-title a`,
 						'color',
 						value,
 					);
@@ -358,18 +373,24 @@
 					);
 					break;
 
-				case 'elearning_general_content_width':
-					css = elearningGenerateSliderCSS(
+				case 'elearning_general_sidebar_width':
+					css = elearningGenerateSlidebarWidthCSS(
+						'#secondary',
 						'#primary',
 						'width',
 						value,
 					);
 					break;
 
-				case 'elearning_general_sidebar_width':
+				case 'elearning_content_area_padding':
 					css = elearningGenerateSliderCSS(
-						'#secondary',
-						'width',
+						'.site-content',
+						'padding-top',
+						value,
+					);
+					css += elearningGenerateSliderCSS(
+						'.site-content',
+						'padding-bottom',
 						value,
 					);
 					break;

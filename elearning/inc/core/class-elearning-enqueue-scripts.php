@@ -229,6 +229,10 @@ if ( ! class_exists( 'eLearning_Enqueue_Scripts' ) ) {
 				.customind-control[data-control-type="customind-accordion"] .-mx-4 > label {
 					height: 56px;
 				}
+
+				#customize-control-elearning_demo_migrated_heading {
+				display: none;
+				}
 		    '
 			);
 		}

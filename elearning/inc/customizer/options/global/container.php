@@ -62,40 +62,41 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'elearning_general_content_width'         => array(
+				'elearning_content_area_padding'          => array(
 					'default'     => array(
-						'size' => 70,
-						'unit' => '%',
+						'size'  => '',
+						'units' => 'px',
 					),
 					'type'        => 'customind-slider',
-					'title'       => esc_html__( 'Content Width', 'elearning' ),
+					'title'       => esc_html__( 'Padding', 'zakra' ),
 					'section'     => 'elearning_container',
 					'transport'   => 'postMessage',
-					'units'       => array( '%' ),
-					'defaultUnit' => '%',
+					'units'       => array( 'px' ),
+					'defaultUnit' => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
-						'max'  => 100,
+						'max'  => 500,
 						'step' => 1,
 					),
 				),
-				'elearning_general_sidebar_width'         => array(
-					'default'     => array(
-						'size' => 30,
-						'unit' => '%',
-					),
-					'type'        => 'customind-slider',
-					'title'       => esc_html__( 'Side Width', 'elearning' ),
-					'section'     => 'elearning_container',
-					'transport'   => 'postMessage',
-					'units'       => array( '%' ),
-					'defaultUnit' => '%',
-					'input_attrs' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 1,
-					),
-				),
+			//              'elearning_general_content_width'         => array(
+			//                  'default'     => array(
+			//                      'size' => 70,
+			//                      'unit' => '%',
+			//                  ),
+			//                  'type'        => 'customind-slider',
+			//                  'title'       => esc_html__( 'Content Width', 'elearning' ),
+			//                  'section'     => 'elearning_container',
+			//                  'transport'   => 'postMessage',
+			//                  'units'       => array( '%' ),
+			//                  'defaultUnit' => '%',
+			//                  'input_attrs' => array(
+			//                      'min'  => 0,
+			//                      'max'  => 100,
+			//                      'step' => 1,
+			//                  ),
+			//              ),
+
 			)
 		),
 		'collapsible'  => apply_filters( 'elearning_container_accordion_collapsible', false ),

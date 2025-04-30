@@ -15,6 +15,10 @@ $sidebar_layout_choices = apply_filters(
 			'label' => '',
 			'url'   => ELEARNING_PARENT_INC_ICON_URI . '/right-sidebar.svg',
 		),
+		'tg-site-layout--centered'   => array(
+			'label' => 'Centered',
+			'url'   => ELEARNING_PARENT_INC_ICON_URI . '/sidebar-centered.svg',
+		),
 		'tg-site-layout--no-sidebar' => array(
 			'label' => '',
 			'url'   => ELEARNING_PARENT_INC_ICON_URI . '/sidebar-contained.svg',
@@ -29,7 +33,35 @@ $sidebar_layout_choices = apply_filters(
 $options = apply_filters(
 	'elearning_sidebar_options',
 	array(
-		'elearning_sidebar_layout' => array(
+		'elearning_sidebar_general_heading' => array(
+			'type'         => 'customind-accordion',
+			'title'        => esc_html__( 'General', 'elearning' ),
+			'section'      => 'elearning_sidebar_layout',
+			'sub_controls' => apply_filters(
+				'elearning_general_sub_controls',
+				array(
+					'elearning_general_sidebar_width' => array(
+						'default'     => array(
+							'size' => 30,
+							'unit' => '%',
+						),
+						'type'        => 'customind-slider',
+						'title'       => esc_html__( 'Side Width', 'elearning' ),
+						'section'     => 'elearning_sidebar_layout',
+						'transport'   => 'postMessage',
+						'units'       => array( '%' ),
+						'defaultUnit' => '%',
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						),
+					),
+				)
+			),
+			'collapsible'  => apply_filters( 'elearning_general_sidebar_accordion_collapsible', false ),
+		),
+		'elearning_sidebar_layout'          => array(
 			'type'         => 'customind-accordion',
 			'title'        => esc_html__( 'Layout', 'elearning' ),
 			'section'      => 'elearning_sidebar_layout',
