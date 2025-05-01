@@ -7,17 +7,15 @@
   ],
   "description": "A LMS theme.",
   "license": "GPL-2.0-or-later",
-  "require": {
-    "composer/installers": "1.11.0",
-    "php": ">=5.6"
-    
-  },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-    "wp-coding-standards/wpcs": "^2.3",
-    "wptrt/wpthemereview": "^0.2.1"
+    "wp-cli/wp-cli": "^2.4",
+    "wp-cli/i18n-command": "^2.2",
+    "wpeverest/wpeverest-sniffs": "^0.1.0"
   },
   "scripts": {
+    "makepot": [
+      "wp i18n make-pot . ./languages/elearning.pot --include=\"assets/build,inc,*.php,template-parts,page-templates\" --exclude=\".github,.wordpress-org,bin,node_modules,vendor,src,dist/org,scripts\""
+    ],
     "phpcs": [
       "phpcs -s -p"
     ],

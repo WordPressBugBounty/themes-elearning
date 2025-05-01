@@ -68,7 +68,7 @@ $options = array(
 						'units' => 'px',
 					),
 					'type'        => 'customind-slider',
-					'title'       => esc_html__( 'Padding', 'zakra' ),
+					'title'       => esc_html__( 'Padding', 'elearning' ),
 					'section'     => 'elearning_container',
 					'transport'   => 'postMessage',
 					'units'       => array( 'px' ),

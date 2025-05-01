@@ -65,12 +65,18 @@ $customind->set_i18n_data(
 		'domain' => 'elearning',
 	]
 );
-$customind->set_section_i18n(
-	[
-		/* Translators: 1: Panel Title. */
-		'customizing-action' => __( 'Customizing &#9656; %s', 'elearning' ),
-		'customizing'        => __( 'Customizing', 'elearning' ),
-	]
+
+add_action(
+	'after_setup_theme',
+	function () use ( $customind ) {
+		$customind->set_section_i18n(
+			[
+				/* Translators: 1: Panel Title. */
+				'customizing-action' => __( 'Customizing ▶ %s', 'elearning' ),
+				'customizing'        => __( 'Customizing', 'elearning' ),
+			]
+		);
+	}
 );
 
 require ELEARNING_PARENT_INC_DIR . '/class-elearning-utils.php';
@@ -110,10 +116,10 @@ require ELEARNING_PARENT_INC_DIR . '/class-breadcrumb-trail.php';
 require ELEARNING_PARENT_INC_DIR . '/compatibility/elementor/class-elearning-elementor-pro.php';
 require ELEARNING_PARENT_INC_DIR . '/compatibility/masteriyo/class-elearning-masteriyo.php';
 
+// Meta boxes.
+require ELEARNING_PARENT_INC_DIR . '/meta-boxes/class-elearning-meta-box.php';
+require ELEARNING_PARENT_INC_DIR . '/meta-boxes/class-elearning-meta-box-page-settings.php';
 if ( is_admin() ) {
-	// Meta boxes.
-	require ELEARNING_PARENT_INC_DIR . '/meta-boxes/class-elearning-meta-box-page-settings.php';
-	require ELEARNING_PARENT_INC_DIR . '/meta-boxes/class-elearning-meta-box.php';
 
 	// Theme options page.
 	require ELEARNING_PARENT_INC_DIR . '/admin/class-elearning-admin.php';
