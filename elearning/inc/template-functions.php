@@ -250,8 +250,9 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 
 		$layout            = '';
 		$individual_layout = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_layout', true );
+		$default_layout    = get_theme_mod( 'elearning_structure_default', 'tg-site-layout--right' );
 
-		if ( ! empty( $individual_layout ) && 'tg-site-layout--customizer' !== $individual_layout ) {
+		if ( ! empty( $individual_layout ) && ( 'tg-site-layout--default' !== $individual_layout ) ) {
 			$layout = $individual_layout;
 		} elseif ( apply_filters( 'elearning_pro_current_layout', '' ) ) {
 			$layout = apply_filters( 'elearning_pro_current_layout', '' );
@@ -260,6 +261,10 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 				case ( is_singular( 'page' ) || is_404() ):
 					$layout = get_theme_mod( 'elearning_structure_page', 'tg-site-layout--right' );
 
+					if ( 'tg-site-layout--default' === $layout ) {
+						$layout = $default_layout;
+					}
+
 					if ( function_exists( 'masteriyo_is_account_page' ) && masteriyo_is_account_page() ) {
 						$layout = 'tg-site-layout--no-sidebar';
 					}
@@ -267,14 +272,21 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 					break;
 				case ( is_singular() ):
 					$layout = get_theme_mod( 'elearning_structure_post', 'tg-site-layout--right' );
+					if ( 'tg-site-layout--default' === $layout ) {
+						$layout = $default_layout;
+					}
 
 					break;
 				case ( is_archive() || is_home() ):
 					$layout = get_theme_mod( 'elearning_structure_archive', 'tg-site-layout--right' );
+					if ( 'tg-site-layout--default' === $layout ) {
+						$layout = $default_layout;
+					}
 
 					break;
+
 				default:
-					$layout = get_theme_mod( 'elearning_structure_default', 'tg-site-layout--right' );
+					$layout = $default_layout;
 			}
 		}
 

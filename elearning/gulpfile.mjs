@@ -474,9 +474,9 @@ function getFileUrls(path) {
 function watch() {
 	gulp.watch(paths.scss.src, styles);
 	gulp.watch(paths.customizePreviewJS.src, minifyJs);
-	gulp.watch(paths.zakraCustomizePreviewJS.src, minifyJs);
+	// gulp.watch(paths.zakraCustomizePreviewJS.src, minifyJs);
 	gulp.watch(paths.adminscss.src, compileAdminSass);
-	gulp.watch(paths.controls.scss.src, compileControlSass);
+	// gulp.watch(paths.controls.scss.src, compileControlSass);
 	gulp.watch(paths.metabox.scss.src, compileMetaboxSass);
 	gulp.watch(paths.js.src, browserSyncReload);
 	gulp.watch(paths.php.src, browserSyncReload);
