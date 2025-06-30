@@ -125,6 +125,19 @@
 	background-color: #1e7ba6;
 }
 
+.masteriyo-block-editor-wrapper button:not(.components-button):not([role=presentation]):not(.mce-open),
+.masteriyo-block-editor-wrapper input[type=button],
+.masteriyo-block-editor-wrapper input[type=reset],
+.masteriyo-block-editor-wrapper input[type=submit] {
+	padding: unset;
+}
+.masteriyo-block-editor-wrapper input[type=search].search-field {
+	padding: 0 16px 0 45px;
+}
+.masteriyo-block-editor-wrapper .masteriyo-search-section .masteriyo-search .masteriyo-course-search button[type=submit] {
+	padding: 8px 20px;
+}
+
 .editor-styles-wrapper input[type=text],
 .editor-styles-wrapper input[type=email],
 .editor-styles-wrapper input[type=url],
