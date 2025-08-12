@@ -14,6 +14,11 @@ class eLearning_Welcome_Notice {
 	 * Show welcome notice.
 	 */
 	public function welcome_notice_markup() {
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		if ( get_option( 'elearning_hide_welcome_notice' ) ) {
 			return;
 		}
@@ -56,6 +61,17 @@ class eLearning_Welcome_Notice {
 
 	public function install_tdi_plugin() {
 		check_ajax_referer( 'elearning_tdi_install_nonce', 'security' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error(
+				array(
+					'errorCode'    => 'permission_denied',
+					'errorMessage' => __( 'You do not have permission to perform this action.', 'elearning' ),
+				)
+			);
+			exit;
+		}
+
 		update_option( 'elearning_hide_welcome_notice', 1 );
 
 		$state = '';

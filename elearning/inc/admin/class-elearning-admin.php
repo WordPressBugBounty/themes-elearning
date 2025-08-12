@@ -87,11 +87,16 @@ class eLearning_Admin {
 		wp_enqueue_script( 'elearning-plugin-install-helper', ELEARNING_PARENT_INC_URI . '/admin/js/plugin-handle.js', array( 'jquery' ), ELEARNING_THEME_VERSION, true );
 
 		$welcome_data = array(
-			'uri'          => esc_url( admin_url( '/themes.php?page=demo-importer&browse=all' ) ),
-			'btnText'      => self::btn_text(),
-			'dismissNonce' => wp_create_nonce( 'elearning_dismiss_notice_nonce' ),
-			'installNonce' => wp_create_nonce( 'elearning_tdi_install_nonce' ),
+			'uri'     => esc_url( admin_url( '/themes.php?page=demo-importer&browse=all' ) ),
+			'btnText' => self::btn_text(),
 		);
+
+		// Only add nonce and ajaxurl if user has appropriate capabilities
+		if ( current_user_can( 'manage_options' ) ) {
+			$welcome_data['installNonce'] = wp_create_nonce( 'elearning_tdi_install_nonce' );
+			$welcome_data['dismissNonce'] = wp_create_nonce( 'elearning_dismiss_notice_nonce' );
+			$welcome_data['ajaxurl']      = admin_url( 'admin-ajax.php' );
+		}
 
 		wp_localize_script( 'elearning-plugin-install-helper', 'elearningRedirectDemoPage', $welcome_data );
 	}

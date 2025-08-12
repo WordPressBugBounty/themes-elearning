@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: eLearning 2.0.6\n"
+"Project-Id-Version: eLearning 2.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/elearning\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-30T08:24:41+00:00\n"
+"POT-Creation-Date: 2025-08-12T08:18:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: elearning\n"
@@ -220,21 +220,25 @@ msgstr ""
 msgid "I have a query"
 msgstr ""
 
-#: inc/admin/class-elearning-welcome-notice.php:25
+#: inc/admin/class-elearning-welcome-notice.php:30
 msgid "elearning"
 msgstr ""
 
 #. translators: 1: welcome page link starting html tag, 2: welcome page link ending html tag.
-#: inc/admin/class-elearning-welcome-notice.php:32
+#: inc/admin/class-elearning-welcome-notice.php:37
 msgid "Welcome! Thank you for choosing eLearning! To fully take advantage of the best our theme can offer, please make sure you visit our %1$swelcome page%2$s."
 msgstr ""
 
-#: inc/admin/class-elearning-welcome-notice.php:40
+#: inc/admin/class-elearning-welcome-notice.php:45
 msgid "Get started with eLearning"
 msgstr ""
 
-#: inc/admin/class-elearning-welcome-notice.php:42
+#: inc/admin/class-elearning-welcome-notice.php:47
 msgid "Clicking the button will install and activate the ThemeGrill Demo Importer plugin."
+msgstr ""
+
+#: inc/admin/class-elearning-welcome-notice.php:69
+msgid "You do not have permission to perform this action."
 msgstr ""
 
 #: inc/class-breadcrumb-trail.php:286
