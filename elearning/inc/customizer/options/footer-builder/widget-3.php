@@ -8,7 +8,7 @@ $options = array(
 		'sub_controls' => apply_filters(
 			'elearning_footer_builder_widget_3_sub_controls',
 			array(
-				'elearning_footer_widget_3_title_color'   => array(
+				'elearning_footer_widget_3_title_color'    => array(
 					'default'   => '',
 					'type'      => 'customind-color',
 					'title'     => esc_html__( 'Title Color', 'elearning' ),
@@ -17,7 +17,7 @@ $options = array(
 				),
 				'elearning_footer_widget_3_title_typography' => array(
 					'default'   => array(
-						'font-family'    => 'default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(
@@ -55,12 +55,12 @@ $options = array(
 					'title'     => esc_html__( 'Title Typography', 'elearning' ),
 					'section'   => 'elearning_footer_builder_widget_3',
 				),
-				'elearning_footer_widget_3_link_divider'  => array(
+				'elearning_footer_widget_3_link_divider'   => array(
 					'type'    => 'customind-divider',
 					'variant' => 'dashed',
 					'section' => 'elearning_footer_builder_widget_3',
 				),
-				'elearning_footer_widget_3_link_color'    => array(
+				'elearning_footer_widget_3_link_color'     => array(
 					'default'   => '',
 					'type'      => 'customind-color',
 					'title'     => esc_html__( 'Link', 'elearning' ),
@@ -72,7 +72,7 @@ $options = array(
 					'variant' => 'dashed',
 					'section' => 'elearning_footer_builder_widget_3',
 				),
-				'elearning_footer_widget_3_content_color' => array(
+				'elearning_footer_widget_3_content_color'  => array(
 					'default'   => '',
 					'type'      => 'customind-color',
 					'title'     => esc_html__( 'Content Color', 'elearning' ),
@@ -81,7 +81,7 @@ $options = array(
 				),
 				'elearning_footer_widget_3_content_typography' => array(
 					'default'   => array(
-						'font-family'    => 'default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(
@@ -118,6 +118,49 @@ $options = array(
 					'transport' => 'postMessage',
 					'title'     => esc_html__( 'Content Typography', 'elearning' ),
 					'section'   => 'elearning_footer_builder_widget_3',
+				),
+				'elearning_footer_widget_3_heading_border_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'elearning_footer_builder_widget_1',
+				),
+				'elearning_footer_widget_3_heading_border' => array(
+					'default'     => array(
+						'size'  => '',
+						'units' => 'px',
+					),
+					'type'        => 'customind-slider',
+					'title'       => esc_html__( 'Border Bottom Width', 'elearning' ),
+					'section'     => 'elearning_header_builder_primary_menu',
+					'units'       => array( 'px' ),
+					'defaultUnit' => 'px',
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
+				),
+				'elearning_footer_widget_3_heading_border_group' => array(
+					'type'         => 'customind-color-group',
+					'title'        => esc_html__( 'Border Color', 'elearning' ),
+					'section'      => 'elearning_colors',
+					'sub_controls' => apply_filters(
+						'elearning_link_color_sub_controls',
+						array(
+							'elearning_footer_widget_3_heading_border_color'       => array(
+								'default' => '',
+								'type'    => 'customind-color',
+								'title'   => esc_html__( 'Normal', 'elearning' ),
+								'section' => 'elearning_colors',
+							),
+							'elearning_footer_widget_3_heading_border_accent_color' => array(
+								'default' => '',
+								'type'    => 'customind-color',
+								'title'   => esc_html__( 'Accent', 'elearning' ),
+								'section' => 'elearning_colors',
+							),
+						)
+					),
 				),
 			)
 		),

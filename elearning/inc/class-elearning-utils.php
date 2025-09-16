@@ -18,8 +18,28 @@ defined( 'ABSPATH' ) || exit;
  */
 class eLearning_Utils {
 
-	public static function is_masteriyo_active() {
-		return function_exists( 'masteriyo' );
+	/**
+	 * Check transparent header.
+	 *
+	 * @return mixed|void
+	 */
+	public static function has_transparent_header() {
+
+		$transparency      = false;
+		$meta_result       = get_post_meta( self::get_post_id(), 'elearning_transparent_header', true );
+		$customizer_result = get_theme_mod( 'elearning_transparent_header', false );
+
+		if ( ( is_404() || is_search() || is_archive() ) && get_theme_mod( 'elearning_transparent_header_custom', false ) && $customizer_result ) {
+			$transparency = true;
+		} elseif ( ( is_front_page() && is_home() ) && get_theme_mod( 'elearning_transparent_header_latest_posts', false ) && $customizer_result ) {
+			$transparency = true;
+		} elseif ( '1' === $meta_result || true === $meta_result ) { // Enabled in meta.
+			$transparency = true;
+		} elseif ( ( 'customizer' === $meta_result || '' === $meta_result ) && $customizer_result ) { // Enabled in Customizer
+			$transparency = true;
+		}
+
+		return apply_filters( 'elearning_has_transparent_header', $transparency );
 	}
 
 	/**
@@ -44,28 +64,8 @@ class eLearning_Utils {
 		return apply_filters( 'elearning_get_the_id', $post_id );
 	}
 
-	/**
-	 * Check transparent header.
-	 *
-	 * @return mixed|void
-	 */
-	public static function has_transparent_header() {
-
-		$transparency      = false;
-		$meta_result       = get_post_meta( self::get_post_id(), 'elearning_transparent_header', true );
-		$customizer_result = get_theme_mod( 'elearning_transparent_header', false );
-
-		if ( ( is_404() || is_search() || is_archive() ) && get_theme_mod( 'elearning_transparent_header_custom', false ) && $customizer_result ) {
-			$transparency = true;
-		} elseif ( ( is_front_page() && is_home() ) && get_theme_mod( 'elearning_transparent_header_latest_posts', false ) && $customizer_result ) {
-			$transparency = true;
-		} elseif ( '1' === $meta_result || true === $meta_result ) { // Enabled in meta.
-			$transparency = true;
-		} elseif ( ( 'customizer' === $meta_result || '' === $meta_result ) && $customizer_result ) { // Enabled in Customizer
-			$transparency = true;
-		}
-
-		return apply_filters( 'elearning_has_transparent_header', $transparency );
+	public static function is_masteriyo_active() {
+		return function_exists( 'masteriyo' );
 	}
 
 	/**
@@ -218,7 +218,7 @@ class eLearning_Utils {
 
 			if ( 'tg-site-layout--customizer' === $layout_meta ) {
 				if ( is_single() ) {
-					$layout = get_theme_mod( 'elearning_structure_post', 'tg-site-layout--right' );
+					$layout = get_theme_mod( 'elearning_single_post_sidebar_layout', 'tg-site-layout--right' );
 				} elseif ( is_page() ) {
 					$layout = get_theme_mod( 'elearning_structure_page', 'tg-site-layout--right' );
 				} elseif ( is_archive() ) {

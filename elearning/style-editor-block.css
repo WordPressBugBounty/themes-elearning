@@ -1,7 +1,7 @@
 /* Basic Block Editor CSS */
 .editor-styles-wrapper {
 	background-color: #ffffff;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	font-size: 1rem;
 	font-family: -apple-system, blinkmacsystemfont, "segoe ui", roboto, "oxygen-sans", ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
 	line-height: 1.8;
@@ -9,7 +9,7 @@
 }
 .editor-styles-wrapper > * {
 	font-family: -apple-system, blinkmacsystemfont, "segoe ui", roboto, "oxygen-sans", ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 }
 .editor-styles-wrapper .wp-block[data-align=wide] {
 	max-width: 1200px;
@@ -19,7 +19,7 @@
 	font-size: 2.25rem;
 	word-wrap: break-word;
 	line-height: 1.8;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	font-weight: normal;
 }
 
@@ -36,7 +36,7 @@
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	line-height: 1.3;
 	font-weight: 500;
 	margin: 0 0 20px;
@@ -114,7 +114,7 @@
 .editor-styles-wrapper input[type=reset],
 .editor-styles-wrapper input[type=submit] {
 	border: 0 solid #e9ecef;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	color: #fff;
 	padding: 0.7rem 1rem;
 }
@@ -155,7 +155,7 @@
 .editor-styles-wrapper input[type=color],
 .editor-styles-wrapper select,
 .editor-styles-wrapper textarea {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	border: 1px solid #dee2e6;
 	padding: 0.7rem 1rem;
 	width: 100%;
@@ -178,7 +178,7 @@
 .editor-styles-wrapper input[type=color]:focus,
 .editor-styles-wrapper select:focus,
 .editor-styles-wrapper textarea:focus {
-	color: #51585f;
+	color: var(--elearning-color-6, #16181A);
 }
 .editor-styles-wrapper input[type=search] {
 	-webkit-appearance: none;
@@ -203,7 +203,7 @@
 =============================================*/
 .editor-styles-wrapper a,
 .editor-styles-wrapper .wp-block-file__textlink {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 	text-decoration: none;
 	transition: all 0.35s ease-in-out;
 }

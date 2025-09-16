@@ -149,7 +149,7 @@ $options = apply_filters(
 				array(
 					'elearning_footer_widgets_text_color' => array(
 						'title'     => esc_html__( 'Color', 'elearning' ),
-						'default'   => '#51585f',
+						'default'   => 'var(--elearning-color-7)',
 						'type'      => 'customind-color',
 						'section'   => 'elearning_footer_widgets',
 						'transport' => 'postMessage',
@@ -177,14 +177,14 @@ $options = apply_filters(
 						'section'      => 'elearning_footer_widgets',
 						'sub_controls' => array(
 							'elearning_footer_widgets_link_color'       => array(
-								'default'   => '#16181a',
+								'default'   => 'var(--elearning-color-7, #16181a)',
 								'type'      => 'customind-color',
 								'title'     => esc_html__( 'Normal', 'elearning' ),
 								'transport' => 'postMessage',
 								'section'   => 'elearning_footer_widgets',
 							),
 							'elearning_footer_widgets_link_hover_color' => array(
-								'default' => '#269bd1',
+								'default' => 'var(--elearning-color-1, #269bd1)',
 								'type'    => 'customind-color',
 								'title'   => esc_html__( 'Hover', 'elearning' ),
 								'section' => 'elearning_footer_widgets',
@@ -229,7 +229,7 @@ $options = apply_filters(
 					),
 					'elearning_footer_widgets_title_color' => array(
 						'title'     => esc_html__( 'Color', 'elearning' ),
-						'default'   => '#16181a',
+						'default'   => 'var(--elearning-color-7, #16181a)',
 						'type'      => 'customind-color',
 						'transport' => 'postMessage',
 						'priority'  => 5,

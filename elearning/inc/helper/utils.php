@@ -211,11 +211,6 @@ if ( ! function_exists( 'elearning_parse_css' ) ) :
 	 */
 	function elearning_parse_css( $default_value, $output_value, $css_output = array(), $min_media = '', $max_media = '' ) {
 
-		// Return if default value matches.
-		if ( $default_value === $output_value ) {
-			return;
-		}
-
 		$parse_css = '';
 
 		if ( is_array( $css_output ) && count( $css_output ) > 0 ) {
@@ -521,10 +516,6 @@ if ( ! function_exists( 'elearning_parse_dimension_css' ) ) :
 	 */
 	function elearning_parse_dimension_css( $default_value, $output_value, $selector, $property ) {
 
-		if ( $default_value === $output_value ) {
-			return;
-		}
-
 		$parse_css = $selector . '{';
 
 		$unit = isset( $output_value['unit'] ) ? $output_value['unit'] : ( isset( $default_value['unit'] ) ? $default_value['unit'] : 'px' );
@@ -601,14 +592,9 @@ if ( ! function_exists( 'elearning_parse_slider_css' ) ) :
 	 */
 	function elearning_parse_slider_css( $default_value, $output_value, $selector, $property ) {
 
-		if ( $default_value === $output_value ) {
-
-			return;
-		}
-
 		$parse_css = '';
 
-		if ( isset( $output_value['size'] ) && ! empty( $output_value['size'] ) ) {
+		if ( isset( $output_value['size'] ) && $output_value['size'] !== '' ) {
 
 			if ( strpos( $selector, ',' ) !== false ) {
 

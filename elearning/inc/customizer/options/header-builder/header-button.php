@@ -71,6 +71,46 @@ $options = array(
 						),
 					),
 				),
+				'elearning_header_button_typography'    => array(
+					'default'   => array(
+						'font-family'    => 'inherit',
+						'font-weight'    => '400',
+						'font-size'      => array(
+							'desktop' => array(
+								'size' => '',
+								'unit' => 'px',
+							),
+							'tablet'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+							'mobile'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+						),
+						'line-height'    => array(
+							'desktop' => array(
+								'size' => '1.8',
+								'unit' => '-',
+							),
+							'tablet'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+							'mobile'  => array(
+								'size' => '',
+								'unit' => '',
+							),
+						),
+						'font-style'     => 'normal',
+						'text-transform' => 'none',
+					),
+					'type'      => 'customind-typography',
+					'transport' => 'postMessage',
+					'title'     => esc_html__( 'Typography', 'elearning' ),
+					'section'   => 'elearning_header_builder_button_1',
+				),
 				'elearning_header_button_padding'       => array(
 					'default'     => array(
 						'top'    => '5',

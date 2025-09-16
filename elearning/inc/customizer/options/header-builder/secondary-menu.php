@@ -92,7 +92,7 @@ $options = array(
 				),
 				'elearning_header_secondary_menu_typography'  => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => 'regular',
 						'font-size'      => array(
 							'desktop' => array(
@@ -143,7 +143,7 @@ $options = array(
 			array(
 				'elearning_header_secondary_sub_menu_typography' => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => '400',
 						'font-size'      => array(
 							'desktop' => array(

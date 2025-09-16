@@ -1,11 +1,11 @@
 === elearning ===
 Contributors: masteriyo
 Author: Masteriyo
-Version: 2.0.7
+Version: 2.1.0
 Tested up to: 6.8
 Requires PHP: 7.4
 Requires at least: 4.7
-Stable tag: 2.0.7
+Stable tag: 2.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, news, education, rtl-language-support
@@ -51,6 +51,31 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 2.1.0 - 2025-09-15 =
+* Added - 6 new Typography Presets for font selection.
+* Added - Option to add/delete custom color palettes.
+* Added - "Header Media" as a top item in the customizer navigation.
+* Added - "Site Identity" to the main customizer navigation list.
+* Renamed - "Header Builder" to "Header".
+* Renamed - "Content" to "Post Content".
+* Renamed - "Footer Builder" to "Footer".
+* Renamed - "Container" to "Layouts".
+* Moved - "Page Element" options to respective menus.
+* Moved - "Page Header" to "Post Content".
+* Moved - "Breadcrumb" to "Additional".
+* Moved - "Transparent Header" to "Header".
+* Improved - Updated color palette design.
+* Improved - Enhanced Color Palette presets.
+* Improved - Set default colors for different sections to global colors.
+* Improved - Global color handling in preset, color picker, and added tooltips for color name.
+* Improved - Separated sidebar layout options into container and sidebar layout.
+* Improved - Merged default layout from "Sidebar" and "Container" into "Layouts".
+* Improved - Page-specific sidebar and container layout options to respective page in "Post Content"
+* Improved - Redesigned Post Content blog section with tabbed design and layout options.
+* Improved - Enhanced design of presets and tabs in "Page Header".
+* Improved - Removed "Sidebar" in Global after moving its contents to respective places.
+* Improved - Removed "Page Element" after moving its items to respective places.
+
 = Version 2.0.7 - 2025-08-12 =
 * Update - General security measure.
 

@@ -134,7 +134,6 @@ function customind_get_header_components() {
 $options = array(
 	'elearning_header_builder_components' => array(
 		'type'    => 'customind-builder-components',
-		'title'   => esc_html__( 'Builder Component', 'elearning' ),
 		'choices' => customind_get_header_components(),
 		'context' => 'header',
 		'group'   => 'elearning_header_builder',

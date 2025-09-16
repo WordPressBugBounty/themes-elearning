@@ -42,9 +42,9 @@ class eLearning_Meta_Box_Page_Settings {
 		$header_style = get_post_meta( get_the_ID(), 'elearning_header_style' );
 		$header_style = isset( $header_style[0] ) ? $header_style[0] : 'default';
 
-		$customize_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', '#16181a' );
-		$customize_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', '#269bd1' );
-		$customize_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', '#269bd1' );
+		$customize_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', 'var(--elearning-color-7, #16181a)' );
+		$customize_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', 'var(--elearning-color-1, #269bd1)' );
+		$customize_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', 'var(--elearning-color-1, #269bd1)' );
 
 		$menu_item_color = get_post_meta( get_the_ID(), 'elearning_menu_item_color' );
 		$menu_item_color = isset( $menu_item_color[0] ) ? $menu_item_color[0] : $customize_menu_item_color;
@@ -458,11 +458,11 @@ class eLearning_Meta_Box_Page_Settings {
 		$remove_content_margin            = ( isset( $_POST['elearning_remove_content_margin'] ) && '1' === $_POST['elearning_remove_content_margin'] ) ? 1 : 0;
 		$sidebar                          = isset( $_POST['elearning_sidebar'] ) ? sanitize_key( $_POST['elearning_sidebar'] ) : 'default';
 		$transparent_header               = isset( $_POST['elearning_transparent_header'] ) ? sanitize_key( $_POST['elearning_transparent_header'] ) : 'customizer';
-		$customize_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', '#16181a' );
+		$customize_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', 'var(--elearning-color-7, #16181a)' );
 		$menu_item_color                  = isset( $_POST['elearning_menu_item_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['elearning_menu_item_color'] ) ) : $customize_menu_item_color;
-		$customize_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', '#269bd1' );
+		$customize_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', 'var(--elearning-color-1, #269bd1)' );
 		$menu_item_hover_color            = isset( $_POST['elearning_menu_item_hover_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['elearning_menu_item_hover_color'] ) ) : $customize_menu_item_hover_color;
-		$customize_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', '#269bd1' );
+		$customize_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', 'var(--elearning-color-1, #269bd1)' );
 		$menu_item_active_color           = isset( $_POST['elearning_menu_item_active_color'] ) ? sanitize_hex_color( wp_unslash( $_POST['elearning_menu_item_active_color'] ) ) : $customize_menu_item_active_color;
 		$menu_item_active_style           = isset( $_POST['elearning_menu_item_active_style'] ) ? sanitize_key( $_POST['elearning_menu_item_active_style'] ) : '';
 

@@ -32,7 +32,7 @@ $options = array(
 				),
 				'elearning_footer_copyright_text_color' => array(
 					'title'     => esc_html__( 'Color', 'elearning' ),
-					'default'   => '#51585f',
+					'default'   => 'var(--elearning-color-7)',
 					'type'      => 'customind-color',
 					'section'   => 'elearning_footer_builder_copyright',
 					'transport' => 'postMessage',
@@ -45,14 +45,14 @@ $options = array(
 						'elearning_footer_copyright_link_color_sub_controls',
 						array(
 							'elearning_footer_copyright_link_color'       => array(
-								'default'   => '#16181a',
+								'default'   => 'var(--elearning-color-7)',
 								'type'      => 'customind-color',
 								'title'     => esc_html__( 'Normal', 'elearning' ),
 								'transport' => 'postMessage',
 								'section'   => 'elearning_footer_builder_copyright',
 							),
 							'elearning_footer_copyright_link_hover_color' => array(
-								'default'   => '#269bd1',
+								'default'   => 'var(--elearning-color-1)',
 								'type'      => 'customind-color',
 								'title'     => esc_html__( 'Hover', 'elearning' ),
 								'transport' => 'postMessage',
@@ -63,7 +63,7 @@ $options = array(
 				),
 				'elearning_footer_copyright_typography' => array(
 					'default'   => array(
-						'font-family'    => 'Default',
+						'font-family'    => 'inherit',
 						'font-weight'    => 'regular',
 						'font-size'      => array(
 							'desktop' => array(

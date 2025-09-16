@@ -128,6 +128,8 @@ if ( ! class_exists( 'eLearning_Enqueue_Scripts' ) ) {
 					'elearning_typography_mobile_menu',
 					'elearning_typography_site_title',
 					'elearning_typography_site_description',
+					'elearning_button_typography',
+					'elearning_header_button_typography',
 				)
 			);
 
@@ -233,6 +235,102 @@ if ( ! class_exists( 'eLearning_Enqueue_Scripts' ) ) {
 				#customize-control-elearning_demo_migrated_heading {
 				display: none;
 				}
+
+				#sub-accordion-section-elearning_header_builder_section {
+                     background: #F0F0F1 !important;
+				}
+
+
+			#accordion-section-elearning_transparent_header {
+			    display: block !important;
+			}
+
+			#accordion-section-elearning_transparent_header {
+				    position: absolute;
+				    bottom: 40px;
+				    width: 100%;
+			}
+
+			#accordion-section-elearning_transparent_header {
+			    display: block !important;
+			}
+
+			#accordion-section-elearning_transparent_header {
+				    position: absolute;
+				    bottom: 40px;
+				    width: 100%;
+			}
+
+			#accordion-section-elearning_transparent_header .accordion-section-title{
+			    margin: 0 10px;
+                border-radius: 4px;
+			}
+
+			#accordion-section-elearning_transparent_header .accordion-section-title button{
+			 font-weight: 400;
+			}
+
+			#sub-accordion-panel-elearning_header_builder.current-panel {
+			    height: 840px !important;
+                 position: relative;
+                     background: #F0F0F1;
+				}
+
+				#customize-control-site_icon {
+			    padding: 0px 12px;
+			    width: 93%;
+				}
+
+				#customize-control-blogname {
+			    padding: 0px 12px;
+				    width: 92%;
+				    padding-top: 10px;
+				    margin-top: 0;
+				    background: #FFF;
+				}
+
+				#customize-control-blogdescription {
+			    padding: 0px 12px;
+			    width: 90%;
+				}
+
+				#sub-accordion-section-elearning_footer_builder_section {
+				background: #F0F0F1 !important;
+				}
+
+				.accordion-section-title button.accordion-trigger:focus{
+				    box-shadow: 0 0 0 0 #2271b1;
+			}
+
+			#accordion-section-title_tagline {
+			    margin-top: 32px;
+			    border-top: 1px solid #dcdcde !important;
+			}
+
+			#customize-control-header_video,.customize-section-description-container,#customize-control-external_header_video,#customize-control-header_image {
+			padding: 0 10px;
+			width: 94%;
+			}
+
+			#customize-controls .customize-info{
+			margin-bottom: 0;
+			}
+
+			#accordion-section-elearning_customize_review_link_section .accordion-section-title{
+			    padding: 10px 30px 11px 14px;
+			}
+
+			.customind-footer-types {
+			display:none !important;
+			}
+
+			.control-section-customind-section.open .section-meta:has(not(.customize-control-customind-tabs)){
+			margin-bottom: 10px !important;
+			}
+
+			.customize-section-title-nav_menus-heading {
+			margin-top:10px;
+			}
 		    '
 			);
 		}

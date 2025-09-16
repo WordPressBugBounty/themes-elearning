@@ -179,7 +179,7 @@ $options = apply_filters(
 					),
 					'elearning_typography_primary_menu' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => 'regular',
 							'font-size'      => array(
 								'desktop' => array(
@@ -233,7 +233,7 @@ $options = apply_filters(
 				array(
 					'elearning_typography_primary_menu_dropdown_item' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'font-size'      => array(
 								'desktop' => array(
@@ -291,7 +291,7 @@ $options = apply_filters(
 				array(
 					'elearning_typography_mobile_menu' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'font-size'      => array(
 								'desktop' => array(

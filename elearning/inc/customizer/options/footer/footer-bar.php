@@ -268,7 +268,7 @@ $options = apply_filters(
 				array(
 					'elearning_footer_bar_text_color' => array(
 						'title'     => esc_html__( 'Color', 'elearning' ),
-						'default'   => '#51585f',
+						'default'   => 'var(--elearning-color-7)',
 						'type'      => 'customind-color',
 						'transport' => 'postMessage',
 						'section'   => 'elearning_footer_bar',

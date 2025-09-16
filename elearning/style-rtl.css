@@ -4,7 +4,7 @@ Theme URI: https://masteriyo.com/elearning-lms-theme/
 Author: Masteriyo
 Author URI: https://masteriyo.com
 Description: eLearning is a free WordPress LMS theme powered by Masteriyo LMS. Masteriyo is a revolutionary LMS plugin based on React JS making it not just super fast but also super easy to setup. Masteriyo plugin helps to create and sell online courses with ease. eLearning theme is Gutenberg, Elementor and any other page builder ready making it perfect choice to create a visually appealing professional looking LMS site. eLearning is light weight, SEO optimized, AMP ready, RTL ready, major browsers compatible, fully responsive, translation ready and backed up by our awesome support team. It has tons of customizer options related to header, menu, blog page, single post page, footer, layouts, typography, designs and many more.  It comes with pre-built Elementor and Gutenberg demos that you can import with few clicks via the recommended demo importer plugin. Checkout the live demo at https://demo.masteriyo.com/elearning.
-Version: 2.0.7
+Version: 2.1.0
 Tested up to: 6.8
 Requires PHP: 7.4
 License: GPLv3 or later
@@ -297,7 +297,7 @@ html {
 body {
 	font-family: -apple-system, blinkmacsystemfont, "segoe ui", roboto, "oxygen-sans", ubuntu, cantarell, "helvetica neue", helvetica, arial, sans-serif;
 	font-size: 1rem;
-	color: #51585f;
+	color: var(--elearning-color-6, #16181A);
 	line-height: 1.8;
 }
 
@@ -332,7 +332,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	line-height: 1.3;
 	font-weight: 500;
 	margin: 0 0 20px;
@@ -374,7 +374,7 @@ html {
 }
 
 body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
+	background: var(--elearning-color-3, #FFFFFF);
 }
 
 hr,
@@ -442,7 +442,6 @@ iframe {
 
 .tg-container--flex {
 	display: flex;
-	flex-wrap: wrap;
 }
 
 .tg-container--flex-center {
@@ -465,8 +464,16 @@ iframe {
 /*=============================================
 =            Body            =
 =============================================*/
+body #page {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+}
+body .site-main {
+	flex-grow: 1;
+}
 body:not(.tg-container--separate) #page {
-	background: #fff;
+	background: var(--elearning-color-3, #FFFFFF);
 }
 body.has-transparent-header.elementor-editor-active .tg-site-header {
 	z-index: -1;
@@ -676,7 +683,7 @@ body.has-transparent-header.elementor-editor-active .tg-site-header {
 .tg-page-header .breadcrumb-trail ul li::after {
 	padding: 7px;
 	font-size: 12px;
-	color: #51585f;
+	color: var(--elearning-color-6, #16181A);
 	font-family: "themegrill-icons" !important;
 	vertical-align: middle;
 	content: "\f103";
@@ -787,23 +794,23 @@ table td,
 =                    Links                    =
 =============================================*/
 a {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	text-decoration: none;
 	transition: all 0.35s ease-in-out;
 }
 a:hover, a:focus {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 }
 a:active {
 	outline: 0;
 }
 
 .entry-title a {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 }
 
 .entry-content a {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 	text-decoration: underline;
 }
 .entry-content a:hover, .entry-content a:focus {
@@ -821,10 +828,10 @@ a:active {
 	list-style-type: none;
 }
 .tg-primary-menu > div ul li.current_page_ancestor > a, .tg-primary-menu > div ul li.current-menu-ancestor > a, .tg-primary-menu > div ul li.current_page_item > a, .tg-primary-menu > div ul li.current-menu-item > a {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 }
 .tg-primary-menu > div ul li:hover > a {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 }
 .tg-primary-menu > div ul li.menu-item-has-children, .tg-primary-menu > div ul li.page_item_has_children {
 	position: relative;
@@ -837,7 +844,7 @@ a:active {
 }
 .tg-primary-menu > div ul li a {
 	display: flex;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 }
 .tg-primary-menu > div ul li ul {
 	position: absolute;
@@ -928,7 +935,7 @@ a:active {
 .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current-menu-ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current-menu-item > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div > ul > li.current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div > ul > li.current-menu-ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div > ul > li.current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div > ul > li.current-menu-item > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div > ul > li.current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div > ul > li.current-menu-ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div > ul > li.current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div > ul > li.current-menu-item > a::before {
 	content: "";
 	position: absolute;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 }
 .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current_page_ancestor > a, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current-menu-ancestor > a, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current_page_item > a, .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current-menu-item > a {
 	position: relative;
@@ -1031,13 +1038,13 @@ a:active {
 	-webkit-overflow-scrolling: touch;
 }
 .tg-mobile-navigation nav ul li.current_page_ancestor > a, .tg-mobile-navigation nav ul li.current-menu-ancestor > a, .tg-mobile-navigation nav ul li.current_page_item > a, .tg-mobile-navigation nav ul li.current-menu-item > a {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 }
 .tg-mobile-navigation nav ul li > a {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 }
 .tg-mobile-navigation nav ul li > a:hover, .tg-mobile-navigation nav ul li > a:focus {
-	color: #269bd1;
+	color: var(--elearning-color-1, #269bd1);
 }
 .tg-mobile-navigation nav > ul {
 	border-top: 1px solid #e9ecef;
@@ -1135,7 +1142,7 @@ a:active {
 
 .tg-primary-menu > div ul li.tg-header-button-wrap a {
 	color: #fff;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	padding: 5px 10px;
 	transition: all 0.35s ease-in-out;
 	border: 0 solid #e9ecef;
@@ -1219,7 +1226,7 @@ a:active {
 	clip: auto !important;
 	-webkit-clip-path: none;
 	clip-path: none;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	display: block;
 	font-size: 14px;
 	font-weight: 700;
@@ -1293,7 +1300,7 @@ a:active {
 
 #infinite-handle span {
 	border: 0 solid #e9ecef;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	color: #fff;
 	padding: 0.7rem 1rem;
 }
@@ -1334,7 +1341,7 @@ input[type=button],
 input[type=reset],
 input[type=submit] {
 	border: 0 solid #e9ecef;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	color: #fff;
 	padding: 0.7rem 1rem;
 }
@@ -1366,7 +1373,7 @@ input[type=datetime-local],
 input[type=color],
 select,
 textarea {
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	border: 1px solid #dee2e6;
 	padding: 0.7rem 1rem;
 	width: 100%;
@@ -1389,7 +1396,7 @@ input[type=datetime-local]:focus,
 input[type=color]:focus,
 select:focus,
 textarea:focus {
-	color: #51585f;
+	color: var(--elearning-color-6, #16181A);
 }
 
 input[type=search] {
@@ -1440,7 +1447,7 @@ select {
 
 .tg-site-header {
 	border-bottom: 1px solid #e9ecef;
-	background-color: #fff;
+	background-color: var(--elearning-color-3, #FFFFFF);
 }
 .tg-site-header.tg-site-header--center .tg-site-header-bottom .tg-container--flex {
 	flex-direction: column;
@@ -1513,7 +1520,7 @@ select {
 }
 .site-branding .site-title {
 	font-size: 1.313rem;
-	color: #16181a;
+	color: var(--elearning-color-7, #16181a);
 	font-weight: 400;
 	line-height: 1.5;
 }
@@ -1590,10 +1597,10 @@ select {
 	padding: 8px 16px;
 	border-radius: 4px;
 	color: #FAFAFA;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	text-decoration: none;
 	transition: all 0.3s;
-	border: 0px solid #269bd1;
+	border: 0px solid var(--elearning-color-1, #269bd1);
 }
 .error-404 .tg-button span {
 	display: flex;
@@ -1798,7 +1805,7 @@ select {
 	margin-left: 0;
 }
 .tg-meta-style-two .entry-meta span, .tg-meta-style-two .entry-meta a {
-	color: #269bd1;
+	color: var(elearning-color-1, #269bd1);
 }
 .tg-meta-style-two .entry-meta a:hover {
 	color: #1e7ba6;
@@ -2084,11 +2091,11 @@ body .tg-oembed-container * {
 	transform: translateY(0);
 	transition: 0.5s all ease;
 	color: #fff;
-	background-color: #16181a;
+	background-color: var(--elearning-color-7, #16181a);
 }
 .tg-scroll-to-top:hover {
 	color: #fff;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 }
 .tg-scroll-to-top.tg-scroll-to-top--show {
 	visibility: visible;
@@ -2279,7 +2286,7 @@ body .tg-oembed-container * {
 
 .tg-header-builder {
 	border-style: solid;
-	border-color: #E4E4E7;
+	border-color: var(--elearning-color-9, #e4e4e7);
 	border-width: 0;
 }
 .tg-header-builder .tg-row {
@@ -2570,7 +2577,7 @@ body .tg-oembed-container * {
 
 .tg-secondary-nav {
 	flex: 1;
-	border-bottom: 0 solid #E4E4E7;
+	border-bottom: 0 solid var(--elearning-color-9, #e4e4e7);
 	margin-right: auto;
 }
 .tg-secondary-nav .tg-secondary-menu {
@@ -2634,7 +2641,7 @@ body .tg-oembed-container * {
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
-	border: 0 solid #E4E4E7;
+	border: 0 solid var(--elearning-color-9, #e4e4e7);
 }
 .tg-secondary-nav li ul, .tg-secondary-nav li:hover ul ul, .tg-secondary-nav li.focus ul ul {
 	z-index: 99999;
@@ -2649,7 +2656,7 @@ body .tg-oembed-container * {
 	position: absolute;
 	top: 100%;
 	width: 240px;
-	border: 1px solid #E4E4E7;
+	border: 1px solid var(--elearning-color-9, #e4e4e7);
 	background-color: #fff;
 	border-radius: 1;
 }
@@ -2726,7 +2733,7 @@ body .tg-oembed-container * {
 
 .tg-tertiary-nav {
 	flex: 1;
-	border-bottom: 0 solid #E4E4E7;
+	border-bottom: 0 solid var(--elearning-color-9, #e4e4e7);
 	margin-right: auto;
 }
 .tg-tertiary-nav .tg-tertiary-menu {
@@ -2790,7 +2797,7 @@ body .tg-oembed-container * {
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
-	border: 0 solid #E4E4E7;
+	border: 0 solid var(--elearning-color-9, #e4e4e7);
 }
 .tg-tertiary-nav li ul, .tg-tertiary-nav li:hover ul ul, .tg-tertiary-nav li.focus ul ul {
 	z-index: 99999;
@@ -2805,7 +2812,7 @@ body .tg-oembed-container * {
 	position: absolute;
 	top: 100%;
 	width: 240px;
-	border: 1px solid #E4E4E7;
+	border: 1px solid var(--elearning-color-9, #e4e4e7);
 	background-color: #fff;
 	border-radius: 1;
 }
@@ -2882,7 +2889,7 @@ body .tg-oembed-container * {
 
 .tg-quaternary-nav {
 	flex: 1;
-	border-bottom: 0 solid #E4E4E7;
+	border-bottom: 0 solid var(--elearning-color-9, #e4e4e7);
 	margin-right: auto;
 }
 .tg-quaternary-nav .tg-tertiary-menu {
@@ -2946,7 +2953,7 @@ body .tg-oembed-container * {
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
-	border: 0 solid #E4E4E7;
+	border: 0 solid var(--elearning-color-9, #e4e4e7);
 }
 .tg-quaternary-nav li ul, .tg-quaternary-nav li:hover ul ul, .tg-quaternary-nav li.focus ul ul {
 	z-index: 99999;
@@ -2961,7 +2968,7 @@ body .tg-oembed-container * {
 	position: absolute;
 	top: 100%;
 	width: 240px;
-	border: 1px solid #E4E4E7;
+	border: 1px solid var(--elearning-color-9, #e4e4e7);
 	background-color: #fff;
 	border-radius: 1;
 }
@@ -3045,7 +3052,7 @@ body .tg-oembed-container * {
 
 .tg-header-button a {
 	color: #fff;
-	background-color: #269bd1;
+	background-color: var(--elearning-color-1, #269bd1);
 	padding: 5px 10px;
 	transition: all 0.35s ease-in-out;
 	border: 0 solid #e9ecef;
@@ -3100,7 +3107,7 @@ body .tg-oembed-container * {
 .tg-footer-builder .tg-footer-bottom-row .widget .widget-title {
 	position: relative;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #E4E4E7;
+	border-bottom: 1px solid var(--elearning-color-9, #e4e4e7);
 }
 .tg-footer-builder .tg-footer-top-row .widget .wp-block-heading::before, .tg-footer-builder .tg-footer-top-row .widget .widget-title::before,
 .tg-footer-builder .tg-footer-main-row .widget .wp-block-heading::before,

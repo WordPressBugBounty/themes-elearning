@@ -50,7 +50,7 @@ $options = array(
 				),
 				'elearning_header_main_area_background'   => array(
 					'default'   => array(
-						'background-color'      => '#ffffff',
+						'background-color'      => 'var(--elearning-color-3)',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',

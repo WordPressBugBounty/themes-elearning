@@ -249,8 +249,8 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 	function elearning_get_current_layout() {
 
 		$layout            = '';
-		$individual_layout = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_layout', true );
-		$default_layout    = get_theme_mod( 'elearning_structure_default', 'tg-site-layout--right' );
+		$individual_layout = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_sidebar_layout', true );
+		$default_layout    = get_theme_mod( 'elearning_global_sidebar_layout', 'no_sidebar' );
 
 		if ( ! empty( $individual_layout ) && ( 'tg-site-layout--default' !== $individual_layout ) ) {
 			$layout = $individual_layout;
@@ -259,9 +259,9 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 		} else {
 			switch ( true ) {
 				case ( is_singular( 'page' ) || is_404() ):
-					$layout = get_theme_mod( 'elearning_structure_page', 'tg-site-layout--right' );
+					$layout = get_theme_mod( 'elearning_single_page_sidebar_layout', 'default' );
 
-					if ( 'tg-site-layout--default' === $layout ) {
+					if ( 'default' === $layout ) {
 						$layout = $default_layout;
 					}
 
@@ -271,15 +271,15 @@ if ( ! function_exists( 'elearning_get_current_layout' ) ) {
 
 					break;
 				case ( is_singular() ):
-					$layout = get_theme_mod( 'elearning_structure_post', 'tg-site-layout--right' );
-					if ( 'tg-site-layout--default' === $layout ) {
+					$layout = get_theme_mod( 'elearning_single_post_sidebar_layout', 'default' );
+					if ( 'default' === $layout ) {
 						$layout = $default_layout;
 					}
 
 					break;
 				case ( is_archive() || is_home() ):
-					$layout = get_theme_mod( 'elearning_structure_archive', 'tg-site-layout--right' );
-					if ( 'tg-site-layout--default' === $layout ) {
+					$layout = get_theme_mod( 'elearning_blog_sidebar_layout', 'default' );
+					if ( 'default' === $layout ) {
 						$layout = $default_layout;
 					}
 

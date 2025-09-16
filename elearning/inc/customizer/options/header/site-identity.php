@@ -76,7 +76,7 @@ $options = apply_filters(
 					),
 					'elearning_typography_site_title'     => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'subsets'        => array( 'latin' ),
 							'font-size'      => array(
@@ -151,7 +151,7 @@ $options = apply_filters(
 					),
 					'elearning_typography_site_description' => array(
 						'default'   => array(
-							'font-family'    => 'Default',
+							'font-family'    => 'inherit',
 							'font-weight'    => '400',
 							'subsets'        => array( 'latin' ),
 							'font-size'      => array(

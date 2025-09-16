@@ -25,16 +25,6 @@ const OPTIONS = applyFilters('elearning.meta.general.layout', [
 		value: 'tg-site-layout--default',
 	},
 	{
-		label: __('Left Sidebar', 'elearning'),
-		icon: LeftSidebar,
-		value: 'tg-site-layout--left',
-	},
-	{
-		label: __('Right Sidebar', 'elearning'),
-		icon: RightSidebar,
-		value: 'tg-site-layout--right',
-	},
-	{
 		label: __('Contained Sidebar', 'elearning'),
 		icon: ContainedSidebar,
 		value: 'tg-site-layout--no-sidebar',
@@ -50,8 +40,31 @@ const OPTIONS = applyFilters('elearning.meta.general.layout', [
 	value: string;
 }>;
 
+const SIDEBAR_OPTIONS = applyFilters('elearning.meta.general.layout', [
+	{
+		label: __('Customizer', 'elearning'),
+		icon: Customizer,
+		value: 'tg-site-layout--default',
+	},
+	{
+		label: __('Left Sidebar', 'elearning'),
+		icon: LeftSidebar,
+		value: 'tg-site-layout--left',
+	},
+	{
+		label: __('Right Sidebar', 'elearning'),
+		icon: RightSidebar,
+		value: 'tg-site-layout--right',
+	},
+]) as Array<{
+	label: string;
+	icon: React.ElementType;
+	value: string;
+}>;
+
 const GeneralPanel = ({ meta, updateMeta }: MetaProps) => {
-	const currentLayout = meta?.elearning_layout ?? 'customizer';
+	const currentLayout = meta?.elearning_container_layout ?? 'customizer';
+	const sidebarCurrentLayout = meta?.elearning_sidebar_layout ?? 'customizer';
 
 	return (
 		<PanelRow>
@@ -68,7 +81,28 @@ const GeneralPanel = ({ meta, updateMeta }: MetaProps) => {
 									currentLayout === option.value ? 'active' : 'inactive'
 								}
 								onClick={() => {
-									updateMeta?.('elearning_layout', option.value);
+									updateMeta?.('elearning_container_layout', option.value);
+								}}
+							>
+								<Icon className={option.value} />
+							</Flex>
+						);
+					})}
+				</Flex>
+
+				<p>{__('Sidebar', 'elearning')}</p>
+				<Flex style={{ flex: 1, flexWrap: 'wrap', gap: 8 }}>
+					{SIDEBAR_OPTIONS?.map((option) => {
+						const Icon = option.icon;
+						return (
+							<Flex
+								key={option.value}
+								style={{ width: 'calc(50% - 10px)' }}
+								data-state={
+									sidebarCurrentLayout === option.value ? 'active' : 'inactive'
+								}
+								onClick={() => {
+									updateMeta?.('elearning_sidebar_layout', option.value);
 								}}
 							>
 								<Icon className={option.value} />

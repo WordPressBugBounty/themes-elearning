@@ -55,6 +55,34 @@ if ( ! class_exists( 'eLearning_CSS_Classes' ) ) :
 			// Container style.
 			$classes[] = get_theme_mod( 'elearning_general_container_style', 'tg-container--wide' );
 
+			$default_layout    = get_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--no-sidebar' );
+			$individual_layout = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_container_layout', true );
+			if ( ! empty( $individual_layout ) && ( 'tg-site-layout--default' !== $individual_layout ) ) {
+				$classes[] = $individual_layout;
+			} elseif ( is_page() ) {
+					$layout = get_theme_mod( 'elearning_single_page_container_layout', 'default' );
+
+				if ( 'default' === $layout ) {
+					$classes[] = $default_layout;
+				} else {
+					$classes[] = $layout;
+				}
+			} elseif ( is_singular() ) {
+				$layout = get_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--centered' );
+				if ( 'default' === $layout ) {
+					$classes[] = $default_layout;
+				} else {
+					$classes[] = $layout;
+				}
+			} elseif ( is_archive() || is_home() ) {
+				$layout = get_theme_mod( 'elearning_blog_container_layout', 'default' );
+				if ( 'default' === $layout ) {
+					$classes[] = $default_layout;
+				} else {
+					$classes[] = $layout;
+				}
+			}
+
 			// Add transparent header class.
 			if ( eLearning_Utils::has_transparent_header() ) {
 				$classes[] = 'has-transparent-header';
@@ -193,9 +221,9 @@ if ( ! class_exists( 'eLearning_CSS_Classes' ) ) :
 		 */
 		public function elearning_add_metabox_styles() {
 
-			$customize_elearning_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', '#16181a' );
-			$customize_elearning_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', '#269bd1' );
-			$customize_elearning_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', '#269bd1' );
+			$customize_elearning_menu_item_color        = get_theme_mod( 'elearning_primary_menu_text_color', 'var(--elearning-color-7, #16181a)' );
+			$customize_elearning_menu_item_hover_color  = get_theme_mod( 'elearning_primary_menu_text_hover_color', 'var(--elearning-color-1, #269bd1)' );
+			$customize_elearning_menu_item_active_color = get_theme_mod( 'elearning_primary_menu_text_active_color', 'var(--elearning-color-1, #269bd1)' );
 
 			$elearning_menu_item_color        = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_menu_item_color', true );
 			$elearning_menu_item_hover_color  = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_menu_item_hover_color', true );

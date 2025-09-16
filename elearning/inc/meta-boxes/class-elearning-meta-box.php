@@ -52,10 +52,35 @@ class eLearning_Meta_Box {
 		add_action( 'elearning_process_page_settings_meta', 'elearning_Meta_Box_Page_Settings::save', 10, 2 );
 	}
 
+	private function is_classic_editor_active() {
+
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+		if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
+			return true;
+		}
+
+		if ( ! apply_filters( 'use_block_editor_for_post', true, get_post() ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
 	public function register_meta_fields() {
 		register_post_meta(
 			'',
-			'elearning_layout',
+			'elearning_container_layout',
+			array(
+				'show_in_rest'  => true,
+				'single'        => true,
+				'default'       => 'tg-site-layout--default',
+				'type'          => 'string',
+				'auth_callback' => '__return_true',
+			)
+		);
+		register_post_meta(
+			'',
+			'elearning_sidebar_layout',
 			array(
 				'show_in_rest'  => true,
 				'single'        => true,
@@ -174,20 +199,6 @@ class eLearning_Meta_Box {
 				'auth_callback' => '__return_true',
 			)
 		);
-	}
-
-	private function is_classic_editor_active() {
-
-		include_once ABSPATH . 'wp-admin/includes/plugin.php';
-		if ( is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
-			return true;
-		}
-
-		if ( ! apply_filters( 'use_block_editor_for_post', true, get_post() ) ) {
-			return true;
-		}
-
-		return false;
 	}
 
 	/**

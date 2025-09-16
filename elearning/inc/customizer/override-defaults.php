@@ -40,8 +40,8 @@ $wp_customize->get_control( 'blogname' )->section          = 'elearning_header_b
 $wp_customize->get_control( 'blogname' )->priority         = 4;
 $wp_customize->get_control( 'blogdescription' )->section   = 'elearning_header_builder_logo';
 $wp_customize->get_control( 'blogdescription' )->priority  = 5;
-$wp_customize->get_control( 'site_icon' )->section         = 'elearning_header_builder_logo';
-$wp_customize->get_control( 'site_icon' )->priority        = 6;
+//$wp_customize->get_control( 'site_icon' )->section         = 'elearning_header_builder_logo';
+$wp_customize->get_control( 'site_icon' )->priority = 6;
 
 // Site Identity.
 //$wp_customize->get_control( 'custom_logo' )->priority         = 6;

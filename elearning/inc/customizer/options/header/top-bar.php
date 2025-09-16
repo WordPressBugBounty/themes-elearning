@@ -43,7 +43,7 @@ $options = apply_filters(
 					),
 					'elearning_header_top_text_color'   => array(
 						'title'     => esc_html__( 'Color', 'elearning' ),
-						'default'   => '#51585f',
+						'default'   => 'var(--elearning-color-7)',
 						'type'      => 'customind-color',
 						'section'   => 'elearning_header_top',
 						'transport' => 'postMessage',

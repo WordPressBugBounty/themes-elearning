@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 $sidebar = apply_filters( 'elearning_get_sidebar', 'sidebar-right' );
 
 // Hide sidebar when sidebar is not present.
-if ( in_array( elearning_get_current_layout(), array( 'tg-site-layout--no-sidebar', 'tg-site-layout--default', 'tg-site-layout--stretched','tg-site-layout--centered' ), true ) ) {
+if ( in_array( elearning_get_current_layout(), array( 'no_sidebar', 'tg-site-layout--no-sidebar', 'tg-site-layout--default', 'tg-site-layout--stretched', 'tg-site-layout--centered' ), true ) ) {
 	return '';
 }
 ?>

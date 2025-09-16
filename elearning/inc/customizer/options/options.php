@@ -1,13 +1,14 @@
 <?php
-require __DIR__ . '/global/color.php';
-require __DIR__ . '/additional/optimization.php';
+require __DIR__ . '/global/colors.php';
+require __DIR__ . '/additional/performance.php';
 require __DIR__ . '/content/blog-archive.php';
 require __DIR__ . '/content/blog-meta.php';
-require __DIR__ . '/global/container.php';
+require __DIR__ . '/global/layouts.php';
 require __DIR__ . '/content/blog-sidebar.php';
 require __DIR__ . '/content/single-post.php';
+require __DIR__ . '/content/single-page.php';
 require __DIR__ . '/header/page-header.php';
-require __DIR__ . '/header/breadcrumb.php';
+require __DIR__ . '/additional/breadcrumb.php';
 //require __DIR__ . '/header/main-header.php';
 //require __DIR__ . '/header/header-search.php';
 //require __DIR__ . '/header/primary-menu.php';
@@ -16,9 +17,9 @@ require __DIR__ . '/header/breadcrumb.php';
 //require __DIR__ . '/footer/footer-bar.php';
 //require __DIR__ . '/footer/footer-widget.php';
 require __DIR__ . '/header/transparent-header.php';
-require __DIR__ . '/footer/scroll-to-top.php';
+require __DIR__ . '/additional/scroll-to-top.php';
 require __DIR__ . '/global/typography.php';
-require __DIR__ . '/global/sidebar.php';
+//require __DIR__ . '/global/sidebar.php';
 require __DIR__ . '/global/button.php';
 
 require __DIR__ . '/header-builder/header-builder.php';

@@ -33,6 +33,9 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			// Generate dynamic CSS.
 			$parse_css = '';
 
+			// Generate CSS variables for elearning color palette.
+			$parse_css .= self::generate_color_palette_css_variables();
+
 			// Container width.
 			$container_width_default = array(
 				'size' => 1160,
@@ -47,18 +50,300 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				'max-width'
 			);
 
+			// Footer widget 1.
+			$footer_widget_header_1_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_1_header          = get_theme_mod( 'elearning_footer_widget_1_heading_border', $footer_widget_header_1_default );
+			$footer_widget_1_header_negative = array(
+				'size' => - (float) $footer_widget_1_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_1_default,
+				$footer_widget_1_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_1_default,
+				$footer_widget_1_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_1_default,
+				$footer_widget_1_header_negative,
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_1_border_color     = get_theme_mod( 'elearning_footer_widget_1_heading_border_color', '' );
+			$footer_widget_1_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_1_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_1_border_color, $footer_widget_1_border_color_css );
+
+			$footer_widget_1_accent_color     = get_theme_mod( 'elearning_footer_widget_1_heading_border_accent_color', '' );
+			$footer_widget_1_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_1_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_1_accent_color, $footer_widget_1_accent_color_css );
+
+			// 2
+			$footer_widget_header_2_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_2_header          = get_theme_mod( 'elearning_footer_widget_2_heading_border', $footer_widget_header_2_default );
+			$footer_widget_2_header_negative = array(
+				'size' => - (float) $footer_widget_2_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_2_default,
+				$footer_widget_2_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_2_default,
+				$footer_widget_2_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_2_default,
+				$footer_widget_2_header_negative,
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_2_border_color     = get_theme_mod( 'elearning_footer_widget_2_heading_border_color', '' );
+			$footer_widget_2_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_2_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_2_border_color, $footer_widget_2_border_color_css );
+
+			$footer_widget_2_accent_color     = get_theme_mod( 'elearning_footer_widget_2_heading_border_accent_color', '' );
+			$footer_widget_2_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_2_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_2_accent_color, $footer_widget_2_accent_color_css );
+
+			// 3
+			$footer_widget_header_3_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_3_header          = get_theme_mod( 'elearning_footer_widget_3_heading_border', $footer_widget_header_3_default );
+			$footer_widget_3_header_negative = array(
+				'size' => - (float) $footer_widget_3_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_3_default,
+				$footer_widget_3_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_3_default,
+				$footer_widget_3_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_3_default,
+				$footer_widget_3_header_negative,
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_3_border_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_color', '' );
+			$footer_widget_3_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_3_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_3_border_color, $footer_widget_3_border_color_css );
+
+			$footer_widget_3_accent_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_accent_color', '' );
+			$footer_widget_3_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_3_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_3_accent_color, $footer_widget_3_accent_color_css );
+
+			//4
+			$footer_widget_header_4_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_4_header          = get_theme_mod( 'elearning_footer_widget_4_heading_border', $footer_widget_header_4_default );
+			$footer_widget_4_header_negative = array(
+				'size' => - (float) $footer_widget_4_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_4_default,
+				$footer_widget_4_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_4_default,
+				$footer_widget_4_header,
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_4_default,
+				$footer_widget_4_header_negative,
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_4_border_color     = get_theme_mod( 'elearning_footer_widget_4_heading_border_color', '' );
+			$footer_widget_4_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_4_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_4_border_color, $footer_widget_4_border_color_css );
+
+			$footer_widget_4_accent_color     = get_theme_mod( 'elearning_footer_widget_4_heading_border_accent_color', '' );
+			$footer_widget_4_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_4_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_4_accent_color, $footer_widget_4_accent_color_css );
+
+			//5
+			$footer_widget_header_5_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_5_header          = get_theme_mod( 'elearning_footer_widget_5_heading_border', $footer_widget_header_5_default );
+			$footer_widget_5_header_negative = array(
+				'size' => - (float) $footer_widget_5_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_5_default,
+				$footer_widget_5_header,
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_5_default,
+				$footer_widget_5_header,
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_5_default,
+				$footer_widget_5_header_negative,
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_5_border_color     = get_theme_mod( 'elearning_footer_widget_5_heading_border_color', '' );
+			$footer_widget_5_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_5_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_5_border_color, $footer_widget_5_border_color_css );
+
+			$footer_widget_5_accent_color     = get_theme_mod( 'elearning_footer_widget_5_heading_border_accent_color', '' );
+			$footer_widget_5_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_5_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_5_accent_color, $footer_widget_5_accent_color_css );
+
+			//6
+			$footer_widget_header_6_default = array(
+				'size' => '',
+				'unit' => 'px',
+			);
+
+			$footer_widget_6_header          = get_theme_mod( 'elearning_footer_widget_6_heading_border', $footer_widget_header_6_default );
+			$footer_widget_6_header_negative = array(
+				'size' => - (float) $footer_widget_6_header['size'],
+				'unit' => 'px',
+			);
+
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_6_default,
+				$footer_widget_6_header,
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title',
+				'border-bottom-width'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_6_default,
+				$footer_widget_6_header,
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before',
+				'height'
+			);
+			$parse_css .= elearning_parse_slider_css(
+				$footer_widget_header_6_default,
+				$footer_widget_6_header_negative,
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before',
+				'bottom'
+			);
+
+			$footer_widget_6_border_color     = get_theme_mod( 'elearning_footer_widget_6_heading_border_color', '' );
+			$footer_widget_6_border_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title' => array(
+					'border-color' => esc_html( $footer_widget_6_border_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_6_border_color, $footer_widget_6_border_color_css );
+
+			$footer_widget_6_accent_color     = get_theme_mod( 'elearning_footer_widget_6_heading_border_accent_color', '' );
+			$footer_widget_6_accent_color_css = array(
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before' => array(
+					'background-color' => esc_html( $footer_widget_6_accent_color ),
+				),
+			);
+			$parse_css                       .= elearning_parse_css( '', $footer_widget_6_accent_color, $footer_widget_6_accent_color_css );
+
 			// Content width.
-//			$content_width_default = array(
-//				'size' => 70,
-//				'unit' => '%',
-//			);
-//			$content_width         = get_theme_mod( 'elearning_general_content_width', $content_width_default );
-//			$parse_css            .= elearning_parse_slider_css(
-//				$content_width_default,
-//				$content_width,
-//				'#primary',
-//				'width'
-//			);
+			//          $content_width_default = array(
+			//              'size' => 70,
+			//              'unit' => '%',
+			//          );
+			//          $content_width         = get_theme_mod( 'elearning_general_content_width', $content_width_default );
+			//          $parse_css            .= elearning_parse_slider_css(
+			//              $content_width_default,
+			//              $content_width,
+			//              '#primary',
+			//              'width'
+			//          );
 
 			// Sidebar Width
 			$sidebar_width_default = array(
@@ -66,7 +351,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				'unit' => '%',
 			);
 
-			$sidebar_width         = get_theme_mod( 'elearning_general_sidebar_width', $sidebar_width_default );
+			$sidebar_width = get_theme_mod( 'elearning_general_sidebar_width', $sidebar_width_default );
 
 			$content_width_css = array(
 				'#primary' => array(
@@ -86,21 +371,31 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Content margin.
 			$content_padding_default = array(
-				'size' => '',
-				'unit' => 'px',
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+				'unit'   => 'px',
 			);
 
 			$content_padding = get_theme_mod( 'elearning_content_area_padding', $content_padding_default );
 
-			$parse_css .= elearning_parse_slider_css(
+			$parse_css .= elearning_parse_dimension_css(
 				$content_padding_default,
 				$content_padding,
 				'.site-content',
-				'padding-top, padding-bottom'
+				'padding-top'
+			);
+
+			$parse_css .= elearning_parse_dimension_css(
+				$content_padding_default,
+				$content_padding,
+				'.site-content',
+				'padding-bottom'
 			);
 
 			// Base primary color.
-			$base_primary_color     = get_theme_mod( 'elearning_base_color_primary', '#269bd1' );
+			$base_primary_color     = get_theme_mod( 'elearning_base_color_primary', 'var(--elearning-color-1, #269bd1)' );
 			$base_primary_color_css = array(
 				'a:hover, a:focus, .tg-primary-menu > div ul li:hover > a,  .tg-primary-menu > div ul li.current_page_item > a, .tg-primary-menu > div ul li.current-menu-item > a,  .tg-mobile-navigation > div ul li.current_page_item > a, .tg-mobile-navigation > div ul li.current-menu-item > a,  .entry-content a,  .tg-meta-style-two .entry-meta span, .tg-meta-style-two .entry-meta a, .entry-title a:hover, .entry-title a:focus' => array(
 					'color' => esc_html( $base_primary_color ),
@@ -109,16 +404,16 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 					'background-color' => esc_html( $base_primary_color ),
 				),
 			);
-			$parse_css             .= elearning_parse_css( '#269bd1', $base_primary_color, $base_primary_color_css );
+			$parse_css             .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $base_primary_color, $base_primary_color_css );
 
 			// Base text color.
-			$base_text_color     = get_theme_mod( 'elearning_base_color_text', '#51585f' );
+			$base_text_color     = get_theme_mod( 'elearning_base_color_text', 'var(--elearning-color-7)' );
 			$base_text_color_css = array(
 				'body, a' => array(
 					'color' => esc_html( $base_text_color ),
 				),
 			);
-			$parse_css          .= elearning_parse_css( '#51585f', $base_text_color, $base_text_color_css );
+			$parse_css          .= elearning_parse_css( 'var(--elearning-color-7)', $base_text_color, $base_text_color_css );
 
 			// Base border color.
 			$base_border_color     = get_theme_mod( 'elearning_base_color_border', '#e9ecef' );
@@ -132,31 +427,31 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 			$parse_css            .= elearning_parse_css( '#e9ecef', $base_border_color, $base_border_color_css );
 
-			$heading_color     = get_theme_mod( 'elearning_heading_color', '#16181a' );
+			$heading_color     = get_theme_mod( 'elearning_heading_color', 'var(--elearning-color-7, #16181a)' );
 			$heading_color_css = array(
 				'h1, h2, h3, h4, h5, h6, .entry-title a' => array(
 					'color' => esc_html( $heading_color ),
 				),
 			);
-			$parse_css        .= elearning_parse_css( '#16181a', $heading_color, $heading_color_css );
+			$parse_css        .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $heading_color, $heading_color_css );
 
 			// Link colors.
-			$link_color_normal     = get_theme_mod( 'elearning_link_color', '#269bd1' );
+			$link_color_normal     = get_theme_mod( 'elearning_link_color', 'var(--elearning-color-1, #269bd1)' );
 			$link_color_normal_css = array(
 				'.entry-content a' => array(
 					'color' => esc_html( $link_color_normal ),
 				),
 			);
-			$parse_css            .= elearning_parse_css( '#269bd1', $link_color_normal, $link_color_normal_css );
+			$parse_css            .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $link_color_normal, $link_color_normal_css );
 
 			// Link hover color.
-			$link_color_hover     = get_theme_mod( 'elearning_link_hover_color', '#269bd1' );
+			$link_color_hover     = get_theme_mod( 'elearning_link_hover_color', 'var(--elearning-color-1, #269bd1)' );
 			$link_color_hover_css = array(
 				'.entry-content a:hover, .entry-content a:focus' => array(
 					'color' => esc_html( $link_color_hover ),
 				),
 			);
-			$parse_css           .= elearning_parse_css( '#269bd1', $link_color_hover, $link_color_hover_css );
+			$parse_css           .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $link_color_hover, $link_color_hover_css );
 
 			// Inside container background color.
 			$inside_container_bg_default = array(
@@ -183,7 +478,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                            .= elearning_parse_background_css( $outside_container_background_defaults, $outside_container_background, apply_filters( 'elearning_outside_container_background', 'body,body.page-template-pagebuilder' ) );
 
 			$base_typography_body_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -230,7 +525,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$base_typography_heading_default = apply_filters(
 				'elearning_base_typography_heading_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '400',
 					'line-height'    => array(
 						'desktop' => array(
@@ -264,7 +559,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h1_default = apply_filters(
 				'elearning_typography_h1_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -313,7 +608,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h2_default = apply_filters(
 				'elearning_typography_h2_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -362,7 +657,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h3_default = apply_filters(
 				'elearning_typography_h3_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -411,7 +706,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h4_default = apply_filters(
 				'elearning_typography_h4_filter',
 				array(
-					'font-family'    => 'default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -460,7 +755,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h5_default = apply_filters(
 				'elearning_typography_h5_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -509,7 +804,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_h6_default = apply_filters(
 				'elearning_typography_h6_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -571,10 +866,104 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				'padding'
 			);
 
+			// Button typography.
+			$button_typography_default = array(
+				'font-family'    => 'inherit',
+				'font-weight'    => '400',
+				'subsets'        => array( 'latin' ),
+				'font-size'      => array(
+					'desktop' => array(
+						'size' => '',
+						'unit' => 'px',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.8',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+			$button_typography         = get_theme_mod( 'elearning_button_typography', $button_typography_default );
+			$parse_css                .= elearning_parse_typography_css(
+				$button_typography_default,
+				$button_typography,
+				'button, input[type="button"], input[type="reset"], input[type="submit"], .wp-block-button .wp-block-button__link, :root .tg-site :where(.wp-element-button, .wp-block-button__link)',
+				array(
+					'tablet' => 768,
+					'mobile' => 600,
+				)
+			);
+
+			// Header Button typography.
+			$header_button_typography_default = array(
+				'font-family'    => 'inherit',
+				'font-weight'    => '400',
+				'subsets'        => array( 'latin' ),
+				'font-size'      => array(
+					'desktop' => array(
+						'size' => '',
+						'unit' => 'px',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.8',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+			$header_button_typography         = get_theme_mod( 'elearning_header_button_typography', $header_button_typography_default );
+			$parse_css                       .= elearning_parse_typography_css(
+				$header_button_typography_default,
+				$header_button_typography,
+				'.tg-header-builder .tg-header-buttons .tg-header-button .tg-button',
+				array(
+					'tablet' => 768,
+					'mobile' => 600,
+				)
+			);
+
 			// Button text color.
 			$button_text_color     = get_theme_mod( 'elearning_button_text_color', '#ffffff' );
 			$button_text_color_css = array(
-				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a' => array(
+				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a, :root .tg-site :where(.wp-element-button, .wp-block-button__link)' => array(
 					'color' => esc_html( $button_text_color ),
 				),
 			);
@@ -583,45 +972,72 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			// Button hover text color.
 			$button_hover_text_color     = get_theme_mod( 'elearning_button_text_hover_color', '#ffffff' );
 			$button_hover_text_color_css = array(
-				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, ..tg-header-button a:hover' => array(
+				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, :root .tg-site :where(.wp-element-button, .wp-block-button__link):hover' => array(
 					'color' => esc_html( $button_hover_text_color ),
 				),
 			);
 			$parse_css                  .= elearning_parse_css( '#ffffff', $button_hover_text_color, $button_hover_text_color_css );
 
 			// Button background color.
-			$button_bg_color     = get_theme_mod( 'elearning_button_bg_color', '#269bd1' );
+			$button_bg_color     = get_theme_mod( 'elearning_button_bg_color', 'var(--elearning-color-1, #269bd1)' );
 			$button_bg_color_css = array(
-				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a' => array(
+				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a,  :root :where(.wp-element-button, .wp-block-button__link)' => array(
 					'background-color' => esc_html( $button_bg_color ),
 				),
 			);
-			$parse_css          .= elearning_parse_css( '#269bd1', $button_bg_color, $button_bg_color_css );
+			$parse_css          .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $button_bg_color, $button_bg_color_css );
 
 			// Button background hover color.
-			$button_bg_hover_color     = get_theme_mod( 'elearning_button_bg_hover_color', '#1e7ba6' );
+			$button_bg_hover_color     = get_theme_mod( 'elearning_button_bg_hover_color', 'var(--elearning-color-2)' );
 			$button_bg_hover_color_css = array(
-				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .tg-header-button a:hover' => array(
+				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .tg-header-button a:hover, :root :where(.wp-element-button, .wp-block-button__link):hover' => array(
 					'background-color' => esc_html( $button_bg_hover_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#ffffff', $button_bg_hover_color, $button_bg_hover_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-2)', $button_bg_hover_color, $button_bg_hover_color_css );
+
+			// border width.
+			$button_border_width_default = array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+				'unit'   => 'px',
+			);
+
+			$button_border_width = get_theme_mod( 'elearning_header_button_border_width', $button_border_width_default );
+
+			$parse_css .= elearning_parse_dimension_css(
+				$button_border_width_default,
+				$button_border_width,
+				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .tg-header-button a:hover, :root :where(.wp-element-button, .wp-block-button__link)',
+				'border-width'
+			);
+
+			// button border color.
+			$button_border_color     = get_theme_mod( 'elearning_header_button_border_color', '' );
+			$button_border_color_css = array(
+				'button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover, .tg-header-button a:hover, :root :where(.wp-element-button, .wp-block-button__link)' => array(
+					'border-color' => esc_html( $button_border_color ),
+				),
+			);
+			$parse_css              .= elearning_parse_css( '', $button_border_color, $button_border_color_css );
 
 			// Button border roundness.
 			$button_border_radius_default = array(
-				'size' => 0,
+				'size' => 2,
 				'unit' => 'px',
 			);
 			$button_border_radius         = get_theme_mod( 'elearning_button_roundness', $button_border_radius_default );
 			$parse_css                   .= elearning_parse_slider_css(
 				$button_border_radius_default,
 				$button_border_radius,
-				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a',
+				'button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span, .tg-header-button a, :where(.wp-block-button__link)',
 				'border-radius'
 			);
 
 			$typography_site_title_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -667,7 +1083,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			$typography_site_description_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -713,13 +1129,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			// Header top text color.
-			$header_top_text_color     = get_theme_mod( 'elearning_header_top_text_color', '#51585f' );
+			$header_top_text_color     = get_theme_mod( 'elearning_header_top_text_color', 'var(--elearning-color-7)' );
 			$header_top_text_color_css = array(
 				'.tg-site-header .tg-site-header-top' => array(
 					'color' => esc_html( $header_top_text_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#51585f', $header_top_text_color, $header_top_text_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7)', $header_top_text_color, $header_top_text_color_css );
 
 			// Header top background.
 			$header_top_bg_default = array(
@@ -802,13 +1218,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                         .= elearning_parse_css( '#ffffff', $header_button_hover_text_color, $header_button_hover_text_color_css );
 
 			// Header background color.
-			$header_button_bg_color     = get_theme_mod( 'elearning_header_button_bg_color', '#269bd1' );
+			$header_button_bg_color     = get_theme_mod( 'elearning_header_button_bg_color', 'var(--elearning-color-1, #269bd1)' );
 			$header_button_bg_color_css = array(
 				'.main-navigation.tg-primary-menu > div ul li.tg-header-button-wrap a' => array(
 					'background-color' => esc_html( $header_button_bg_color ),
 				),
 			);
-			$parse_css                 .= elearning_parse_css( '#269bd1', $header_button_bg_color, $header_button_bg_color_css );
+			$parse_css                 .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $header_button_bg_color, $header_button_bg_color_css );
 
 			// Header button hover background color.
 			$header_button_bg_hover_color     = get_theme_mod( 'elearning_header_button_bg_hover_color', '#1e7ba6' );
@@ -861,7 +1277,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 					'color' => esc_html( $primary_menu_item_color_normal ),
 				),
 			);
-			$parse_css                         .= elearning_parse_css( '#269bd1', $primary_menu_item_color_normal, $primary_menu_item_color_normal_css );
+			$parse_css                         .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $primary_menu_item_color_normal, $primary_menu_item_color_normal_css );
 
 			// Primary menu item hover color.
 			$primary_menu_item_color_hover     = get_theme_mod( 'elearning_primary_menu_text_hover_color', '' );
@@ -885,7 +1301,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                         .= elearning_parse_css( '', $primary_menu_item_color_active, $primary_menu_item_color_active_css );
 
 			$typography_primary_menu_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -930,7 +1346,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			$typography_primary_menu_dropdown_item_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -975,7 +1391,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			$typography_mobile_menu_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -1065,13 +1481,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				)
 			);
 			// Page/Post title color.
-			$post_page_title_color     = get_theme_mod( 'elearning_post_page_title_color', '#16181a' );
+			$post_page_title_color     = get_theme_mod( 'elearning_post_page_title_color', 'var(--elearning-color-7, #16181a)' );
 			$post_page_title_color_css = array(
 				'.tg-page-header .tg-page-header__title, .tg-page-content__title, .tg-page-header .archive-description > p' => array(
 					'color' => esc_html( $post_page_title_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#16181a', $post_page_title_color, $post_page_title_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $post_page_title_color, $post_page_title_color_css );
 
 			// Page header background.
 			$page_header_bg_default = array(
@@ -1086,45 +1502,45 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css             .= elearning_parse_background_css( $page_header_bg_default, $page_header_bg, '.tg-page-header, .tg-container--separate .tg-page-header' );
 
 			// Breadcrumbs text color.
-			$breadcrumb_text_color     = get_theme_mod( 'elearning_breadcrumbs_text_color', '#16181a' );
+			$breadcrumb_text_color     = get_theme_mod( 'elearning_breadcrumbs_text_color', 'var(--elearning-color-7, #16181a)' );
 			$breadcrumb_text_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_text_color_selector', '.tg-page-header .breadcrumb-trail ul li' ) => array(
 					'color' => esc_html( $breadcrumb_text_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#16181a', $breadcrumb_text_color, $breadcrumb_text_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $breadcrumb_text_color, $breadcrumb_text_color_css );
 
 			// Breadcrumbs separator color.
-			$breadcrumb_separator_color     = get_theme_mod( 'elearning_breadcrumbs_seperator_color', '#51585f' );
+			$breadcrumb_separator_color     = get_theme_mod( 'elearning_breadcrumbs_seperator_color', 'var(--elearning-color-7)' );
 			$breadcrumb_separator_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_separator_color_selector', '.tg-page-header .breadcrumb-trail ul li::after' ) => array(
 					'color' => esc_html( $breadcrumb_separator_color ),
 				),
 			);
-			$parse_css                     .= elearning_parse_css( '#51585f', $breadcrumb_separator_color, $breadcrumb_separator_color_css );
+			$parse_css                     .= elearning_parse_css( 'var(--elearning-color-7)', $breadcrumb_separator_color, $breadcrumb_separator_color_css );
 
 			// Breadcrumbs link color.
-			$breadcrumb_link_color     = get_theme_mod( 'elearning_breadcrumbs_link_color', '#16181a' );
+			$breadcrumb_link_color     = get_theme_mod( 'elearning_breadcrumbs_link_color', 'var(--elearning-color-7, #16181a)' );
 			$breadcrumb_link_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_link_color_selector', '.tg-page-header .breadcrumb-trail ul li a' ) => array(
 					'color' => esc_html( $breadcrumb_link_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#16181a', $breadcrumb_link_color, $breadcrumb_link_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $breadcrumb_link_color, $breadcrumb_link_color_css );
 
 			// Breadcrumbs link hover color.
-			$breadcrumb_link_hover_color     = get_theme_mod( 'elearning_breadcrumbs_link_hover_color', '#269bd1' );
+			$breadcrumb_link_hover_color     = get_theme_mod( 'elearning_breadcrumbs_link_hover_color', 'var(--elearning-color-1, #269bd1)' );
 			$breadcrumb_link_hover_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_link_hover_color_selector', '.tg-page-header .breadcrumb-trail ul li a:hover ' ) => array(
 					'color' => esc_html( $breadcrumb_link_hover_color ),
 				),
 			);
-			$parse_css                      .= elearning_parse_css( '#269bd1', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
+			$parse_css                      .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
 
 			$typography_post_page_title_default = apply_filters(
 				'elearning_typography_post_page_title_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1171,7 +1587,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			$typography_blog_post_title_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '500',
 				'subsets'        => array( 'latin' ),
 				'font-size'      => array(
@@ -1219,7 +1635,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_widget_heading_default = apply_filters(
 				'elearning_typography_widget_heading_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '500',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1268,7 +1684,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$typography_widget_content_default = apply_filters(
 				'elearning_typography_widget_content_filter',
 				array(
-					'font-family'    => 'Default',
+					'font-family'    => 'inherit',
 					'font-weight'    => '400',
 					'subsets'        => array( 'latin' ),
 					'font-size'      => array(
@@ -1327,40 +1743,40 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                 .= elearning_parse_background_css( $footer_widgets_bg_defaults, $footer_widgets_bg, apply_filters( 'elearning_footer_widgets_bg_selector', '.tg-site-footer-widgets' ) );
 
 			// Footer widgets title color.
-			$footer_widgets_title_color     = get_theme_mod( 'elearning_footer_widgets_title_color', '#16181a' );
+			$footer_widgets_title_color     = get_theme_mod( 'elearning_footer_widgets_title_color', 'var(--elearning-color-7, #16181a)' );
 			$footer_widgets_title_color_css = array(
 				'.tg-site-footer .tg-site-footer-widgets .widget-title' => array(
 					'color' => esc_html( $footer_widgets_title_color ),
 				),
 			);
-			$parse_css                     .= elearning_parse_css( '#16181a', $footer_widgets_title_color, $footer_widgets_title_color_css );
+			$parse_css                     .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $footer_widgets_title_color, $footer_widgets_title_color_css );
 
 			// Footer widgets text color.
-			$footer_widgets_text_color     = get_theme_mod( 'elearning_footer_widgets_text_color', '#51585f' );
+			$footer_widgets_text_color     = get_theme_mod( 'elearning_footer_widgets_text_color', 'var(--elearning-color-7)' );
 			$footer_widgets_text_color_css = array(
 				'.tg-site-footer .tg-site-footer-widgets, .tg-site-footer .tg-site-footer-widgets p' => array(
 					'color' => esc_html( $footer_widgets_text_color ),
 				),
 			);
-			$parse_css                    .= elearning_parse_css( '#51585f', $footer_widgets_text_color, $footer_widgets_text_color_css );
+			$parse_css                    .= elearning_parse_css( 'var(--elearning-color-7)', $footer_widgets_text_color, $footer_widgets_text_color_css );
 
 			// Footer widgets link color.
-			$footer_widgets_link_color     = get_theme_mod( 'elearning_footer_widgets_link_color', '#16181a' );
+			$footer_widgets_link_color     = get_theme_mod( 'elearning_footer_widgets_link_color', 'var(--elearning-color-7, #16181a)' );
 			$footer_widgets_link_color_css = array(
 				'.tg-site-footer .tg-site-footer-widgets a' => array(
 					'color' => esc_html( $footer_widgets_link_color ),
 				),
 			);
-			$parse_css                    .= elearning_parse_css( '#16181a', $footer_widgets_link_color, $footer_widgets_link_color_css );
+			$parse_css                    .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $footer_widgets_link_color, $footer_widgets_link_color_css );
 
 			// Footer widgets link hover color.
-			$footer_widgets_link_hover_color     = get_theme_mod( 'elearning_footer_widgets_link_hover_color', '#269bd1' );
+			$footer_widgets_link_hover_color     = get_theme_mod( 'elearning_footer_widgets_link_hover_color', 'var(--elearning-color-1, #269bd1)' );
 			$footer_widgets_link_hover_color_css = array(
 				'.tg-site-footer .tg-site-footer-widgets a:hover, .tg-site-footer .tg-site-footer-widgets a:focus' => array(
 					'color' => esc_html( $footer_widgets_link_hover_color ),
 				),
 			);
-			$parse_css                          .= elearning_parse_css( '#269bd1', $footer_widgets_link_hover_color, $footer_widgets_link_hover_color_css );
+			$parse_css                          .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $footer_widgets_link_hover_color, $footer_widgets_link_hover_color_css );
 
 			// Footer widgets border top width.
 			$footer_widgets_border_top_width_default = array(
@@ -1419,31 +1835,31 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css             .= elearning_parse_background_css( $footer_bar_bg_defaults, $footer_bar, '.tg-site-footer .tg-site-footer-bar' );
 
 			// Footer bottom bar text color.
-			$footer_bar_text_color     = get_theme_mod( 'elearning_footer_bar_text_color', '#51585f' );
+			$footer_bar_text_color     = get_theme_mod( 'elearning_footer_bar_text_color', 'var(--elearning-color-7)' );
 			$footer_bar_text_color_css = array(
 				'.tg-site-footer .tg-site-footer-bar' => array(
 					'color' => esc_html( $footer_bar_text_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#51585f', $footer_bar_text_color, $footer_bar_text_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7)', $footer_bar_text_color, $footer_bar_text_color_css );
 
 			// Footer bottom bar link color.
-			$footer_bar_link_color     = get_theme_mod( 'elearning_footer_bar_link_color', '#16181a' );
+			$footer_bar_link_color     = get_theme_mod( 'elearning_footer_bar_link_color', 'var(--elearning-color-7, #16181a)' );
 			$footer_bar_link_color_css = array(
 				'.tg-site-footer .tg-site-footer-bar a' => array(
 					'color' => esc_html( $footer_bar_link_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( '#16181a', $footer_bar_link_color, $footer_bar_link_color_css );
+			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $footer_bar_link_color, $footer_bar_link_color_css );
 
 			// Footer bottom bar link hover color.
-			$footer_bar_link_hover_color     = get_theme_mod( 'elearning_footer_bar_link_hover_color', '#269bd1' );
+			$footer_bar_link_hover_color     = get_theme_mod( 'elearning_footer_bar_link_hover_color', 'var(--elearning-color-1, #269bd1)' );
 			$footer_bar_link_hover_color_css = array(
 				'.tg-site-footer .tg-site-footer-bar a:hover, .tg-site-footer .tg-site-footer-bar a:focus' => array(
 					'color' => esc_html( $footer_bar_link_hover_color ),
 				),
 			);
-			$parse_css                      .= elearning_parse_css( '#269bd1', $footer_bar_link_hover_color, $footer_bar_link_hover_color_css );
+			$parse_css                      .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $footer_bar_link_hover_color, $footer_bar_link_hover_color_css );
 
 			// Footer bar border top width.
 			$footer_bar_border_top_width_default = array(
@@ -1467,13 +1883,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 			$parse_css                      .= elearning_parse_css( '#e9ecef', $footer_bar_border_top_color, $footer_bar_border_top_color_css );
 
-			$scroll_to_top_normal_bg_color     = get_theme_mod( 'elearning_scroll_to_top_bg_color', '#16181a' );
+			$scroll_to_top_normal_bg_color     = get_theme_mod( 'elearning_scroll_to_top_bg_color', 'var(--elearning-color-7, #16181a)' );
 			$scroll_to_top_normal_bg_color_css = array(
 				'.tg-scroll-to-top' => array(
 					'background-color' => esc_html( $scroll_to_top_normal_bg_color ),
 				),
 			);
-			$parse_css                        .= elearning_parse_css( '#16181a', $scroll_to_top_normal_bg_color, $scroll_to_top_normal_bg_color_css );
+			$parse_css                        .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $scroll_to_top_normal_bg_color, $scroll_to_top_normal_bg_color_css );
 
 			$scroll_to_top_hover_bg_color     = get_theme_mod( 'elearning_scroll_to_top_bg_hover_color', '#1e7ba6' );
 			$scroll_to_top_hover_bg_color_css = array(
@@ -1648,7 +2064,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder main area background.
 			$header_main_area_background_default = array(
-				'background-color'      => '#FAFAFA',
+				'background-color'      => 'var(--elearning-color-3)',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
@@ -2059,7 +2475,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder primary menu typography.
 			$header_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2107,7 +2523,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder secondary menu typography.
 			$header_secondary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2155,7 +2571,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder tertiary menu typography.
 			$header_tertiary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2203,7 +2619,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder quaternary menu typography.
 			$header_quaternary_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2251,7 +2667,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder primary sub menu typography.
 			$header_sub_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2299,7 +2715,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder secondary sub menu typography.
 			$header_secondary_sub_menu_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -2837,7 +3253,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder bottom area background.
 			$footer_bottom_area_background_default = array(
-				'background-color'      => '',
+				'background-color'      => 'var(--elearning-color-3, #FFFFFF)',
 				'background-image'      => '',
 				'background-repeat'     => 'repeat',
 				'background-position'   => 'center center',
@@ -2983,7 +3399,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_mobile_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3058,7 +3474,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_1_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3106,7 +3522,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_1_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3181,7 +3597,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder widget title typography.
 			$header_widget_2_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3229,7 +3645,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder widget content typography.
 			$header_widget_2_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3424,7 +3840,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget title typography.
 			$footer_widget_1_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3470,7 +3886,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget content typography.
 			$footer_widget_1_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3543,7 +3959,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 title typography.
 			$footer_widget_2_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3589,7 +4005,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 2 content typography.
 			$footer_widget_2_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3662,7 +4078,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 title typography.
 			$footer_widget_3_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3710,7 +4126,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 3 content typography.
 			$footer_widget_3_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3785,7 +4201,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 title typography.
 			$footer_widget_4_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3833,7 +4249,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 4 content typography.
 			$footer_widget_4_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3899,7 +4315,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu typography.
 			$footer_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -3965,7 +4381,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder footer menu 2 typography.
 			$footer_menu_2_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4040,7 +4456,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder copyright typography.
 			$footer_copyright_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4120,17 +4536,17 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			// Header builder site title color.
-			$header_site_title_color     = get_theme_mod( 'elearning_header_site_identity_color', '#16181a' );
+			$header_site_title_color     = get_theme_mod( 'elearning_header_site_identity_color', 'var(--elearning-color-7, #16181a)' );
 			$header_site_title_color_css = array(
 				'.tg-header-builder .site-title, .tg-header-builder .site-title a' => array(
 					'color' => esc_html( $header_site_title_color ),
 				),
 			);
-			$parse_builder_css          .= elearning_parse_css( '#16181a', $header_site_title_color, $header_site_title_color_css );
+			$parse_builder_css          .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $header_site_title_color, $header_site_title_color_css );
 
 			// Header builder site title typography.
 			$header_site_title_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4187,7 +4603,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder site tagline typography.
 			$header_site_tagline_typography_default = array(
-				'font-family'    => 'Default',
+				'font-family'    => 'inherit',
 				'font-weight'    => 'regular',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4383,7 +4799,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 title typography.
 			$footer_widget_5_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4429,7 +4845,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 5 content typography.
 			$footer_widget_5_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4502,7 +4918,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 title typography.
 			$footer_widget_6_title_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4548,7 +4964,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Footer builder widget 6 content typography.
 			$footer_widget_6_content_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4594,7 +5010,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder mobile menu typography.
 			$header_builder_mobile_menu_typography_default = array(
-				'font-family'    => 'default',
+				'font-family'    => 'inherit',
 				'font-weight'    => '400',
 				'font-size'      => array(
 					'desktop' => array(
@@ -4761,36 +5177,77 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				'id'     => 'preset-1',
 				'name'   => 'Preset 1',
 				'colors' => array(
-					'elearning-color-1' => '#eaf3fb',
-					'elearning-color-2' => '#bfdcf3',
-					'elearning-color-3' => '#94c4eb',
-					'elearning-color-4' => '#6aace2',
-					'elearning-color-5' => '#257bc1',
-					'elearning-color-6' => '#1d6096',
-					'elearning-color-7' => '#15446b',
-					'elearning-color-8' => '#0c2941',
-					'elearning-color-9' => '#040e16',
+					'elearning-color-1' => '#269bd1',
+					'elearning-color-2' => '#1e7ba6',
+					'elearning-color-3' => '#FFFFFF',
+					'elearning-color-4' => '#F9FEFD',
+					'elearning-color-5' => '#27272A',
+					'elearning-color-6' => '#16181A',
+					'elearning-color-7' => '#51585f',
+					'elearning-color-8' => '#FFFFFF',
+					'elearning-color-9' => '#e4e4e7',
 				),
 			);
 
 			// Color palette.
-			$color_palette      = get_theme_mod( 'elearning_color_palette', $color_palette_default );
-			$parse_builder_css .= sprintf(
-				' :root{%s}',
-				array_reduce(
-					array_keys( $color_palette['colors'] ?? [] ),
-					function ( $acc, $curr ) use ( $color_palette ) {
-						$acc .= "--{$curr}: {$color_palette['colors'][$curr]};";
+			$color_palette = get_theme_mod( 'elearning_color_palette', $color_palette_default );
+			if ( ! empty( $color_palette ) ) {
+				$parse_builder_css .= sprintf(
+					' :root{%s}',
+					array_reduce(
+						array_keys( $color_palette['colors'] ?? [] ),
+						function ( $acc, $curr ) use ( $color_palette ) {
+							$acc .= "--{$curr}: {$color_palette['colors'][$curr]};";
 
-						return $acc;
-					},
-					''
-				)
-			);
+							return $acc;
+						},
+						''
+					)
+				);
+			}
 
 			$parse_builder_css .= $dynamic_css;
 
 			return apply_filters( 'elearning_theme_builder_dynamic_css', $parse_builder_css );
+		}
+
+		/**
+		 * Generate CSS variables for elearning color palette.
+		 *
+		 * @return string Generated CSS variables.
+		 */
+		public static function generate_color_palette_css_variables() {
+			$global_palette = get_theme_mod(
+				'elearning_color_palette',
+				array(
+					'id'     => 'preset-1',
+					'name'   => 'Preset 1',
+					'colors' => array(
+						'elearning-color-1' => '#269bd1',
+						'elearning-color-2' => '#1e7ba6',
+						'elearning-color-3' => '#FFFFFF',
+						'elearning-color-4' => '#F9FEFD',
+						'elearning-color-5' => '#27272A',
+						'elearning-color-6' => '#16181A',
+						'elearning-color-7' => '#51585f',
+						'elearning-color-8' => '#FFFFFF',
+						'elearning-color-9' => '#e4e4e7',
+					),
+				)
+			);
+
+			$css = ':root {';
+
+			if ( isset( $global_palette['colors'] ) && is_array( $global_palette['colors'] ) ) {
+				foreach ( $global_palette['colors'] as $color_key => $color_value ) {
+					// Generate WordPress preset color variables
+					$css .= '--wp--preset--color--' . $color_key . ':' . $color_value . ';';
+				}
+			}
+
+			$css .= '}';
+
+			return $css;
 		}
 	}
 }

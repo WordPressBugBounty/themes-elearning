@@ -37,6 +37,437 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			}
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_builder_migration' ], 25 );
 			add_action( 'after_setup_theme', [ $this, 'elearning_outside_background_migration' ], 25 );
+
+			add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
+
+			if ( fresh_install_check() ) {
+				add_action( 'after_setup_theme', [ $this, 'elearning_container_width' ], 25 );
+			}
+
+			add_action( 'after_setup_theme', [ $this, 'elearning_typography_migration' ], 30 );
+		}
+
+		public function elearning_typography_migration() {
+
+			if ( get_option( 'elearning_typography_migration' ) ) {
+				return;
+			}
+
+			// Default values for comparison
+			$default_typography_presets   = '';
+			$default_base_typography_body = array(
+				'font-family'    => 'inherit',
+				'font-weight'    => '400',
+				'font-size'      => array(
+					'desktop' => array(
+						'size' => '15',
+						'unit' => 'px',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.8',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+
+			$default_base_heading_typography = array(
+				'font-family'    => 'inherit',
+				'font-weight'    => '400',
+				'line-height'    => array(
+					'desktop' => array(
+						'size' => '1.3',
+						'unit' => '-',
+					),
+					'tablet'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+					'mobile'  => array(
+						'size' => '',
+						'unit' => '',
+					),
+				),
+				'font-style'     => 'normal',
+				'text-transform' => 'none',
+			);
+
+			// Get current values
+			$current_base_typography_body    = get_theme_mod( 'elearning_base_typography_body', $default_base_typography_body );
+			$current_base_heading_typography = get_theme_mod( 'elearning_base_typography_heading', $default_base_heading_typography );
+
+			// Check if current values are different from default values
+			$should_migrate = false;
+
+			// Check base typography body
+			if ( $current_base_typography_body !== $default_base_typography_body ) {
+				$should_migrate = true;
+			}
+
+			// Check base heading typography
+			if ( $current_base_heading_typography !== $default_base_heading_typography ) {
+				$should_migrate = true;
+			}
+
+			// Only run migration if current values are different from default values
+			if ( ! $should_migrate ) {
+				return;
+			}
+
+			remove_theme_mod( 'elearning_typography_presets' );
+
+			$base_typography = get_theme_mod(
+				'elearning_base_typography_body',
+				$default_base_typography_body
+			);
+
+			set_theme_mod( 'elearning_base_typography_body', $base_typography );
+
+			$base_heading_typography = get_theme_mod(
+				'elearning_base_typography_heading',
+				$default_base_heading_typography
+			);
+
+			set_theme_mod( 'elearning_base_typography_heading', $base_heading_typography );
+
+			update_option( 'elearning_typography_migration', true );
+		}
+
+		public static function elearning_container_width() {
+			if ( get_option( 'elearning_container_width_migration' ) ) {
+				return;
+			}
+			set_theme_mod( 'elearning_general_container_width', 1200 );
+
+			update_option( 'elearning_container_width_migration', true );
+		}
+
+		public function elearning_container_migration() {
+
+			if ( get_option( 'elearning_container_migration' ) ) {
+				return;
+			}
+
+			$default_sidebar = get_theme_mod( 'elearning_structure_default', '' );
+			$archive_sidebar = get_theme_mod( 'elearning_structure_archive', '' );
+			$post_sidebar    = get_theme_mod( 'elearning_structure_post', '' );
+			$page_sidebar    = get_theme_mod( 'elearning_structure_page', '' );
+			if ( $default_sidebar ) {
+				if ( 'tg-site-layout--right' === $default_sidebar ) {
+					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_global_sidebar_layout', 'tg-site-layout--right' );
+				} elseif ( 'tg-site-layout--left' === $default_sidebar ) {
+					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_global_sidebar_layout', 'tg-site-layout--left' );
+				} elseif ( 'tg-site-layout--centered' === $default_sidebar ) {
+					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--centered' );
+					set_theme_mod( 'elearning_global_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--no-sidebar' === $default_sidebar ) {
+					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_global_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--stretched' === $default_sidebar ) {
+					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--stretched' );
+					set_theme_mod( 'elearning_global_sidebar_layout', 'no_sidebar' );
+				}
+			}
+
+			if ( $archive_sidebar ) {
+				if ( 'tg-site-layout--right' === $archive_sidebar ) {
+					set_theme_mod( 'elearning_blog_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_blog_sidebar_layout', 'tg-site-layout--right' );
+				} elseif ( 'tg-site-layout--left' === $archive_sidebar ) {
+					set_theme_mod( 'elearning_blog_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_blog_sidebar_layout', 'tg-site-layout--left' );
+				} elseif ( 'tg-site-layout--centered' === $archive_sidebar ) {
+					set_theme_mod( 'elearning_blog_container_layout', 'tg-site-layout--centered' );
+					set_theme_mod( 'elearning_blog_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--no-sidebar' === $archive_sidebar ) {
+					set_theme_mod( 'elearning_blog_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_blog_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--stretched' === $archive_sidebar ) {
+					set_theme_mod( 'elearning_blog_container_layout', 'tg-site-layout--stretched' );
+					set_theme_mod( 'elearning_blog_sidebar_layout', 'no_sidebar' );
+				}
+			}
+
+			if ( $post_sidebar ) {
+				if ( 'tg-site-layout--right' === $post_sidebar ) {
+					set_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_post_sidebar_layout', 'tg-site-layout--right' );
+				} elseif ( 'tg-site-layout--left' === $post_sidebar ) {
+					set_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_post_sidebar_layout', 'tg-site-layout--left' );
+				} elseif ( 'tg-site-layout--centered' === $post_sidebar ) {
+					set_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--centered' );
+					set_theme_mod( 'elearning_single_post_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--no-sidebar' === $post_sidebar ) {
+					set_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_post_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--stretched' === $post_sidebar ) {
+					set_theme_mod( 'elearning_single_post_container_layout', 'tg-site-layout--stretched' );
+					set_theme_mod( 'elearning_single_post_sidebar_layout', 'no_sidebar' );
+				}
+			}
+
+			if ( $page_sidebar ) {
+				if ( 'tg-site-layout--right' === $page_sidebar ) {
+					set_theme_mod( 'elearning_single_page_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_page_sidebar_layout', 'tg-site-layout--right' );
+				} elseif ( 'tg-site-layout--left' === $page_sidebar ) {
+					set_theme_mod( 'elearning_single_page_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_page_sidebar_layout', 'tg-site-layout--left' );
+				} elseif ( 'tg-site-layout--centered' === $page_sidebar ) {
+					set_theme_mod( 'elearning_single_page_container_layout', 'tg-site-layout--centered' );
+					set_theme_mod( 'elearning_single_page_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--no-sidebar' === $page_sidebar ) {
+					set_theme_mod( 'elearning_single_page_container_layout', 'tg-site-layout--no-sidebar' );
+					set_theme_mod( 'elearning_single_page_sidebar_layout', 'no_sidebar' );
+				} elseif ( 'tg-site-layout--stretched' === $page_sidebar ) {
+					set_theme_mod( 'elearning_single_page_container_layout', 'tg-site-layout--stretched' );
+					set_theme_mod( 'elearning_single_page_sidebar_layout', 'no_sidebar' );
+				}
+			}
+
+			// Post meta migration.
+			$arg       = [
+				'post_type'      => 'any',
+				'posts_per_page' => - 1,
+			];
+			$the_query = new WP_Query( $arg );
+
+			// The loop.
+			while ( $the_query->have_posts() ) :
+				$the_query->the_post();
+
+				// Layout.
+				$post_id                   = get_the_ID();
+				$post_meta_style_old_value = get_post_meta( $post_id, 'elearning_layout', true );
+
+				if ( $post_meta_style_old_value ) {
+					if ( 'tg-site-layout--right' === $post_meta_style_old_value ) {
+						update_post_meta( $post_id, 'elearning_container_layout', 'tg-site-layout--no-sidebar' );
+						update_post_meta( $post_id, 'elearning_sidebar_layout', 'tg-site-layout--right' );
+					} elseif ( 'tg-site-layout--left' === $post_meta_style_old_value ) {
+						update_post_meta( $post_id, 'elearning_container_layout', 'tg-site-layout--no-sidebar' );
+						update_post_meta( $post_id, 'elearning_sidebar_layout', 'tg-site-layout--left' );
+					} elseif ( 'tg-site-layout--centered' === $post_meta_style_old_value ) {
+						update_post_meta( $post_id, 'elearning_container_layout', 'tg-site-layout--centered' );
+						update_post_meta( $post_id, 'elearning_sidebar_layout', 'no_sidebar' );
+					} elseif ( 'tg-site-layout--no-sidebar' === $post_meta_style_old_value ) {
+						update_post_meta( $post_id, 'elearning_container_layout', 'tg-site-layout--no-sidebar' );
+						update_post_meta( $post_id, 'elearning_sidebar_layout', 'no_sidebar' );
+					} elseif ( 'tg-site-layout--stretched' === $post_meta_style_old_value ) {
+						update_post_meta( $post_id, 'elearning_container_layout', 'tg-site-layout--stretched' );
+						update_post_meta( $post_id, 'elearning_sidebar_layout', 'no_sidebar' );
+					}
+
+					delete_post_meta( $post_id, 'elearning_layout' );
+				}
+
+				$container_padding = get_theme_mod( 'elearning_content_area_padding', '' );
+				if ( $container_padding ) {
+					$size  = $container_padding['size'] ? $container_padding['size'] : '';
+					$value = array(
+						'top'    => $size,
+						'right'  => $size,
+						'bottom' => $size,
+						'left'   => $size,
+						'unit'   => 'px',
+					);
+					update_post_meta( $post_id, 'elearning_content_area_padding', $value );
+				}
+
+				// Check if color_palette has colors and is properly structured
+				if ( ! empty( $color_palette ) && is_array( $color_palette ) && isset( $color_palette['colors'] ) && is_array( $color_palette['colors'] ) && ! empty( $color_palette['colors'] ) ) {
+					$colors_keys = array_map(
+						function ( $color ) {
+							return 'var(--' . $color . ')';
+						},
+						array_keys( $color_palette['colors'] )
+					);
+					$colors      = array_combine(
+						$colors_keys,
+						array_values( $color_palette['colors'] )
+					);
+				} else {
+					// If no valid color palette, set default preset
+					$default_preset = array(
+						'id'     => 'preset-1',
+						'name'   => 'Preset 1',
+						'colors' => array(
+							'elearning-color-1' => '#eaf3fb',
+							'elearning-color-2' => '#bfdcf3',
+							'elearning-color-3' => '#94c4eb',
+							'elearning-color-4' => '#6aace2',
+							'elearning-color-5' => '#257bc1',
+							'elearning-color-6' => '#1d6096',
+							'elearning-color-7' => '#15446b',
+							'elearning-color-8' => '#0c2941',
+							'elearning-color-9' => '#040e16',
+						),
+					);
+
+					$colors_keys = array_map(
+						function ( $color ) {
+							return 'var(--' . $color . ')';
+						},
+						array_keys( $default_preset['colors'] )
+					);
+					$colors      = array_combine(
+						$colors_keys,
+						array_values( $default_preset['colors'] )
+					);
+
+				}
+
+				$color_id = array(
+					array( 'elearning_base_color_primary', '#269bd1' ),
+					array( 'elearning_base_color_text', '#51585f' ),
+					array( 'elearning_base_color_border', '#E4E4E7' ),
+					array( 'elearning_heading_color', '#16181a' ),
+					array( 'elearning_link_color', '#269bd1' ),
+					array( 'elearning_link_hover_color', '#1e7ba6' ),
+					array( 'elearning_button_text_color', '#ffffff' ),
+					array( 'elearning_button_text_hover_color', '#ffffff' ),
+					array( 'elearning_button_bg_color', '#269bd1' ),
+					array( 'elearning_button_bg_hover_color', '#1e7ba6' ),
+					array( 'elearning_header_button_text_color', '#ffffff' ),
+					array( 'elearning_header_button_text_hover_color', '#ffffff' ),
+					array( 'elearning_header_button_bg_color', '#269bd1' ),
+					array( 'elearning_header_button_bg_hover_color', '#1e7ba6' ),
+					array( 'elearning_header_main_border_bottom_color', '#e9ecef' ),
+					array( 'elearning_post_page_title_color', '#16181a' ),
+					array( 'elearning_primary_menu_border_bottom_color', '#e9ecef' ),
+					array( 'elearning_primary_menu_text_color', '#51585f' ),
+					array( 'elearning_primary_menu_text_hover_color', '#269bd1' ),
+					array( 'elearning_primary_menu_text_active_color', '#269bd1' ),
+					array( 'elearning_site_identity_color', '#16181a' ),
+					array( 'elearning_site_tagline_color', '#51585f' ),
+					array( 'elearning_site_identity_color', '#16181a' ),
+					array( 'elearning_header_top_text_color', '#51585f' ),
+					array( 'elearning_header_bottom_area_color', '#f8f9fa' ),
+					array( 'elearning_header_bottom_area_border_color', '#e9ecef' ),
+					array( 'elearning_cart_color', '#51585f' ),
+					array( 'elearning_header_button_border_color', '#269bd1' ),
+					array( 'elearning_header_button_color', '#ffffff' ),
+					array( 'elearning_header_button_hover_color', '#ffffff' ),
+					array( 'elearning_header_button_background_color', '#269bd1' ),
+					array( 'elearning_header_button_background_hover_color', '#1e7ba6' ),
+					array( 'elearning_header_button_border_color', '#269bd1' ),
+					array( 'elearning_header_html_1_text_color', '#51585f' ),
+					array( 'elearning_header_html_1_link_color', '#269bd1' ),
+					array( 'elearning_header_html_1_link_hover_color', '#1e7ba6' ),
+					array( 'elearning_header_html_2_text_color', '#51585f' ),
+					array( 'elearning_header_html_2_link_color', '#269bd1' ),
+					array( 'elearning_header_html_2_link_hover_color', '#1e7ba6' ),
+					array( 'elearning_header_site_identity_color', '#16181a' ),
+					array( 'elearning_header_site_tagline_color', '#51585f' ),
+					array( 'elearning_header_main_area_color', '#ffffff' ),
+					array( 'elearning_header_main_area_border_color', '#e9ecef' ),
+					array( 'elearning_header_mobile_menu_background', '#ffffff' ),
+					array( 'elearning_header_menu_border_bottom_color', '#e9ecef' ),
+					array( 'elearning_header_main_menu_color', '#51585f' ),
+					array( 'elearning_header_main_menu_hover_color', '#269bd1' ),
+					array( 'elearning_header_main_menu_active_color', '#269bd1' ),
+					array( 'elearning_header_quaternary_menu_color', '#51585f' ),
+					array( 'elearning_header_quaternary_menu_hover_color', '#269bd1' ),
+					array( 'elearning_header_quaternary_menu_active_color', '#269bd1' ),
+					array( 'elearning_header_search_icon_color', '#51585f' ),
+					array( 'elearning_header_search_text_color', '#51585f' ),
+					array( 'elearning_header_secondary_menu_border_bottom_color', '#e9ecef' ),
+					array( 'elearning_header_secondary_menu_color', '#51585f' ),
+					array( 'elearning_header_secondary_menu_hover_color', '#269bd1' ),
+					array( 'elearning_header_secondary_menu_active_color', '#269bd1' ),
+					array( 'elearning_header_tertiary_menu_border_bottom_color', '#e9ecef' ),
+					array( 'elearning_header_tertiary_menu_color', '#51585f' ),
+					array( 'elearning_header_tertiary_menu_hover_color', '#269bd1' ),
+					array( 'elearning_header_tertiary_menu_active_color', '#269bd1' ),
+					array( 'elearning_widget_1_title_color', '#16181a' ),
+					array( 'elearning_widget_1_link_color', '#269bd1' ),
+					array( 'elearning_widget_1_content_color', '#51585f' ),
+					array( 'elearning_widget_2_title_color', '#16181a' ),
+					array( 'elearning_widget_2_link_color', '#269bd1' ),
+					array( 'elearning_widget_2_content_color', '#51585f' ),
+				);
+
+				$color_palette = get_theme_mod( 'elearning_color_palette', array() );
+
+				$theme_installed_time = get_option( 'elearning_theme_installed_time' ); // timestamp
+				$today                = strtotime( '2025-09-15' );
+
+				if ( ! fresh_install_check() || $theme_installed_time < $today ) {
+
+					// Set colors from the palette.
+					if ( ! empty( $colors ) ) {
+						foreach ( $color_id as $color_setting ) {
+							$color_value = get_theme_mod( $color_setting[0], '' );
+							if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
+								if ( array_key_exists( $color_value, $colors ) ) {
+									set_theme_mod( $color_setting[0], $colors[ $color_value ] );
+								}
+							}
+						}
+					}
+
+					// Set default colors for empty values
+					foreach ( $color_id as $color_setting ) {
+						$current_value = get_theme_mod( $color_setting[0], '' );
+						if ( empty( $current_value ) && ! empty( $color_setting[1] ) ) {
+							set_theme_mod( $color_setting[0], $color_setting[1] );
+						}
+					}
+
+					if ( ! empty( $colors ) ) {
+						$bg_id = [
+							'elearning_outside_container_background',
+							'elearning_inside_container_background',
+							'elearning_page_title_bg',
+							'elearning_header_bottom_area_background',
+							'elearning_header_main_area_background',
+							'elearning_header_search_background',
+						];
+						foreach ( $bg_id as $color_setting ) {
+							$color_value = get_theme_mod( $color_setting, '' );
+							if ( is_array( $color_value ) && isset( $color_value['background-color'] ) ) {
+								$color_value = $color_value['background-color'];
+								if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
+									if ( array_key_exists( $color_value, $colors ) ) {
+										set_theme_mod( $color_setting, [ 'background-color' => $colors[ $color_value ] ] );
+									}
+								}
+							}
+						}
+					}
+				}
+
+				// Only clear color palette if it wasn't set to default preset
+				$current_palette = get_theme_mod( 'elearning_color_palette', array() );
+				if ( empty( $current_palette ) || ! isset( $current_palette['id'] ) || $current_palette['id'] !== 'preset-1' ) {
+					set_theme_mod( 'elearning_color_palette', array() );
+				}
+
+				update_option( 'elearning_container_migration', true );
+
+				endwhile;
 		}
 
 		/**
@@ -1024,7 +1455,7 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			normal_to_builder_option( 'elearning_typography_primary_menu_dropdown_item', 'elearning_header_sub_menu_typography' );
 			normal_to_builder_option( 'elearning_header_button_text_color', 'elearning_header_button_color', '#ffffff' );
 			normal_to_builder_option( 'elearning_header_button_text_hover_color', 'elearning_header_button_hover_color', '#ffffff' );
-			normal_to_builder_option( 'elearning_header_button_bg_color', 'elearning_header_button_background_color', '#269bd1' );
+			normal_to_builder_option( 'elearning_header_button_bg_color', 'elearning_header_button_background_color', 'var(--elearning-color-1, #269bd1)' );
 			normal_to_builder_option( 'elearning_header_button_bg_hover_color', 'elearning_header_button_background_hover_color', '#1e7ba6' );
 			normal_to_builder_option( 'elearning_header_button_roundness', 'elearning_header_button_border_radius' );
 			normal_to_builder_option( 'elearning_footer_bar_text_color', 'elearning_footer_bottom_area_color' );

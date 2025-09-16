@@ -7,39 +7,26 @@
  */
 
 (function ($) {
-
 	// Site title.
-	wp.customize(
-		'blogname',
-		function (value) {
-			value.bind(
-				function (to) {
-					$('#site-title a').text(to);
-				}
-			);
-		}
-	);
+	wp.customize('blogname', function (value) {
+		value.bind(function (to) {
+			$('#site-title a').text(to);
+		});
+	});
 
 	// Site description.
-	wp.customize(
-		'blogdescription',
-		function (value) {
-			value.bind(
-				function (to) {
-					$('#site-description').text(to);
-				}
-			);
-		}
-	);
-
+	wp.customize('blogdescription', function (value) {
+		value.bind(function (to) {
+			$('#site-description').text(to);
+		});
+	});
 })(jQuery);
 
 (function ($) {
-
 	function elearningColorPalette(v, to) {
 		let styles = '';
 		Object.entries(to.colors).forEach(([k, v]) => {
-			styles += `--${k}:${v};`;
+			styles += `--wp--preset--color--${k}:${v};`;
 		});
 		v = `:root {${styles}}`;
 		return v;
@@ -118,7 +105,7 @@
 		if ('object' == typeof typography) {
 			if (undefined !== typography['font-size']) {
 				if (
-					undefined !== typography['font-size']['desktop']['size'] &&
+					'undefined' !== typeof typography?.['font-size']?.desktop?.size &&
 					'' !== typography['font-size']['desktop']['size']
 				) {
 					desktopFontSize =
@@ -127,7 +114,7 @@
 				}
 
 				if (
-					undefined !== typography['font-size']['tablet']['size'] &&
+					'undefined' !== typeof typography?.['font-size']?.tablet?.size &&
 					'' !== typography['font-size']['tablet']['size']
 				) {
 					tabletFontSize =
@@ -136,7 +123,7 @@
 				}
 
 				if (
-					undefined !== typography['font-size']['mobile']['size'] &&
+					'undefined' !== typeof typography?.['font-size']?.mobile?.size &&
 					'' !== typography['font-size']['mobile']['size']
 				) {
 					mobileFontSize =
@@ -147,7 +134,7 @@
 
 			if (undefined !== typography['line-height']) {
 				if (
-					undefined !== typography['line-height']['desktop']['size'] &&
+					'undefined' !== typeof typography?.['line-height']?.desktop?.size &&
 					'' !== typography['line-height']['desktop']['size']
 				) {
 					const desktopLineHeightUnit =
@@ -160,7 +147,7 @@
 				}
 
 				if (
-					undefined !== typography['line-height']['tablet']['size'] &&
+					'undefined' !== typeof typography?.['line-height']?.tablet?.size &&
 					'' !== typography['line-height']['tablet']['size']
 				) {
 					const tabletLineHeightUnit =
@@ -172,7 +159,7 @@
 				}
 
 				if (
-					undefined !== typography['line-height']['mobile']['size'] &&
+					'undefined' !== typeof typography?.['line-height']?.mobile?.size &&
 					'' !== typography['line-height']['mobile']['size']
 				) {
 					const mobileLineHeightUnit =
@@ -186,7 +173,8 @@
 
 			if (undefined !== typography['letter-spacing']) {
 				if (
-					undefined !== typography['letter-spacing']['desktop']['size'] &&
+					'undefined' !==
+						typeof typography?.['letter-spacing']?.desktop?.size &&
 					'' !== typography['letter-spacing']['desktop']['size']
 				) {
 					const desktopLetterSpacingUnit =
@@ -199,7 +187,7 @@
 				}
 
 				if (
-					undefined !== typography['letter-spacing']['tablet']['size'] &&
+					'undefined' !== typeof typography?.['letter-spacing']?.tablet?.size &&
 					'' !== typography['letter-spacing']['tablet']['size']
 				) {
 					const tabletLetterSpacingUnit =
@@ -212,7 +200,7 @@
 				}
 
 				if (
-					undefined !== typography['letter-spacing']['mobile']['size'] &&
+					'undefined' !== typeof typography?.['letter-spacing']?.mobile?.size &&
 					'' !== typography['letter-spacing']['mobile']['size']
 				) {
 					const mobileLetterSpacingUnit =
@@ -233,7 +221,8 @@
 				fontFamily = fontFamily.replace(/'/g, '');
 
 				if (
-					fontFamily.includes('default') || fontFamily.includes('Default') ||
+					fontFamily.includes('default') ||
+					fontFamily.includes('Default') ||
 					fontFamily.includes('-apple-system')
 				) {
 					fontFamily =
@@ -329,11 +318,7 @@
 					css = elearningColorPalette(css, value);
 					break;
 				case 'elearning_base_color_text':
-					css = elearningGenerateCommonCSS(
-						'body, a',
-						'color',
-						value,
-					);
+					css = elearningGenerateCommonCSS('body, a', 'color', value);
 					break;
 
 				case 'elearning_base_color_border':
@@ -342,7 +327,11 @@
 						'border-color',
 						value,
 					);
-					css += elearningGenerateCommonCSS('hr .tg-container--separate', 'background-color', value);
+					css += elearningGenerateCommonCSS(
+						'hr .tg-container--separate',
+						'background-color',
+						value,
+					);
 					break;
 
 				case 'elearning_link_color':
@@ -366,11 +355,7 @@
 					break;
 
 				case 'elearning_general_container_width':
-					css = elearningGenerateSliderCSS(
-						'.tg-container',
-						'max-width',
-						value,
-					);
+					css = elearningGenerateSliderCSS('.tg-container', 'max-width', value);
 					break;
 
 				case 'elearning_general_sidebar_width':
@@ -383,12 +368,12 @@
 					break;
 
 				case 'elearning_content_area_padding':
-					css = elearningGenerateSliderCSS(
+					css = elearningGenerateDimensionCSS(
 						'.site-content',
 						'padding-top',
 						value,
 					);
-					css += elearningGenerateSliderCSS(
+					css += elearningGenerateDimensionCSS(
 						'.site-content',
 						'padding-bottom',
 						value,
@@ -400,7 +385,10 @@
 					break;
 
 				case 'elearning_outside_container_background':
-					css = elearningGenerateBackgroundCSS('body,body.page-template-pagebuilder', value);
+					css = elearningGenerateBackgroundCSS(
+						'body,body.page-template-pagebuilder',
+						value,
+					);
 					break;
 
 				case 'elearning_base_typography_body':
@@ -408,7 +396,11 @@
 					break;
 
 				case 'elearning_base_typography_heading':
-					css = elearningGenerateTypographyCSS(id, 'h1, h2, h3, h4, h5, h6', value);
+					css = elearningGenerateTypographyCSS(
+						id,
+						'h1, h2, h3, h4, h5, h6',
+						value,
+					);
 					break;
 
 				case 'elearning_typography_h1':
@@ -437,7 +429,7 @@
 
 				case 'elearning_button_text_color':
 					css = elearningGenerateCommonCSS(
-						`button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,.tg-header-button a`,
+						`button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,.tg-header-button a,.site-content .wp-block-button .wp-block-buttons .wp-block-button__link`,
 						'color',
 						value,
 					);
@@ -445,7 +437,7 @@
 
 				case 'elearning_button_text_hover_color':
 					css = elearningGenerateCommonCSS(
-						`button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.tg-header-button a:hover`,
+						`button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.tg-header-button a:hover, .site-content .wp-block-button .wp-block-buttons .wp-block-button__link:hover `,
 						'color',
 						value,
 					);
@@ -453,7 +445,7 @@
 
 				case 'elearning_button_bg_color':
 					css = elearningGenerateCommonCSS(
-						`button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,.tg-header-button a`,
+						`button, input[type="button"], input[type="reset"], input[type="submit"], #infinite-handle span,.tg-header-button a,#page .site-main .site-content .wp-block-button .wp-block-buttons .wp-block-button__link`,
 						'background-color',
 						value,
 					);
@@ -461,7 +453,7 @@
 
 				case 'elearning_button_bg_hover_color':
 					css = elearningGenerateCommonCSS(
-						`button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.tg-header-button a:hover`,
+						`button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, #infinite-handle span:hover,.tg-header-button a:hover,#page .site-main .site-content .wp-block-button .wp-block-buttons .wp-block-button__link:hover`,
 						'background-color',
 						value,
 					);
@@ -492,7 +484,10 @@
 					break;
 
 				case 'elearning_header_top_bg':
-					css = elearningGenerateBackgroundCSS('.tg-site-header .tg-site-header-top', value);
+					css = elearningGenerateBackgroundCSS(
+						'.tg-site-header .tg-site-header-top',
+						value,
+					);
 					break;
 
 				case 'elearning_header_main_bg':
@@ -563,7 +558,11 @@
 					break;
 
 				case 'elearning_typography_mobile_menu':
-					css = elearningGenerateTypographyCSS(id, '.tg-mobile-navigation a', value);
+					css = elearningGenerateTypographyCSS(
+						id,
+						'.tg-mobile-navigation a',
+						value,
+					);
 					break;
 
 				case 'elearning_primary_menu_border_bottom_size':
@@ -661,16 +660,24 @@
 					);
 					break;
 				case 'elearning_widget_title_typography':
-					css = elearningGenerateTypographyCSS(id, '.tg-secondary .widget .widget-title, .tg-secondary .widget .wp-block-heading', value,);
+					css = elearningGenerateTypographyCSS(
+						id,
+						'.tg-secondary .widget .widget-title, .tg-secondary .widget .wp-block-heading',
+						value,
+					);
 					break;
 				case 'elearning_widget_content_typography':
-					css = elearningGenerateTypographyCSS(id,
+					css = elearningGenerateTypographyCSS(
+						id,
 						'.tg-secondary .widget, .tg-secondary .widget li a',
 						value,
 					);
 					break;
 				case 'elearning_footer_widgets_bg':
-					css = elearningGenerateBackgroundCSS('.tg-site-footer-widgets', value);
+					css = elearningGenerateBackgroundCSS(
+						'.tg-site-footer-widgets',
+						value,
+					);
 					break;
 
 				case 'elearning_footer_widgets_border_top_width':
@@ -738,7 +745,10 @@
 					break;
 
 				case 'elearning_footer_bar_bg':
-					css = elearningGenerateBackgroundCSS('.tg-site-footer .tg-site-footer-bar', value);
+					css = elearningGenerateBackgroundCSS(
+						'.tg-site-footer .tg-site-footer-bar',
+						value,
+					);
 					break;
 
 				case 'elearning_footer_bar_border_top_width':
@@ -758,11 +768,19 @@
 					break;
 
 				case 'elearning_footer_bar_text_color':
-					css = elearningGenerateCommonCSS('.tg-site-footer .tg-site-footer-bar', 'color', value);
+					css = elearningGenerateCommonCSS(
+						'.tg-site-footer .tg-site-footer-bar',
+						'color',
+						value,
+					);
 					break;
 
 				case 'elearning_footer_bar_link_color':
-					css = elearningGenerateCommonCSS('.tg-site-footer .tg-site-footer-bar a', 'color', value);
+					css = elearningGenerateCommonCSS(
+						'.tg-site-footer .tg-site-footer-bar a',
+						'color',
+						value,
+					);
 					break;
 
 				case 'elearning_footer_bar_link_hover_color':
@@ -1295,6 +1313,22 @@
 					);
 					break;
 
+				case 'elearning_header_button_typography':
+					css = elearningGenerateTypographyCSS(
+						id,
+						`.tg-header-builder .tg-header-buttons .tg-header-button .tg-button`,
+						value,
+					);
+					break;
+
+				case 'elearning_button_typography':
+					css = elearningGenerateTypographyCSS(
+						id,
+						`button, input[type="button"], input[type="reset"], input[type="submit"], .wp-block-button .wp-block-button__link`,
+						value,
+					);
+					break;
+
 				case 'elearning_header_button_hover_color':
 					css = elearningGenerateCommonCSS(
 						'.tg-header-builder .tg-header-buttons .tg-header-button .tg-button:hover',
@@ -1514,10 +1548,15 @@
 					);
 					break;
 				case 'elearning_footer_main_area_padding':
-					css = elearningGenerateDimensionCSS('.tg-footer-builder .tg-footer-main-row', 'padding', value,);
+					css = elearningGenerateDimensionCSS(
+						'.tg-footer-builder .tg-footer-main-row',
+						'padding',
+						value,
+					);
 					break;
 				case 'elearning_footer_main_area_margin':
-					css = elearningGenerateDimensionCSS('.tg-footer-builder .tg-footer-main-row',
+					css = elearningGenerateDimensionCSS(
+						'.tg-footer-builder .tg-footer-main-row',
 						'margin',
 						value,
 					);
@@ -2217,8 +2256,33 @@
 		},
 	);
 
-	// wp.hooks.addAction("customind.change.elearning_color_palette", "customind", (...args) => {
-	// 	console.log(args);},
-	// );
+	wp.hooks.addAction(
+		'customind.change.elearning_color_palette',
+		'customind',
+		function (newValue) {
+			// Trigger the color palette change event
+			jQuery(document).trigger('elearning_color_palette_changed', [newValue]);
 
+			// Update WordPress preset color variables immediately
+			if (newValue && newValue.colors) {
+				const root = document.documentElement;
+				Object.entries(newValue.colors).forEach(([key, colorValue]) => {
+					root.style.setProperty('--wp--preset--color--' + key, colorValue);
+				});
+			}
+		},
+	);
+
+	// Add customizer control change handler for elearning_color_palette
+	wp.customize('elearning_color_palette', function (value) {
+		value.bind(function (newValue) {
+			// Update WordPress preset color variables immediately when palette changes
+			if (newValue && newValue.colors) {
+				const root = document.documentElement;
+				Object.entries(newValue.colors).forEach(([key, colorValue]) => {
+					root.style.setProperty('--wp--preset--color--' + key, colorValue);
+				});
+			}
+		});
+	});
 })(jQuery);

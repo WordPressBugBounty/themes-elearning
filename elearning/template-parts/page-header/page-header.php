@@ -21,8 +21,8 @@ if ( ! in_array( $markup, $allowed_markup, true ) ) {
 }
 
 // Final.
-$markup = apply_filters( 'elearning_page_header_markup', $markup );
-$page_header_enable = get_theme_mod( 'elearning_enable_page_title', true );
+$markup             = apply_filters( 'elearning_page_header_markup', $markup );
+$page_header_enable = get_theme_mod( 'elearning_enable_page_title', false );
 
 do_action( 'elearning_before_page_header' );
 
@@ -38,7 +38,7 @@ if ( ! $page_header_enable ) {
 				$page_title = elearning_get_title();
 
 				// Page header title.
-				echo sprintf(
+				printf(
 					'<%1$s class="tg-page-header__title">%2$s</%1$s>',
 					esc_attr( $markup ),
 					wp_kses_post( $page_title )

@@ -6,7 +6,7 @@ $panel_options_id = array(
 		'priority' => 10,
 	),
 	'elearning_header_builder' => array(
-		'title'    => esc_html__( 'Header Builder', 'elearning' ),
+		'title'    => esc_html__( 'Header', 'elearning' ),
 		'priority' => 10,
 	),
 	'elearning_header'         => array(
@@ -14,7 +14,7 @@ $panel_options_id = array(
 		'priority' => 10,
 	),
 	'elearning_content'        => array(
-		'title'    => esc_html__( 'Content', 'elearning' ),
+		'title'    => esc_html__( 'Post Content', 'elearning' ),
 		'priority' => 10,
 	),
 	'elearning_footer'         => array(
@@ -22,12 +22,15 @@ $panel_options_id = array(
 		'priority' => 10,
 	),
 	'elearning_footer_builder' => array(
-		'title'    => esc_html__( 'Footer Builder', 'elearning' ),
+		'title'    => esc_html__( 'Footer', 'elearning' ),
 		'priority' => 10,
 	),
 	'elearning_additional'     => array(
 		'title'    => esc_html__( 'Additional', 'elearning' ),
 		'priority' => 10,
+	),
+	'header_image'             => array(
+		'title' => esc_html__( 'Header Media', 'elearning' ),
 	),
 );
 
@@ -37,35 +40,30 @@ $section_option_id = array(
 		'panel'    => 'elearning_header',
 		'priority' => 1,
 	),
+	'elearning_typography'                     => array(
+		'title'    => esc_html__( 'Typography', 'elearning' ),
+		'panel'    => 'elearning_global',
+		'priority' => 5,
+	),
 	'elearning_colors'                         => array(
 		'title'    => esc_html__( 'Colors', 'elearning' ),
 		'panel'    => 'elearning_global',
 		'priority' => 5,
 	),
 	'elearning_container'                      => array(
-		'title'    => esc_html__( 'Container', 'elearning' ),
+		'title'    => esc_html__( 'Layouts', 'elearning' ),
 		'panel'    => 'elearning_global',
 		'priority' => 10,
-	),
-	'elearning_content_area'                   => array(
-		'title'    => esc_html__( 'Content Area', 'elearning' ),
-		'panel'    => 'elearning_global',
-		'priority' => 15,
-	),
-	'elearning_sidebar_layout'                 => array(
-		'title'    => esc_html__( 'Sidebar', 'elearning' ),
-		'panel'    => 'elearning_global',
-		'priority' => 20,
-	),
-	'elearning_typography'                     => array(
-		'title'    => esc_html__( 'Typography', 'elearning' ),
-		'panel'    => 'elearning_global',
-		'priority' => 25,
 	),
 	'elearning_button'                         => array(
 		'title'    => esc_html__( 'Button', 'elearning' ),
 		'panel'    => 'elearning_global',
 		'priority' => 30,
+	),
+	'elearning_sidebar_layout'                 => array(
+		'title'    => esc_html__( 'Sidebar', 'elearning' ),
+		'panel'    => 'elearning_global',
+		'priority' => 20,
 	),
 	'elearning_header_top'                     => array(
 		'title'    => esc_html__( 'Top Bar', 'elearning' ),
@@ -102,24 +100,24 @@ $section_option_id = array(
 		'panel'    => 'elearning_header',
 		'priority' => 30,
 	),
-	'header_image'                             => array(
-		'title'    => esc_html__( 'Header Media', 'elearning' ),
-		'panel'    => 'elearning_header',
-		'priority' => 35,
-	),
 	'elearning_page_header'                    => array(
 		'title'    => esc_html__( 'Page Header', 'elearning' ),
-		'panel'    => 'elearning_header',
-		'priority' => 40,
+		'panel'    => 'elearning_content',
+		'priority' => 90,
 	),
 	'elearning_breadcrumb'                     => array(
 		'title'    => esc_html__( 'Breadcrumb', 'elearning' ),
-		'panel'    => 'elearning_header',
+		'panel'    => 'elearning_additional',
 		'priority' => 45,
 	),
 	'elearning_transparent_header'             => array(
 		'title'    => esc_html__( 'Transparent Header', 'elearning' ),
-		'panel'    => 'elearning_header',
+		'panel'    => 'elearning_header_builder',
+		'priority' => 45,
+	),
+	'elearning_global_header'                  => array(
+		'title'    => esc_html__( 'Global Header', 'elearning' ),
+		'panel'    => 'elearning_header_builder',
 		'priority' => 45,
 	),
 	'elearning_header_builder_socials'         => array(
@@ -144,6 +142,11 @@ $section_option_id = array(
 	),
 	'elearning_single_blog_post'               => array(
 		'title'    => esc_html__( 'Single Post', 'elearning' ),
+		'panel'    => 'elearning_content',
+		'priority' => 10,
+	),
+	'elearning_single_page_section'            => array(
+		'title'    => esc_html__( 'Single Page', 'elearning' ),
 		'panel'    => 'elearning_content',
 		'priority' => 10,
 	),
@@ -172,8 +175,8 @@ $section_option_id = array(
 		'panel'    => 'elearning_additional',
 		'priority' => 15,
 	),
-	'elearning_optimization'                   => array(
-		'title'    => esc_html__( 'Optimization', 'elearning' ),
+	'elearning_performance'                    => array(
+		'title'    => esc_html__( 'Performance', 'elearning' ),
 		'panel'    => 'elearning_additional',
 		'priority' => 5,
 	),
