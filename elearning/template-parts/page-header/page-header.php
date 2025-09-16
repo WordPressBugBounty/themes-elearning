@@ -22,7 +22,7 @@ if ( ! in_array( $markup, $allowed_markup, true ) ) {
 
 // Final.
 $markup             = apply_filters( 'elearning_page_header_markup', $markup );
-$page_header_enable = get_theme_mod( 'elearning_enable_page_title', false );
+$page_header_enable = get_theme_mod( 'elearning_enable_page_title', true );
 
 do_action( 'elearning_before_page_header' );
 

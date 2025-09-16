@@ -20,7 +20,7 @@ $options = array(
 	),
 	'elearning_enable_page_title'          => array(
 		'title'     => esc_html__( 'Enable', 'elearning' ),
-		'default'   => false,
+		'default'   => true,
 		'type'      => 'customind-toggle',
 		'section'   => 'elearning_page_header',
 		'tab_group' => 'elearning_page_header_tab_group',

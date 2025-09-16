@@ -38,7 +38,13 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_builder_migration' ], 25 );
 			add_action( 'after_setup_theme', [ $this, 'elearning_outside_background_migration' ], 25 );
 
-			add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
+			$theme_installed_time = get_option( 'elearning_theme_installed_time' ); // timestamp
+			$today                = strtotime( '2025-09-15' );
+
+			if ( ! fresh_install_check() || $theme_installed_time < $today ) {
+				add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
+			}
+			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_container_migration' ], 25 );
 
 			if ( fresh_install_check() ) {
 				add_action( 'after_setup_theme', [ $this, 'elearning_container_width' ], 25 );
@@ -157,13 +163,21 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 				return;
 			}
 			set_theme_mod( 'elearning_general_container_width', 1200 );
+			set_theme_mod( 'elearning_enable_page_title', false );
 
 			update_option( 'elearning_container_width_migration', true );
 		}
 
 		public function elearning_container_migration() {
 
-			if ( get_option( 'elearning_container_migration' ) ) {
+			$should_run = false;
+			if ( doing_action( 'themegrill_ajax_demo_imported' ) ) {
+				$should_run = true;
+			} elseif ( ! get_option( 'elearning_container_migration' ) ) {
+				$should_run = true;
+			}
+
+			if ( ! $should_run ) {
 				return;
 			}
 
@@ -411,59 +425,54 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 
 				$color_palette = get_theme_mod( 'elearning_color_palette', array() );
 
-				$theme_installed_time = get_option( 'elearning_theme_installed_time' ); // timestamp
-				$today                = strtotime( '2025-09-15' );
-
-				if ( ! fresh_install_check() || $theme_installed_time < $today ) {
-
 					// Set colors from the palette.
-					if ( ! empty( $colors ) ) {
-						foreach ( $color_id as $color_setting ) {
-							$color_value = get_theme_mod( $color_setting[0], '' );
-							if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
-								if ( array_key_exists( $color_value, $colors ) ) {
-									set_theme_mod( $color_setting[0], $colors[ $color_value ] );
-								}
-							}
-						}
-					}
-
-					// Set default colors for empty values
+				if ( ! empty( $colors ) ) {
 					foreach ( $color_id as $color_setting ) {
-						$current_value = get_theme_mod( $color_setting[0], '' );
-						if ( empty( $current_value ) && ! empty( $color_setting[1] ) ) {
-							set_theme_mod( $color_setting[0], $color_setting[1] );
+						$color_value = get_theme_mod( $color_setting[0], '' );
+						if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
+							$key = str_replace( 'var(--', '', $color_value );
+							$key = str_replace( ')', '', $key );
+							if ( isset( $colors[ $key ] ) ) {
+								set_theme_mod( $color_setting[0], $colors[ $key ] );
+							}
+						} else {
+							// If the value is not a CSS variable, ensure it's saved as is.
+							if ( ! empty( $color_value ) ) {
+								set_theme_mod( $color_setting[0], $color_value );
+							} elseif ( ! empty( $color_setting[1] ) ) {
+								set_theme_mod( $color_setting[0], $color_setting[1] );
+							}
 						}
 					}
+				}
 
-					if ( ! empty( $colors ) ) {
-						$bg_id = [
-							'elearning_outside_container_background',
-							'elearning_inside_container_background',
-							'elearning_page_title_bg',
-							'elearning_header_bottom_area_background',
-							'elearning_header_main_area_background',
-							'elearning_header_search_background',
-						];
-						foreach ( $bg_id as $color_setting ) {
-							$color_value = get_theme_mod( $color_setting, '' );
-							if ( is_array( $color_value ) && isset( $color_value['background-color'] ) ) {
-								$color_value = $color_value['background-color'];
-								if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
-									if ( array_key_exists( $color_value, $colors ) ) {
-										set_theme_mod( $color_setting, [ 'background-color' => $colors[ $color_value ] ] );
-									}
+				if ( ! empty( $colors ) ) {
+					$bg_id = [
+						'elearning_outside_container_background',
+						'elearning_inside_container_background',
+						'elearning_page_title_bg',
+						'elearning_header_bottom_area_background',
+						'elearning_header_main_area_background',
+						'elearning_header_search_background',
+					];
+
+					foreach ( $bg_id as $color_setting ) {
+						$value = get_theme_mod( $color_setting, '' );
+						if ( is_array( $value ) && isset( $value['background-color'] ) ) {
+							$color_value = $value['background-color'];
+							if ( strpos( $color_value, 'var(--elearning-color' ) === 0 ) {
+								$key = str_replace( 'var(--', '', $color_value );
+								$key = str_replace( ')', '', $key );
+								if ( isset( $colors[ $key ] ) ) {
+									$value['background-color'] = $colors[ $key ];
+									set_theme_mod( $color_setting, $value );
 								}
 							}
 						}
 					}
 				}
 
-				// Only clear color palette if it wasn't set to default preset
-				$current_palette = get_theme_mod( 'elearning_color_palette', array() );
-				if ( empty( $current_palette ) || ! isset( $current_palette['id'] ) || $current_palette['id'] !== 'preset-1' ) {
-					set_theme_mod( 'elearning_color_palette', array() );
-				}
+				set_theme_mod( 'elearning_color_palette', array() );
 
 				update_option( 'elearning_container_migration', true );
 

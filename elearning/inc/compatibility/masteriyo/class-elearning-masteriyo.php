@@ -31,7 +31,7 @@ if ( ! class_exists( 'eLearning_Masteriyo' ) ) :
 		 * eLearning_Masteriyo constructor.
 		 */
 		private function __construct() {
-			if ( get_theme_mod( 'elearning_enable_page_title', false ) && 'page-header' === get_theme_mod( 'elearning_page_title', 'page-header' ) ) {
+			if ( get_theme_mod( 'elearning_enable_page_title', true ) && 'page-header' === get_theme_mod( 'elearning_page_title', 'page-header' ) ) {
 				add_filter( 'masteriyo_show_page_title', array( $this, '__return_false' ) );
 				remove_action( 'masteriyo_single_course_content', 'masteriyo_single_course_title', 30 );
 			}
