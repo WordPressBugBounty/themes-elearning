@@ -1271,13 +1271,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                           .= elearning_parse_css( '#e9ecef', $primary_menu_border_bottom_color, $primary_menu_border_bottom_color_css );
 
 			// Primary menu item color.
-			//          $primary_menu_item_color_normal     = get_theme_mod( 'elearning_primary_menu_text_color', '' );
-			//          $primary_menu_item_color_normal_css = array(
-			//              '.tg-primary-menu > div > ul li:not(.tg-header-button-wrap) a' => array(
-			//                  'color' => esc_html( $primary_menu_item_color_normal ),
-			//              ),
-			//          );
-			//          $parse_css                         .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $primary_menu_item_color_normal, $primary_menu_item_color_normal_css );
+			$primary_menu_item_color_normal     = get_theme_mod( 'elearning_primary_menu_text_color', '' );
+			$primary_menu_item_color_normal_css = array(
+				'.tg-primary-menu > div > ul li:not(.tg-header-button-wrap) a' => array(
+					'color' => esc_html( $primary_menu_item_color_normal ),
+				),
+			);
+			$parse_css                         .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $primary_menu_item_color_normal, $primary_menu_item_color_normal_css );
 
 			// Primary menu item hover color.
 			$primary_menu_item_color_hover     = get_theme_mod( 'elearning_primary_menu_text_hover_color', '' );
