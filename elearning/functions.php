@@ -55,8 +55,6 @@ if ( defined( 'AMP__VERSION' ) && ( ! version_compare( AMP__VERSION, '1.0.0', '<
 // Load customind.
 require_once ELEARNING_PARENT_INC_DIR . '/customizer/customind/init.php';
 
-//require __DIR__ . '/../customind/init.php';
-
 /**
  * @var \Customind\Core\Customind
  */

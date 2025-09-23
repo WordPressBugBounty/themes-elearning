@@ -16,6 +16,7 @@ $sidebar = apply_filters( 'elearning_get_sidebar', 'sidebar-right' );
 if ( in_array( elearning_get_current_layout(), array( 'no_sidebar', 'tg-site-layout--no-sidebar', 'tg-site-layout--default', 'tg-site-layout--stretched', 'tg-site-layout--centered' ), true ) ) {
 	return '';
 }
+
 ?>
 
 <aside id="secondary" class="tg-site-sidebar widget-area <?php elearning_sidebar_class(); ?>">

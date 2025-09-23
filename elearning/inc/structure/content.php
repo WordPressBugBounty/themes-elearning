@@ -164,14 +164,12 @@ if ( ! function_exists( 'elearning_get_sidebar' ) ) {
 	function elearning_get_sidebar( $sidebar ) {
 
 		$current_layout = elearning_get_current_layout();
-		$sidebar_meta   = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_sidebar', true );
+		$sidebar_meta   = get_post_meta( eLearning_Utils::get_post_id(), 'elearning_sidebar_layout', true );
 
-		if ( $sidebar_meta ) {
-			return $sidebar_meta;
-		} else {
-			if ( 'tg-site-layout--left' === $current_layout ) {
+		if ( 'tg-site-layout--left' === $current_layout ) {
 				return 'sidebar-left';
-			}
+		} elseif ( 'tg-site-layout-right' === $current_layout ) {
+			return 'sidebar-left';
 		}
 
 		return $sidebar;

@@ -343,6 +343,10 @@ if ( ! function_exists( 'elearning_parse_typography_css' ) ) :
 	 */
 	function elearning_parse_typography_css( $default_value, $output_value, $selector, $devices = array() ) {
 
+		if ( isset( $output_value['font-family'] ) && 'Inherit' === $output_value['font-family'] ) {
+			$output_value['font-family'] = 'inherit';
+		}
+
 		if ( $default_value === $output_value ) {
 			return;
 		}
@@ -352,6 +356,7 @@ if ( ! function_exists( 'elearning_parse_typography_css' ) ) :
 		// For font family.
 		$default_value_font_family = isset( $default_value['font-family'] ) ? $default_value['font-family'] : '';
 		if ( isset( $output_value['font-family'] ) && ! empty( $output_value['font-family'] ) && ( $output_value['font-family'] !== $default_value_font_family ) ) {
+
 			$parse_css .= 'font-family:' . $output_value['font-family'] . ';';
 		}
 
@@ -522,19 +527,19 @@ if ( ! function_exists( 'elearning_parse_dimension_css' ) ) :
 
 		if ( 'border-width' === $property ) {
 
-			if ( isset( $output_value['top'] ) && ! empty( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
+			if ( isset( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
 				$parse_css .= 'border-top-width:' . $output_value['top'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['right'] ) && ! empty( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
+			if ( isset( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
 				$parse_css .= 'border-right-width:' . $output_value['right'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['bottom'] ) && ! empty( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
+			if ( isset( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
 				$parse_css .= 'border-bottom-width:' . $output_value['bottom'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['left'] ) && ! empty( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
+			if ( isset( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
 				$parse_css .= 'border-left-width:' . $output_value['left'] . $unit . ';';
 			}
 		} elseif ( 'border-radius' === $property ) {
@@ -594,7 +599,7 @@ if ( ! function_exists( 'elearning_parse_slider_css' ) ) :
 
 		$parse_css = '';
 
-		if ( isset( $output_value['size'] ) && $output_value['size'] !== '' ) {
+		if ( isset( $output_value['size'] ) && $output_value['size'] !== '' && is_scalar( $output_value['size'] ) ) {
 
 			if ( strpos( $selector, ',' ) !== false ) {
 
@@ -607,7 +612,7 @@ if ( ! function_exists( 'elearning_parse_slider_css' ) ) :
 
 					foreach ( $property_array as $properties ) {
 
-						$unit       = isset( $output_value['unit'] ) ? $output_value['unit'] : ( isset( $default_value['unit'] ) ? $default_value['unit'] : 'px' );
+						$unit       = isset( $output_value['unit'] ) ? (string) $output_value['unit'] : ( isset( $default_value['unit'] ) ? (string) $default_value['unit'] : 'px' );
 						$parse_css .= $properties . ':' . $output_value['size'] . $unit . ';';
 					}
 
@@ -617,7 +622,7 @@ if ( ! function_exists( 'elearning_parse_slider_css' ) ) :
 
 				$parse_css .= $selector . '{';
 
-				$unit       = isset( $output_value['unit'] ) ? $output_value['unit'] : ( isset( $default_value['unit'] ) ? $default_value['unit'] : 'px' );
+				$unit       = isset( $output_value['unit'] ) ? (string) $output_value['unit'] : ( isset( $default_value['unit'] ) ? (string) $default_value['unit'] : 'px' );
 				$parse_css .= $property . ':' . $output_value['size'] . $unit . ';';
 				$parse_css .= '}';
 			}

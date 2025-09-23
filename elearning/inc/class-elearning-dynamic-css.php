@@ -65,25 +65,25 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_1_default,
 				$footer_widget_1_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title',
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title,.tg-footer-builder .widget.widget-footer-sidebar-1 .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_1_default,
 				$footer_widget_1_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-1 .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_1_default,
 				$footer_widget_1_header_negative,
-				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-1 .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_1_border_color     = get_theme_mod( 'elearning_footer_widget_1_heading_border_color', '' );
 			$footer_widget_1_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-1 .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_1_border_color ),
 				),
 			);
@@ -91,7 +91,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			$footer_widget_1_accent_color     = get_theme_mod( 'elearning_footer_widget_1_heading_border_accent_color', '' );
 			$footer_widget_1_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-1 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-1 .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_1_accent_color ),
 				),
 			);
@@ -112,25 +112,25 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_2_default,
 				$footer_widget_2_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title',
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-2 .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_2_default,
 				$footer_widget_2_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-2 .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_2_default,
 				$footer_widget_2_header_negative,
-				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-2 .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_2_border_color     = get_theme_mod( 'elearning_footer_widget_2_heading_border_color', '' );
 			$footer_widget_2_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-2 .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_2_border_color ),
 				),
 			);
@@ -138,7 +138,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			$footer_widget_2_accent_color     = get_theme_mod( 'elearning_footer_widget_2_heading_border_accent_color', '' );
 			$footer_widget_2_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-2 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-2 .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_2_accent_color ),
 				),
 			);
@@ -159,19 +159,19 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_3_default,
 				$footer_widget_3_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title',
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_3_default,
 				$footer_widget_3_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_3_default,
 				$footer_widget_3_header_negative,
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before',
 				'bottom'
 			);
 
@@ -183,9 +183,9 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 			$parse_css                       .= elearning_parse_css( '', $footer_widget_3_border_color, $footer_widget_3_border_color_css );
 
-			$footer_widget_3_accent_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_accent_color', '' );
+			$footer_widget_3_accent_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_accent_color,', '' );
 			$footer_widget_3_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_3_accent_color ),
 				),
 			);
@@ -206,25 +206,25 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_4_default,
 				$footer_widget_4_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title',
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-4 .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_4_default,
 				$footer_widget_4_header,
-				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-4 .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_4_default,
 				$footer_widget_4_header_negative,
-				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-4 .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_4_border_color     = get_theme_mod( 'elearning_footer_widget_4_heading_border_color', '' );
 			$footer_widget_4_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-4 .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_4_border_color ),
 				),
 			);
@@ -232,7 +232,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			$footer_widget_4_accent_color     = get_theme_mod( 'elearning_footer_widget_4_heading_border_accent_color', '' );
 			$footer_widget_4_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-4 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-4 .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_4_accent_color ),
 				),
 			);
@@ -253,25 +253,25 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_5_default,
 				$footer_widget_5_header,
-				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title',
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title, .tg-footer-builder .widget.widget-footer-bar-left-sidebar .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_5_default,
 				$footer_widget_5_header,
-				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-left-sidebar .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_5_default,
 				$footer_widget_5_header_negative,
-				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-left-sidebar .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_5_border_color     = get_theme_mod( 'elearning_footer_widget_5_heading_border_color', '' );
 			$footer_widget_5_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title, .tg-footer-builder .widget.widget-footer-bar-left-sidebar .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_5_border_color ),
 				),
 			);
@@ -279,7 +279,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			$footer_widget_5_accent_color     = get_theme_mod( 'elearning_footer_widget_5_heading_border_accent_color', '' );
 			$footer_widget_5_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-bar-left-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-left-sidebar .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_5_accent_color ),
 				),
 			);
@@ -300,25 +300,25 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_6_default,
 				$footer_widget_6_header,
-				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title',
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title, .tg-footer-builder .widget.widget-footer-bar-right-sidebar .wp-block-heading',
 				'border-bottom-width'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_6_default,
 				$footer_widget_6_header,
-				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-right-sidebar .wp-block-heading:before',
 				'height'
 			);
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_6_default,
 				$footer_widget_6_header_negative,
-				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before',
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-right-sidebar .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_6_border_color     = get_theme_mod( 'elearning_footer_widget_6_heading_border_color', '' );
 			$footer_widget_6_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title, .tg-footer-builder .widget.widget-footer-bar-right-sidebar .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_6_border_color ),
 				),
 			);
@@ -326,7 +326,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			$footer_widget_6_accent_color     = get_theme_mod( 'elearning_footer_widget_6_heading_border_accent_color', '' );
 			$footer_widget_6_accent_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before' => array(
+				'.tg-footer-builder .widget.widget-footer-bar-right-sidebar .widget-title:before, .tg-footer-builder .widget.widget-footer-bar-right-sidebar .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_6_accent_color ),
 				),
 			);
@@ -1163,7 +1163,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header main border bottom.
 			$header_main_border_bottom_default = array(
-				'size' => 1,
+				'size' => 0,
 				'unit' => 'px',
 			);
 			$header_main_border_bottom         = get_theme_mod( 'elearning_header_main_border_bottom_size', $header_main_border_bottom_default );
@@ -1269,36 +1269,6 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				),
 			);
 			$parse_css                           .= elearning_parse_css( '#e9ecef', $primary_menu_border_bottom_color, $primary_menu_border_bottom_color_css );
-
-			// Primary menu item color.
-			$primary_menu_item_color_normal     = get_theme_mod( 'elearning_primary_menu_text_color', '' );
-			$primary_menu_item_color_normal_css = array(
-				'.tg-primary-menu > div > ul li:not(.tg-header-button-wrap) a' => array(
-					'color' => esc_html( $primary_menu_item_color_normal ),
-				),
-			);
-			$parse_css                         .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $primary_menu_item_color_normal, $primary_menu_item_color_normal_css );
-
-			// Primary menu item hover color.
-			$primary_menu_item_color_hover     = get_theme_mod( 'elearning_primary_menu_text_hover_color', '' );
-			$primary_menu_item_color_hover_css = array(
-				'.tg-primary-menu > div > ul li:not(.tg-header-button-wrap):hover > a' => array(
-					'color' => esc_html( $primary_menu_item_color_hover ),
-				),
-			);
-			$parse_css                        .= elearning_parse_css( '', $primary_menu_item_color_hover, $primary_menu_item_color_hover_css );
-
-			// Primary menu item active color.
-			$primary_menu_item_color_active     = get_theme_mod( 'elearning_primary_menu_text_active_color', '' );
-			$primary_menu_item_color_active_css = array(
-				'.tg-primary-menu > div ul li:active > a, .tg-primary-menu > div ul > li:not(.tg-header-button-wrap).current_page_item > a, .tg-primary-menu > div ul > li:not(.tg-header-button-wrap).current_page_ancestor > a, .tg-primary-menu > div ul > li:not(.tg-header-button-wrap).current-menu-item > a, .tg-primary-menu > div ul > li:not(.tg-header-button-wrap).current-menu-ancestor > a' => array(
-					'color' => esc_html( $primary_menu_item_color_active ),
-				),
-				'.tg-primary-menu.tg-primary-menu--style-underline > div ul > li:not(.tg-header-button-wrap).current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div ul > li:not(.tg-header-button-wrap).current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div ul > li:not(.tg-header-button-wrap).current-menu-item > a::before, .tg-primary-menu.tg-primary-menu--style-underline > div ul > li:not(.tg-header-button-wrap).current-menu-ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div ul > li:not(.tg-header-button-wrap).current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div ul > li:not(.tg-header-button-wrap).current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div ul > li:not(.tg-header-button-wrap).current-menu-item > a::before, .tg-primary-menu.tg-primary-menu--style-left-border > div ul > li:not(.tg-header-button-wrap).current-menu-ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div ul > li:not(.tg-header-button-wrap).current_page_item > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div ul > li:not(.tg-header-button-wrap).current_page_ancestor > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div ul > li:not(.tg-header-button-wrap).current-menu-item > a::before, .tg-primary-menu.tg-primary-menu--style-right-border > div ul > li:not(.tg-header-button-wrap).current-menu-ancestor > a::before' => array(
-					'background-color' => esc_html( $primary_menu_item_color_active ),
-				),
-			);
-			$parse_css                         .= elearning_parse_css( '', $primary_menu_item_color_active, $primary_menu_item_color_active_css );
 
 			$typography_primary_menu_default = array(
 				'font-family'    => 'inherit',
@@ -1520,22 +1490,22 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css                     .= elearning_parse_css( 'var(--elearning-color-7)', $breadcrumb_separator_color, $breadcrumb_separator_color_css );
 
 			// Breadcrumbs link color.
-			$breadcrumb_link_color     = get_theme_mod( 'elearning_breadcrumbs_link_color', 'var(--elearning-color-7, #16181a)' );
+			$breadcrumb_link_color     = get_theme_mod( 'elearning_breadcrumbs_link_color', '' );
 			$breadcrumb_link_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_link_color_selector', '.tg-page-header .breadcrumb-trail ul li a' ) => array(
 					'color' => esc_html( $breadcrumb_link_color ),
 				),
 			);
-			$parse_css                .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $breadcrumb_link_color, $breadcrumb_link_color_css );
+			$parse_css                .= elearning_parse_css( '', $breadcrumb_link_color, $breadcrumb_link_color_css );
 
 			// Breadcrumbs link hover color.
-			$breadcrumb_link_hover_color     = get_theme_mod( 'elearning_breadcrumbs_link_hover_color', 'var(--elearning-color-1, #269bd1)' );
+			$breadcrumb_link_hover_color     = get_theme_mod( 'elearning_breadcrumbs_link_hover_color', '' );
 			$breadcrumb_link_hover_color_css = array(
 				apply_filters( 'elearning_breadcrumbs_link_hover_color_selector', '.tg-page-header .breadcrumb-trail ul li a:hover ' ) => array(
 					'color' => esc_html( $breadcrumb_link_hover_color ),
 				),
 			);
-			$parse_css                      .= elearning_parse_css( 'var(--elearning-color-1, #269bd1)', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
+			$parse_css                      .= elearning_parse_css( '', $breadcrumb_link_hover_color, $breadcrumb_link_hover_color_css );
 
 			$typography_post_page_title_default = apply_filters(
 				'elearning_typography_post_page_title_filter',
@@ -2112,10 +2082,10 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 
 			// Header builder main area border.
 			$header_main_area_border_width_default = array(
-				'top'    => '0',
-				'right'  => '0',
-				'bottom' => '0',
-				'left'   => '0',
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
 				'unit'   => 'px',
 			);
 
@@ -4536,13 +4506,13 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			);
 
 			// Header builder site title color.
-			$header_site_title_color     = get_theme_mod( 'elearning_header_site_identity_color', 'var(--elearning-color-7, #16181a)' );
+			$header_site_title_color     = get_theme_mod( 'elearning_header_site_identity_color', '' );
 			$header_site_title_color_css = array(
 				'.tg-header-builder .site-title, .tg-header-builder .site-title a' => array(
 					'color' => esc_html( $header_site_title_color ),
 				),
 			);
-			$parse_builder_css          .= elearning_parse_css( 'var(--elearning-color-7, #16181a)', $header_site_title_color, $header_site_title_color_css );
+			$parse_builder_css          .= elearning_parse_css( '', $header_site_title_color, $header_site_title_color_css );
 
 			// Header builder site title typography.
 			$header_site_title_typography_default = array(

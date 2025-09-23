@@ -44,6 +44,7 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			if ( ! fresh_install_check() || $theme_installed_time < $today ) {
 				add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
 			}
+
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_container_migration' ], 25 );
 
 			if ( fresh_install_check() ) {
@@ -171,7 +172,11 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 		public function elearning_container_migration() {
 
 			$should_run = false;
-			if ( doing_action( 'themegrill_ajax_demo_imported' ) ) {
+
+			$color_palette = get_theme_mod( 'elearning_color_palette', '' );
+			if ( ! empty( $color_palette ) && isset( $color_palette['updated_at'] ) ) {
+				$should_run = false;
+			} elseif ( doing_action( 'themegrill_ajax_demo_imported' ) ) {
 				$should_run = true;
 			} elseif ( ! get_option( 'elearning_container_migration' ) ) {
 				$should_run = true;
@@ -181,10 +186,10 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 				return;
 			}
 
-			$default_sidebar = get_theme_mod( 'elearning_structure_default', '' );
-			$archive_sidebar = get_theme_mod( 'elearning_structure_archive', '' );
-			$post_sidebar    = get_theme_mod( 'elearning_structure_post', '' );
-			$page_sidebar    = get_theme_mod( 'elearning_structure_page', '' );
+			$default_sidebar = get_theme_mod( 'elearning_structure_default', 'tg-site-layout--right' );
+			$archive_sidebar = get_theme_mod( 'elearning_structure_archive', 'tg-site-layout--right' );
+			$post_sidebar    = get_theme_mod( 'elearning_structure_post', 'tg-site-layout--right' );
+			$page_sidebar    = get_theme_mod( 'elearning_structure_page', 'tg-site-layout--right' );
 			if ( $default_sidebar ) {
 				if ( 'tg-site-layout--right' === $default_sidebar ) {
 					set_theme_mod( 'elearning_global_container_layout', 'tg-site-layout--no-sidebar' );
@@ -297,61 +302,63 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 					delete_post_meta( $post_id, 'elearning_layout' );
 				}
 
+			endwhile;
+
 				$container_padding = get_theme_mod( 'elearning_content_area_padding', '' );
-				if ( $container_padding ) {
-					$size  = $container_padding['size'] ? $container_padding['size'] : '';
-					$value = array(
-						'top'    => $size,
-						'right'  => $size,
-						'bottom' => $size,
-						'left'   => $size,
-						'unit'   => 'px',
-					);
-					update_post_meta( $post_id, 'elearning_content_area_padding', $value );
-				}
+			if ( $container_padding ) {
+				$size  = $container_padding['size'] ? $container_padding['size'] : '';
+				$value = array(
+					'top'    => $size,
+					'right'  => $size,
+					'bottom' => $size,
+					'left'   => $size,
+					'unit'   => 'px',
+				);
+				update_post_meta( $post_id, 'elearning_content_area_padding', $value );
+			}
 
 				// Check if color_palette has colors and is properly structured
-				if ( ! empty( $color_palette ) && is_array( $color_palette ) && isset( $color_palette['colors'] ) && is_array( $color_palette['colors'] ) && ! empty( $color_palette['colors'] ) ) {
-					$colors_keys = array_map(
-						function ( $color ) {
-							return 'var(--' . $color . ')';
-						},
-						array_keys( $color_palette['colors'] )
-					);
-					$colors      = array_combine(
-						$colors_keys,
-						array_values( $color_palette['colors'] )
-					);
-				} else {
-					// If no valid color palette, set default preset
-					$default_preset = array(
-						'id'     => 'preset-1',
-						'name'   => 'Preset 1',
-						'colors' => array(
-							'elearning-color-1' => '#eaf3fb',
-							'elearning-color-2' => '#bfdcf3',
-							'elearning-color-3' => '#94c4eb',
-							'elearning-color-4' => '#6aace2',
-							'elearning-color-5' => '#257bc1',
-							'elearning-color-6' => '#1d6096',
-							'elearning-color-7' => '#15446b',
-							'elearning-color-8' => '#0c2941',
-							'elearning-color-9' => '#040e16',
-						),
-					);
+			if ( ! empty( $color_palette ) && is_array( $color_palette ) && isset( $color_palette['colors'] ) && is_array( $color_palette['colors'] ) && ! empty( $color_palette['colors'] ) ) {
+				$colors_keys = array_map(
+					function ( $color ) {
+						return $color;
+					},
+					array_keys( $color_palette['colors'] )
+				);
+				$colors      = array_combine(
+					$colors_keys,
+					array_values( $color_palette['colors'] )
+				);
+			} else {
+				// If no valid color palette, set default preset
+				$default_preset = array(
+					'id'     => 'preset-1',
+					'name'   => 'Preset 1',
+					'colors' => array(
+						'elearning-color-1' => '#eaf3fb',
+						'elearning-color-2' => '#bfdcf3',
+						'elearning-color-3' => '#94c4eb',
+						'elearning-color-4' => '#6aace2',
+						'elearning-color-5' => '#257bc1',
+						'elearning-color-6' => '#1d6096',
+						'elearning-color-7' => '#15446b',
+						'elearning-color-8' => '#0c2941',
+						'elearning-color-9' => '#040e16',
+					),
+				);
 
-					$colors_keys = array_map(
-						function ( $color ) {
-							return 'var(--' . $color . ')';
-						},
-						array_keys( $default_preset['colors'] )
-					);
-					$colors      = array_combine(
-						$colors_keys,
-						array_values( $default_preset['colors'] )
-					);
+				$colors_keys = array_map(
+					function ( $color ) {
+						return $color;
+					},
+					array_keys( $default_preset['colors'] )
+				);
+				$colors      = array_combine(
+					$colors_keys,
+					array_values( $default_preset['colors'] )
+				);
 
-				}
+			}
 
 				$color_id = array(
 					array( 'elearning_base_color_primary', '#269bd1' ),
@@ -393,7 +400,7 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 					array( 'elearning_header_html_2_text_color', '#51585f' ),
 					array( 'elearning_header_html_2_link_color', '#269bd1' ),
 					array( 'elearning_header_html_2_link_hover_color', '#1e7ba6' ),
-					array( 'elearning_header_site_identity_color', '#16181a' ),
+					array( 'elearning_header_site_identity_color', '' ),
 					array( 'elearning_header_site_tagline_color', '#51585f' ),
 					array( 'elearning_header_main_area_color', '#ffffff' ),
 					array( 'elearning_header_main_area_border_color', '#e9ecef' ),
@@ -405,7 +412,7 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 					array( 'elearning_header_quaternary_menu_color', '#51585f' ),
 					array( 'elearning_header_quaternary_menu_hover_color', '#269bd1' ),
 					array( 'elearning_header_quaternary_menu_active_color', '#269bd1' ),
-					array( 'elearning_header_search_icon_color', '#51585f' ),
+					array( 'elearning_header_search_icon_color', '' ),
 					array( 'elearning_header_search_text_color', '#51585f' ),
 					array( 'elearning_header_secondary_menu_border_bottom_color', '#e9ecef' ),
 					array( 'elearning_header_secondary_menu_color', '#51585f' ),
@@ -421,11 +428,13 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 					array( 'elearning_widget_2_title_color', '#16181a' ),
 					array( 'elearning_widget_2_link_color', '#269bd1' ),
 					array( 'elearning_widget_2_content_color', '#51585f' ),
+					array( 'elearning_breadcrumbs_link_color', '' ),
+					array( 'elearning_breadcrumbs_link_hover_color', '' ),
 				);
 
 				$color_palette = get_theme_mod( 'elearning_color_palette', array() );
 
-					// Set colors from the palette.
+				// Set colors from the palette.
 				if ( ! empty( $colors ) ) {
 					foreach ( $color_id as $color_setting ) {
 						$color_value = get_theme_mod( $color_setting[0], '' );
@@ -472,11 +481,9 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 					}
 				}
 
-				set_theme_mod( 'elearning_color_palette', array() );
+				set_theme_mod( 'elearning_color_palette', null );
 
 				update_option( 'elearning_container_migration', true );
-
-				endwhile;
 		}
 
 		/**
@@ -1396,14 +1403,18 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 
 			// Normal options to builder options.
 			function normal_to_builder_option( $old_mod, $new_mod, $_default = '' ) {
-				$value = get_theme_mod( $old_mod, '' );
-				if ( $value ) {
-					set_theme_mod( $new_mod, $value );
-					if ( 'elearning_footer_column_widget_text_color' !== $old_mod ) {
-						remove_theme_mod( $old_mod );
+				$all_mods = get_theme_mods();
+
+				if ( array_key_exists( $old_mod, $all_mods ) ) {
+					$value = get_theme_mod( $old_mod, '' );
+					if ( $value ) {
+						set_theme_mod( $new_mod, $value );
+						if ( 'elearning_footer_column_widget_text_color' !== $old_mod ) {
+							remove_theme_mod( $old_mod );
+						}
+					} elseif ( $_default ) {
+						set_theme_mod( $new_mod, $_default );
 					}
-				} elseif ( $_default ) {
-					set_theme_mod( $new_mod, $_default );
 				}
 			}
 

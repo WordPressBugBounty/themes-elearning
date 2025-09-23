@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: eLearning 2.1.2\n"
+"Project-Id-Version: eLearning 2.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/elearning\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-16T16:20:31+00:00\n"
+"POT-Creation-Date: 2025-09-23T10:29:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: elearning\n"
 
 #. Theme Name of the theme
@@ -44,13 +44,11 @@ msgstr ""
 
 #. translators: 1: title.
 #: comments.php:38
-#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:44
-#, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
@@ -62,12 +60,11 @@ msgid "Comments are closed."
 msgstr ""
 
 #. Translators: 1: Panel Title.
-#: functions.php:77
-#, php-format
+#: functions.php:75
 msgid "Customizing ▶ %s"
 msgstr ""
 
-#: functions.php:78
+#: functions.php:76
 msgid "Customizing"
 msgstr ""
 
@@ -147,7 +144,6 @@ msgstr ""
 
 #. translators: 1: Theme Name, 2: Demo Link.
 #: inc/admin/class-elearning-dashboard.php:116
-#, php-format
 msgid "You do not need to build your site from scratch, %1$s provides a variety of %2$s"
 msgstr ""
 
@@ -165,7 +161,6 @@ msgstr ""
 
 #. translators: 1: Theme Name, 2: Review Link.
 #: inc/admin/class-elearning-dashboard.php:135
-#, php-format
 msgid "Love using %1$s? Help us by leaving a review %2$s"
 msgstr ""
 
@@ -177,7 +172,7 @@ msgstr ""
 #: inc/admin/class-elearning-notice.php:77
 #: inc/admin/class-elearning-theme-review-notice.php:155
 #: inc/admin/class-elearning-theme-review-notice.php:173
-#: inc/migration/class-elearning-migration.php:1755
+#: inc/migration/class-elearning-migration.php:1766
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
@@ -192,13 +187,11 @@ msgstr ""
 
 #. translators: %s: Smile icon
 #: inc/admin/class-elearning-theme-review-notice.php:86
-#, php-format
 msgid "The above word is just to draw your attention. %s"
 msgstr ""
 
 #. translators: %1$s: Opening of strong tag, %2$s: Theme's Name, %3$s: Closing of strong tag
 #: inc/admin/class-elearning-theme-review-notice.php:95
-#, php-format
 msgid "Hope you are having a nice experience with %1$s %2$s %3$s theme. Please provide this theme a nice review."
 msgstr ""
 
@@ -208,7 +201,6 @@ msgstr ""
 
 #. translators: %s: Smiley icon
 #: inc/admin/class-elearning-theme-review-notice.php:109
-#, php-format
 msgid "Basically, it would encourage us to release updates regularly with new features & bug fixes so that you can keep on using the theme without any issues and also to provide free support like we have been doing. %s"
 msgstr ""
 
@@ -234,7 +226,6 @@ msgstr ""
 
 #. translators: 1: welcome page link starting html tag, 2: welcome page link ending html tag.
 #: inc/admin/class-elearning-welcome-notice.php:37
-#, php-format
 msgid "Welcome! Thank you for choosing eLearning! To fully take advantage of the best our theme can offer, please make sure you visit our %1$swelcome page%2$s."
 msgstr ""
 
@@ -273,31 +264,26 @@ msgstr ""
 
 #. Translators: %s is the search query.
 #: inc/class-breadcrumb-trail.php:292
-#, php-format
 msgid "Search results for: %s"
 msgstr ""
 
 #. Translators: %s is the page number.
 #: inc/class-breadcrumb-trail.php:294
-#, php-format
 msgid "Page %s"
 msgstr ""
 
 #. Translators: %s is the page number.
 #: inc/class-breadcrumb-trail.php:296
-#, php-format
 msgid "Comment Page %s"
 msgstr ""
 
 #. Translators: Minute archive title. %s is the minute time format.
 #: inc/class-breadcrumb-trail.php:298
-#, php-format
 msgid "Minute %s"
 msgstr ""
 
 #. Translators: Weekly archive title. %s is the week date format.
 #: inc/class-breadcrumb-trail.php:300
-#, php-format
 msgid "Week %s"
 msgstr ""
 
@@ -349,7 +335,6 @@ msgstr ""
 #: inc/customizer/options/footer/footer-bar.php:137
 #: inc/helper/utils.php:89
 #: inc/helper/utils.php:135
-#, php-format
 msgid "Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s."
 msgstr ""
 
@@ -976,7 +961,7 @@ msgstr ""
 #: inc/customizer/options/header-builder/search.php:14
 #: inc/customizer/options/header-builder/top-area.php:47
 #: inc/customizer/options/header/header-button.php:50
-#: inc/customizer/options/header/main-header.php:97
+#: inc/customizer/options/header/main-header.php:80
 #: inc/customizer/options/header/primary-menu.php:73
 #: inc/customizer/options/header/site-identity.php:59
 #: inc/customizer/options/header/site-identity.php:142
@@ -1028,7 +1013,7 @@ msgstr ""
 #: inc/customizer/options/global/button.php:126
 #: inc/customizer/options/header-builder/bottom-area.php:115
 #: inc/customizer/options/header-builder/header-button.php:147
-#: inc/customizer/options/header-builder/main-area.php:115
+#: inc/customizer/options/header-builder/main-area.php:114
 #: inc/customizer/options/header-builder/top-area.php:100
 msgid "Border Color"
 msgstr ""
@@ -1301,7 +1286,6 @@ msgstr ""
 
 #: inc/customizer/options/footer/footer-bar.php:87
 #: inc/customizer/options/global/layouts.php:118
-#: inc/customizer/options/header/main-header.php:85
 #: inc/customizer/options/header/primary-menu.php:57
 msgid "Width"
 msgstr ""
@@ -1657,6 +1641,10 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
+#: inc/customizer/options/header-builder/main-area.php:131
+msgid "Global Border Width"
+msgstr ""
+
 #: inc/customizer/options/header-builder/primary-menu.php:18
 #: inc/customizer/options/header-builder/secondary-menu.php:17
 msgid "Select Menu Navigation"
@@ -1704,11 +1692,11 @@ msgstr ""
 msgid "Main Header"
 msgstr ""
 
-#: inc/customizer/options/header/main-header.php:109
+#: inc/customizer/options/header/main-header.php:92
 msgid "Components"
 msgstr ""
 
-#: inc/customizer/options/header/main-header.php:116
+#: inc/customizer/options/header/main-header.php:99
 msgid "Header Search Navigation"
 msgstr ""
 
@@ -1926,25 +1914,21 @@ msgstr ""
 
 #. translators: %s: author.
 #: inc/template-functions.php:195
-#, php-format
 msgid "Author: %s"
 msgstr ""
 
 #. translators: %s: day
 #: inc/template-functions.php:209
-#, php-format
 msgid "Day: %s"
 msgstr ""
 
 #. translators: %s: month
 #: inc/template-functions.php:213
-#, php-format
 msgid "Month: %s"
 msgstr ""
 
 #. translators: %s: year.
 #: inc/template-functions.php:217
-#, php-format
 msgid "Year: %s"
 msgstr ""
 
@@ -1958,21 +1942,18 @@ msgstr ""
 
 #. translators: %s: post date.
 #: inc/template-tags.php:23
-#, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
 #. translators: %s: post author.
 #: inc/template-tags.php:55
-#, php-format
 msgctxt "post author"
 msgid "By %s"
 msgstr ""
 
 #. translators: 1: list of categories.
 #: inc/template-tags.php:75
-#, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
@@ -1983,13 +1964,11 @@ msgstr ""
 
 #. translators: %s: post title
 #: inc/template-tags.php:102
-#, php-format
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: 1: list of tags.
 #: inc/template-tags.php:127
-#, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
@@ -2003,7 +1982,7 @@ msgstr ""
 msgid "Page Builder"
 msgstr ""
 
-#: sidebar.php:29
+#: sidebar.php:30
 msgid "Click here to add widgets for this area"
 msgstr ""
 
@@ -2025,7 +2004,6 @@ msgstr ""
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content/content-none.php:28
-#, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
@@ -2040,13 +2018,11 @@ msgstr ""
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content/content-page.php:29
 #: template-parts/entry/entry-meta.php:58
-#, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/entry/entry-content.php:32
-#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 

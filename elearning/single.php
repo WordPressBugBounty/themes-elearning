@@ -13,7 +13,9 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 ?>
 	<div id="primary" class="content-area">
-		<?php elearning_content_single(); ?>
+		<?php
+		elearning_content_single();
+		?>
 	</div><!-- #primary -->
 <?php
 get_sidebar();

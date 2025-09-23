@@ -7,7 +7,7 @@ $options = array(
 		'sub_controls' => apply_filters(
 			'elearning_header_main_area_sub_controls',
 			array(
-				'elearning_header_main_area_container'    => array(
+				'elearning_header_main_area_container'     => array(
 					'default'     => array(
 						'size' => '',
 						'unit' => 'px',
@@ -24,7 +24,7 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'elearning_header_main_area_height'       => array(
+				'elearning_header_main_area_height'        => array(
 					'default'     => array(
 						'size' => '',
 						'unit' => 'px',
@@ -41,14 +41,14 @@ $options = array(
 						'step' => 1,
 					),
 				),
-				'elearning_header_main_area_color'        => array(
+				'elearning_header_main_area_color'         => array(
 					'title'     => esc_html__( 'Color', 'elearning' ),
 					'default'   => '',
 					'type'      => 'customind-color',
 					'section'   => 'elearning_header_builder_main_area',
 					'transport' => 'postMessage',
 				),
-				'elearning_header_main_area_background'   => array(
+				'elearning_header_main_area_background'    => array(
 					'default'   => array(
 						'background-color'      => 'var(--elearning-color-3)',
 						'background-image'      => '',
@@ -63,7 +63,7 @@ $options = array(
 					'section'   => 'elearning_header_builder_main_area',
 				),
 
-				'elearning_header_main_area_padding'      => array(
+				'elearning_header_main_area_padding'       => array(
 					'default'     => array(
 						'top'    => '20',
 						'right'  => '20',
@@ -79,7 +79,7 @@ $options = array(
 					'defaultUnit' => 'px',
 				),
 
-				'elearning_header_main_area_margin'       => array(
+				'elearning_header_main_area_margin'        => array(
 					'default'     => array(
 						'top'    => '',
 						'right'  => '',
@@ -95,12 +95,12 @@ $options = array(
 					'defaultUnit' => 'px',
 				),
 
-				'elearning_header_main_area_border_width' => array(
+				'elearning_header_main_area_border_width'  => array(
 					'default'     => array(
-						'top'    => '0',
-						'right'  => '0',
-						'bottom' => '0',
-						'left'   => '0',
+						'top'    => '',
+						'right'  => '',
+						'bottom' => '',
+						'left'   => '',
 						'unit'   => 'px',
 					),
 					'type'        => 'customind-dimensions',
@@ -110,13 +110,33 @@ $options = array(
 					'units'       => array( 'px', 'em' ),
 					'defaultUnit' => 'px',
 				),
-
-				'elearning_header_main_area_border_color' => array(
+				'elearning_header_main_area_border_color'  => array(
 					'title'     => esc_html__( 'Border Color', 'elearning' ),
 					'default'   => '',
 					'type'      => 'customind-color',
 					'section'   => 'elearning_header_builder_main_area',
 					'transport' => 'postMessage',
+				),
+				'elearning_header_main_area_border_color_divider' => array(
+					'type'    => 'customind-divider',
+					'variant' => 'dashed',
+					'section' => 'elearning_header_builder_main_area',
+				),
+				'elearning_header_main_border_bottom_size' => array(
+					'default'     => array(
+						'size'  => 0,
+						'units' => 'px',
+					),
+					'type'        => 'customind-slider',
+					'title'       => esc_html__( 'Global Border Width', 'elearning' ),
+					'section'     => 'elearning_header_builder_main_area',
+					'units'       => array( 'px' ),
+					'defaultUnit' => 'px',
+					'input_attrs' => array(
+						'min'  => 0,
+						'max'  => 20,
+						'step' => 1,
+					),
 				),
 			)
 		),

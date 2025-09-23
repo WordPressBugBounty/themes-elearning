@@ -76,23 +76,6 @@ $options = apply_filters(
 						'section'  => 'elearning_main_header',
 						'priority' => 30,
 					),
-					'elearning_header_main_border_bottom_size' => array(
-						'default'     => array(
-							'size'  => 1,
-							'units' => 'px',
-						),
-						'type'        => 'customind-slider',
-						'title'       => esc_html__( 'Width', 'elearning' ),
-						'section'     => 'elearning_main_header',
-						'units'       => array( 'px' ),
-						'defaultUnit' => 'px',
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 20,
-							'step' => 1,
-						),
-						'priority'    => 30,
-					),
 					'elearning_header_main_border_bottom_color' => array(
 						'title'    => esc_html__( 'Color', 'elearning' ),
 						'default'  => '#e9ecef',
