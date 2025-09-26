@@ -41,8 +41,8 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			$theme_installed_time = get_option( 'elearning_theme_installed_time' ); // timestamp
 			$today                = strtotime( '2025-09-15' );
 
-			if ( ! fresh_install_check() || $theme_installed_time < $today ) {
-				add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
+			if ( ! fresh_install_check() || ( ! empty( $theme_installed_time ) && $theme_installed_time < $today ) ) {
+								add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
 			}
 
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_container_migration' ], 25 );
@@ -508,6 +508,9 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 		 * @since 3.0.0
 		 */
 		public function customizer_migration_v1() {
+			if ( get_theme_mod( 'demo_migrated_to_builder', false ) ) {
+				return;
+			}
 
 			/**
 			 * Revamp migration.
@@ -1060,6 +1063,9 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 		 * @since 2.0.0
 		 */
 		public function elearning_builder_migration() {
+			if ( get_theme_mod( 'demo_migrated_to_builder', false ) ) {
+				return;
+			}
 
 			$header_builder_config = [
 				'desktop' => [

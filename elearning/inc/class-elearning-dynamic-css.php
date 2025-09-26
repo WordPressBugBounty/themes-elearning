@@ -171,19 +171,19 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			$parse_css .= elearning_parse_slider_css(
 				$footer_widget_header_3_default,
 				$footer_widget_3_header_negative,
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before, .tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before',
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before',
 				'bottom'
 			);
 
 			$footer_widget_3_border_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_color', '' );
 			$footer_widget_3_border_color_css = array(
-				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title' => array(
+				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title, .tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading' => array(
 					'border-color' => esc_html( $footer_widget_3_border_color ),
 				),
 			);
 			$parse_css                       .= elearning_parse_css( '', $footer_widget_3_border_color, $footer_widget_3_border_color_css );
 
-			$footer_widget_3_accent_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_accent_color,', '' );
+			$footer_widget_3_accent_color     = get_theme_mod( 'elearning_footer_widget_3_heading_border_accent_color', '' );
 			$footer_widget_3_accent_color_css = array(
 				'.tg-footer-builder .widget.widget-footer-sidebar-3 .widget-title:before,.tg-footer-builder .widget.widget-footer-sidebar-3 .wp-block-heading:before' => array(
 					'background-color' => esc_html( $footer_widget_3_accent_color ),

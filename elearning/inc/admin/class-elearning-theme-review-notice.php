@@ -22,7 +22,7 @@ class eLearning_Theme_Review_Notice {
 	 * elearning_Theme_Review_Notice constructor.
 	 */
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'review_notice' ) );
+		add_action( 'after_setup_theme', array( $this, 'review_notice' ), 9 );
 		add_action( 'admin_notices', array( $this, 'review_notice_markup' ), 0 );
 		add_action( 'admin_init', array( $this, 'ignore_theme_review_notice' ), 0 );
 		add_action( 'admin_init', array( $this, 'ignore_theme_review_notice_partially' ), 0 );

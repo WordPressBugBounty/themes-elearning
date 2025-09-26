@@ -1,11 +1,11 @@
 === elearning ===
 Contributors: masteriyo
 Author: Masteriyo
-Version: 2.1.3
+Version: 2.1.4
 Tested up to: 6.8
 Requires PHP: 7.4
 Requires at least: 5.0
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, news, education, rtl-language-support
@@ -51,6 +51,9 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 2.1.4 - 2025-09-26 =
+* Update - Migration for new demos
+
 = Version 2.1.3 - 2025-09-23 =
 * Added - Option to change footer widget heading border bottom.
 * Fix - Single post sidebar issue.
