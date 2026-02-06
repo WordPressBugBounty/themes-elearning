@@ -72,6 +72,12 @@ $options = array(
 			'elearning_enable_page_title' => true,
 		),
 	),
+	'elearning_page_title_enable'          => array(
+		'title'   => esc_html__( 'Enable', 'elearning' ),
+		'default' => true,
+		'type'    => 'customind-toggle',
+		'section' => 'elearning_page_header',
+	),
 	'elearning_page_title'                 => array(
 		'default'   => 'page-header',
 		'type'      => 'customind-radio',

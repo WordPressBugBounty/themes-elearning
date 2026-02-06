@@ -384,14 +384,7 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 				$content_padding_default,
 				$content_padding,
 				'.site-content',
-				'padding-top'
-			);
-
-			$parse_css .= elearning_parse_dimension_css(
-				$content_padding_default,
-				$content_padding,
-				'.site-content',
-				'padding-bottom'
+				'padding'
 			);
 
 			// Base primary color.
@@ -2398,11 +2391,14 @@ if ( ! class_exists( 'eLearning_Dynamic_CSS' ) ) {
 			// Header builder primary menu item active color.
 			$header_menu_item_color_active     = get_theme_mod( 'elearning_header_main_menu_active_color', '' );
 			$header_menu_item_color_active_css = array(
-				'.tg-header-builder .tg-primary-nav ul li:active > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current_page_item > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current_page_ancestor > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current-menu-item > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current-menu-ancestor > a'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          => array(
+				'.tg-header-builder .tg-primary-menu > div ul li.current_page_item > a, .tg-header-builder .tg-primary-menu > div ul li.current-menu-item > a,.tg-header-builder .tg-primary-nav ul li:active > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current_page_item > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current_page_ancestor > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current-menu-item > a, .tg-header-builder .tg-primary-nav ul > li:not(.tg-header-button).current-menu-ancestor > a'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          => array(
 					'color' => esc_html( $header_menu_item_color_active ),
 				),
 				'.tg-header-builder .tg-primary-nav ul li.current-menu-item > a .tg-icon, .tg-header-builder .tg-main-nav.tg-primary-nav ul.tg-primary-menu li.current-menu-item .tg-icon' => array(
 					'fill' => esc_html( $header_menu_item_color_active ),
+				),
+				'.tg-header-builder .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current_page_item > a::before, .tg-header-builder .tg-primary-menu.tg-primary-menu--style-underline > div > ul > li.current-menu-item > a::before' => array(
+					'background' => esc_html( $header_menu_item_color_active ),
 				),
 			);
 			$parse_builder_css                .= elearning_parse_css( '', $header_menu_item_color_active, $header_menu_item_color_active_css );

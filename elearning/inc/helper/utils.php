@@ -560,19 +560,19 @@ if ( ! function_exists( 'elearning_parse_dimension_css' ) ) :
 				$parse_css .= 'border-bottom-left-radius:' . $output_value['left'] . $unit . ';';
 			}
 		} else {
-			if ( isset( $output_value['top'] ) && ! empty( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
+			if ( isset( $output_value['top'] ) && ( $output_value['top'] !== $default_value['top'] ) ) {
 				$parse_css .= $property . '-top:' . $output_value['top'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['right'] ) && ! empty( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
+			if ( isset( $output_value['right'] ) && ( $output_value['right'] !== $default_value['right'] ) ) {
 				$parse_css .= $property . '-right:' . $output_value['right'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['bottom'] ) && ! empty( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
+			if ( isset( $output_value['bottom'] ) && ( $output_value['bottom'] !== $default_value['bottom'] ) ) {
 				$parse_css .= $property . '-bottom:' . $output_value['bottom'] . $unit . ';';
 			}
 
-			if ( isset( $output_value['left'] ) && ! empty( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
+			if ( isset( $output_value['left'] ) && ( $output_value['left'] !== $default_value['left'] ) ) {
 				$parse_css .= $property . '-left:' . $output_value['left'] . $unit . ';';
 			}
 		}

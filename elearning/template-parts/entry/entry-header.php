@@ -11,14 +11,16 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$page_title = get_theme_mod( 'elearning_page_title', 'page-header' );
-?>
+$page_title        = get_theme_mod( 'elearning_page_title', 'page-header' );
+$page_title_enable = get_theme_mod( 'elearning_page_title_enable', true );
+if ( $page_title_enable ) {
+	?>
 <header class="entry-header">
 	<?php
 	if ( is_singular() ) :
 		if ( is_single() ) :
 			if ( 'page-header' !== $page_title ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
 			endif;
 		else :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -28,3 +30,5 @@ $page_title = get_theme_mod( 'elearning_page_title', 'page-header' );
 	endif;
 	?>
 </header><!-- .entry-header -->
+	<?php
+}

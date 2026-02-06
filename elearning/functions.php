@@ -115,6 +115,7 @@ defined( 'JETPACK__VERSION' ) && require ELEARNING_PARENT_INC_DIR . '/compatibil
 require ELEARNING_PARENT_INC_DIR . '/class-breadcrumb-trail.php';
 require ELEARNING_PARENT_INC_DIR . '/compatibility/elementor/class-elearning-elementor-pro.php';
 require ELEARNING_PARENT_INC_DIR . '/compatibility/masteriyo/class-elearning-masteriyo.php';
+require_once ELEARNING_PARENT_INC_DIR . '/class-elearning-starter-content.php';
 
 // Meta boxes.
 require ELEARNING_PARENT_INC_DIR . '/meta-boxes/class-elearning-meta-box.php';

@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: eLearning 2.1.4\n"
+"Project-Id-Version: eLearning 2.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/elearning\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-26T08:31:24+00:00\n"
+"POT-Creation-Date: 2025-10-30T05:02:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: elearning\n"
@@ -329,6 +329,11 @@ msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
+#: inc/class-elearning-starter-content.php:67
+msgctxt "Theme starter content"
+msgid "Blog"
+msgstr ""
+
 #. translators: 1: Current Year, 2: Site Name, 3: Theme Link, 4: WordPress Link.
 #: inc/class-elearning-utils.php:156
 #: inc/customizer/options/footer-builder/copyright.php:14
@@ -366,6 +371,25 @@ msgstr ""
 
 #: inc/compatibility/quick-demo-import/class-elearning-quick-demo-import.php:65
 msgid "Elementor"
+msgstr ""
+
+#: inc/compatibility/starter-content/account.php:10
+msgctxt "Theme starter content"
+msgid "Account"
+msgstr ""
+
+#: inc/compatibility/starter-content/courses.php:10
+msgctxt "Theme starter content"
+msgid "Courses"
+msgstr ""
+
+#: inc/compatibility/starter-content/theme-mods.php:79
+msgid "Get Masteriyo Now"
+msgstr ""
+
+#. translators: 1: Current Year, 2: Site Name, 3: Theme Link, 4: WordPress Link.
+#: inc/compatibility/starter-content/theme-mods.php:111
+msgid "Copyright &copy; %1$s %2$s  Masteriyo Default Demo. Powered by %3$s and %4$s."
 msgstr ""
 
 #: inc/compatibility/woocommerce/class-elearning-woocommerce.php:86
@@ -603,7 +627,7 @@ msgstr ""
 #: inc/customizer/class-elearning-customizer-register-panels-sections.php:233
 #: inc/customizer/options/header/page-header.php:5
 #: inc/customizer/options/header/page-header.php:16
-#: inc/customizer/options/header/page-header.php:83
+#: inc/customizer/options/header/page-header.php:89
 #: inc/customizer/panels-sections/panels-sections.php:104
 #: inc/meta-boxes/class-elearning-meta-box-page-settings.php:97
 #: assets/build/meta.js:1
@@ -896,6 +920,7 @@ msgstr ""
 #: inc/customizer/options/header-builder/toggle-button.php:13
 #: inc/customizer/options/header/header-search.php:14
 #: inc/customizer/options/header/page-header.php:22
+#: inc/customizer/options/header/page-header.php:76
 #: inc/customizer/options/header/site-identity.php:51
 #: inc/customizer/options/header/top-bar.php:20
 #: inc/customizer/options/header/transparent-header.php:6
@@ -1704,67 +1729,67 @@ msgstr ""
 msgid "Page Title"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:78
+#: inc/customizer/options/header/page-header.php:84
 msgid "Position"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:84
+#: inc/customizer/options/header/page-header.php:90
 msgid "Content Area"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:93
+#: inc/customizer/options/header/page-header.php:99
 msgid "Markup"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:98
+#: inc/customizer/options/header/page-header.php:104
 msgid "Heading 1"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:99
+#: inc/customizer/options/header/page-header.php:105
 msgid "Heading 2"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:100
+#: inc/customizer/options/header/page-header.php:106
 msgid "Heading 3"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:101
+#: inc/customizer/options/header/page-header.php:107
 msgid "Heading 4"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:102
+#: inc/customizer/options/header/page-header.php:108
 msgid "Heading 5"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:103
+#: inc/customizer/options/header/page-header.php:109
 msgid "Heading 6"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:104
+#: inc/customizer/options/header/page-header.php:110
 msgid "Span"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:105
+#: inc/customizer/options/header/page-header.php:111
 msgid "Paragraph"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:106
+#: inc/customizer/options/header/page-header.php:112
 msgid "Div"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:114
+#: inc/customizer/options/header/page-header.php:120
 msgid "Page Title Color"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:135
+#: inc/customizer/options/header/page-header.php:141
 msgid "Page title Background"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:153
+#: inc/customizer/options/header/page-header.php:159
 msgid "Page Title Padding"
 msgstr ""
 
-#: inc/customizer/options/header/page-header.php:204
+#: inc/customizer/options/header/page-header.php:210
 msgid "Page Title Typography"
 msgstr ""
 

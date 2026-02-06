@@ -10,54 +10,58 @@ if ( ! function_exists( 'elearning_header_default_builder' ) ) {
 	 * @since 1.0.0
 	 */
 	function elearning_header_default_builder() {
-		return array(
-			'desktop' => array(
-				'top'    => array(
-					'left'   => array(),
-					'center' => array(),
-					'right'  => array(),
-				),
-				'main'   => array(
-					'left'   => array(
-						'logo',
+		$header_builder_default = apply_filters(
+			'elearning_header_builder_default_options',
+			array(
+				'desktop' => array(
+					'top'    => array(
+						'left'   => array(),
+						'center' => array(),
+						'right'  => array(),
 					),
-					'center' => array(),
-					'right'  => array(
-						'primary-menu',
-						'search',
+					'main'   => array(
+						'left'   => array(
+							'logo',
+						),
+						'center' => array(),
+						'right'  => array(
+							'primary-menu',
+							'search',
+						),
 					),
-				),
-				'bottom' => array(
-					'left'   => array(),
-					'center' => array(),
-					'right'  => array(),
-				),
-			),
-			'mobile'  => array(
-				'top'    => array(
-					'left'   => array(),
-					'center' => array(),
-					'right'  => array(),
-				),
-				'main'   => array(
-					'left'   => array(
-						'logo',
-					),
-					'center' => array(),
-					'right'  => array(
-						'toggle-button',
+					'bottom' => array(
+						'left'   => array(),
+						'center' => array(),
+						'right'  => array(),
 					),
 				),
-				'bottom' => array(
-					'left'   => array(),
-					'center' => array(),
-					'right'  => array(),
+				'mobile'  => array(
+					'top'    => array(
+						'left'   => array(),
+						'center' => array(),
+						'right'  => array(),
+					),
+					'main'   => array(
+						'left'   => array(
+							'logo',
+						),
+						'center' => array(),
+						'right'  => array(
+							'toggle-button',
+						),
+					),
+					'bottom' => array(
+						'left'   => array(),
+						'center' => array(),
+						'right'  => array(),
+					),
 				),
-			),
-			'offset'  => array(
-				'mobile-menu',
-			),
+				'offset'  => array(
+					'mobile-menu',
+				),
+			)
 		);
+		return $header_builder_default;
 	}
 }
 

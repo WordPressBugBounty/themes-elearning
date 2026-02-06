@@ -377,6 +377,10 @@ if ( ! class_exists( 'eLearning_After_Setup_Theme' ) ) {
 			// Add support for Block Styles.
 			add_theme_support( 'wp-block-styles' );
 
+			$starter_content = apply_filters( 'elearning_starter_content', eLearning_Starter_Content::get() );
+
+			add_theme_support( 'starter-content', $starter_content );
+
 			// AMP support.
 			if ( defined( 'AMP__VERSION' ) && ( ! version_compare( AMP__VERSION, '1.0.0', '<' ) ) ) {
 

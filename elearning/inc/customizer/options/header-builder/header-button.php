@@ -161,7 +161,7 @@ $options = array(
 					'defaultUnit' => 'px',
 					'input_attrs' => array(
 						'min'  => 0,
-						'max'  => 20,
+						'max'  => 200,
 						'step' => 1,
 					),
 				),
