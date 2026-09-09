@@ -4,6 +4,9 @@
  */
 namespace Customind\Core\Types\Controls;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Navigation control class.
  */

@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $footer_social = get_theme_mod(
 	'elearning_footer_socials',
 	array(

@@ -5,6 +5,9 @@
  * @package elearning
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( function_exists( 'elearning_is_woocommerce_active' ) && ! elearning_is_woocommerce_active() ) {
 	return;
 }

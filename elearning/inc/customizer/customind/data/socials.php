@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 		$array = [
 			'500px'          => [
 				'value' => '500px',
@@ -266,8 +270,8 @@
 				'label' => 'WhatsApp',
 				'color' => '#25D366',
 			],
-			'wordpress'      => [
-				'value' => 'wordpress',
+			strtolower( 'WordPress' ) => [
+				'value' => strtolower( 'WordPress' ),
 				'label' => 'WordPress',
 				'color' => '#21759b',
 			],

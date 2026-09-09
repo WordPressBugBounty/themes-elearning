@@ -1,4 +1,8 @@
-<?php return [
+<?php
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+return [
 	[
 		'name'  => '0',
 		'class' => 'fa-solid fa-0',
@@ -7412,7 +7416,7 @@
 		'class' => 'fa-brands fa-wordpress',
 	],
 	[
-		'name'  => 'Wordpress Simple',
+		'name'  => 'WordPress Simple',
 		'class' => 'fa-brands fa-wordpress-simple',
 	],
 	[

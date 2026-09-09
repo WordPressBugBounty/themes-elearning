@@ -167,6 +167,34 @@ if ( ! class_exists( 'eLearning_Enqueue_Scripts' ) ) {
 
 			wp_enqueue_style( 'elearning-mto-style', get_template_directory_uri() . '/masteriyo.css', array( 'masteriyo-public' ), ELEARNING_THEME_VERSION );
 
+			if ( class_exists( 'WooCommerce' ) ) {
+				wp_enqueue_style( 'elearning-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array( 'elearning-style' ), ELEARNING_THEME_VERSION );
+				$font_path   = WC()->plugin_url() . '/assets/fonts/';
+				$inline_font = '
+			@font-face {
+				font-family: "star";
+				src: url("' . $font_path . 'star.eot");
+				src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
+					url("' . $font_path . 'star.woff") format("woff"),
+					url("' . $font_path . 'star.ttf") format("truetype"),
+					url("' . $font_path . 'star.svg#star") format("svg");
+				font-weight: normal;
+				font-style: normal;
+			}
+			@font-face {
+				font-family: "WooCommerce";
+				src: url("' . $font_path . 'WooCommerce.eot");
+				src: url("' . $font_path . 'WooCommerce.eot?#iefix") format("embedded-opentype"),
+					url("' . $font_path . 'WooCommerce.woff") format("woff"),
+					url("' . $font_path . 'WooCommerce.ttf") format("truetype"),
+					url("' . $font_path . 'WooCommerce.svg#star") format("svg");
+				font-weight: normal;
+				font-style: normal;
+			}
+			';
+
+				wp_add_inline_style( 'elearning-woocommerce-style', $inline_font );
+			}
 			/**
 			 * Scripts.
 			 */

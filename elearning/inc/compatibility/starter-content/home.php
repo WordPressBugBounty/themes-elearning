@@ -4,6 +4,10 @@
  *
  * @package elearning\Compatibility\Starter_Content
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 return [
 	'post_type'    => 'page',
 	'post_content' => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0px","bottom":"100px","left":"40px","right":"40px"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->

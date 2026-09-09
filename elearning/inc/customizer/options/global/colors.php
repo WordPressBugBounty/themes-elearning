@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 use function Customind\Core\get_social_networks;
 
 /**

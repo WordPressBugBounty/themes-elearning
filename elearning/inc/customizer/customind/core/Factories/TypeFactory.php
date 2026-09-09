@@ -2,6 +2,9 @@
 
 namespace Customind\Core\Factories;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 use Customind\Core\Types\Controls\BuilderMigration;
 use Customind\Core\Types\Controls\Preset;
 use Customind\Core\Types\Controls\Socials;

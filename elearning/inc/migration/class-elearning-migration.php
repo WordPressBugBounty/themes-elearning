@@ -41,13 +41,13 @@ if ( ! class_exists( 'eLearning_Migration' ) ) {
 			$theme_installed_time = get_option( 'elearning_theme_installed_time' ); // timestamp
 			$today                = strtotime( '2025-09-15' );
 
-			if ( ! fresh_install_check() || ( ! empty( $theme_installed_time ) && $theme_installed_time < $today ) ) {
+			if ( ! elearning_fresh_install_check() || ( ! empty( $theme_installed_time ) && $theme_installed_time < $today ) ) {
 								add_action( 'after_setup_theme', [ $this, 'elearning_container_migration' ], 25 );
 			}
 
 			add_action( 'themegrill_ajax_demo_imported', [ $this, 'elearning_container_migration' ], 25 );
 
-			if ( fresh_install_check() ) {
+			if ( elearning_fresh_install_check() ) {
 				add_action( 'after_setup_theme', [ $this, 'elearning_container_width' ], 25 );
 			}
 

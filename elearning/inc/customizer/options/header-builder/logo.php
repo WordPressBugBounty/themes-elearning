@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = array(
 	'elearning_header_site_identity_general_heading' => array(
 		'type'     => 'customind-title',

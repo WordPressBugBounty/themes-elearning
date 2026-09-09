@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = apply_filters(
 	'elearning_top_bar_options',
 	array(

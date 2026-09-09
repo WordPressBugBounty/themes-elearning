@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $typography_preset_choices = apply_filters(
 	'elearning_site_layout_choices',
 	array(
@@ -521,7 +525,7 @@ $options                   = apply_filters(
 	array(
 		'elearning_typography_presets'           => array(
 			'type'       => 'customind-typography-preset',
-			'default'    => typography_should_migrate() ? '' : 'preset-1',
+			'default'    => elearning_typography_should_migrate() ? '' : 'preset-1',
 			'title'      => esc_html__( 'Presets', 'elearning' ),
 			'body_id'    => 'elearning_base_typography_body',
 			'heading_id' => 'elearning_base_typography_heading',

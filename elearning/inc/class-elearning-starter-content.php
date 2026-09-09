@@ -1,6 +1,10 @@
 <?php
 
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 class eLearning_Starter_Content {
 	const HOME_SLUG = 'home';
 	const BLOG_SLUG = 'blog';

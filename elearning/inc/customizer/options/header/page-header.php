@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = array(
 	'elearning_page_header_tab_group'      => array(
 		'type'      => 'customind-tabs',
@@ -17,6 +21,9 @@ $options = array(
 		'section'   => 'elearning_page_header',
 		'tab_group' => 'elearning_page_header_tab_group',
 		'tab'       => 'general',
+		'condition' => array(
+			'elearning_enable_page_title' => true,
+		),
 	),
 	'elearning_enable_page_title'          => array(
 		'title'     => esc_html__( 'Enable', 'elearning' ),
@@ -73,10 +80,13 @@ $options = array(
 		),
 	),
 	'elearning_page_title_enable'          => array(
-		'title'   => esc_html__( 'Enable', 'elearning' ),
-		'default' => true,
-		'type'    => 'customind-toggle',
-		'section' => 'elearning_page_header',
+		'title'     => esc_html__( 'Enable', 'elearning' ),
+		'default'   => true,
+		'type'      => 'customind-toggle',
+		'section'   => 'elearning_page_header',
+		'condition' => array(
+			'elearning_enable_page_title' => true,
+		),
 	),
 	'elearning_page_title'                 => array(
 		'default'   => 'page-header',

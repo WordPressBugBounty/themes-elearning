@@ -86,7 +86,7 @@ class eLearning_Welcome_Notice {
 			$response['redirect'] = admin_url( '/themes.php?page=demo-importer&browse=all' );
 		} elseif ( 'installed' === $state ) {
 			$response['redirect'] = admin_url( '/themes.php?page=demo-importer&browse=all' );
-			if ( current_user_can( 'activate_plugin' ) ) {
+			if ( current_user_can( 'activate_plugins' ) ) {
 				$result = activate_plugin( 'themegrill-demo-importer/themegrill-demo-importer.php' );
 
 				if ( is_wp_error( $result ) ) {
@@ -127,7 +127,7 @@ class eLearning_Welcome_Notice {
 			}
 
 			// Activate plugin.
-			if ( current_user_can( 'activate_plugin' ) ) {
+			if ( current_user_can( 'activate_plugins' ) ) {
 				$result = activate_plugin( 'themegrill-demo-importer/themegrill-demo-importer.php' );
 
 				if ( is_wp_error( $result ) ) {

@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = array(
 	'elearning_footer_builder_widget_4_heading' => array(
 		'type'         => 'customind-accordion',

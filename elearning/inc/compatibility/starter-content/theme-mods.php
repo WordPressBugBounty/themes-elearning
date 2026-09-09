@@ -4,6 +4,10 @@
  *
  * @package elearning\Compatibility\Starter_Content
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 return array(
 	'elearning_header_builder'                       => array(
 		'desktop' => array(

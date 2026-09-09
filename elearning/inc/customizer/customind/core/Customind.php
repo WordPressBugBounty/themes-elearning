@@ -5,6 +5,9 @@
 
 namespace Customind\Core;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 use Customind\Core\Factories\TypeFactory;
 use Customind\Core\Traits\Hook;
 use Customind\Core\Types\UpgradeSection;

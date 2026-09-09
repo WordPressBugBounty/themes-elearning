@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $container_layout_choices = apply_filters(
 	'elearning_container_layout_choices',
 	array(

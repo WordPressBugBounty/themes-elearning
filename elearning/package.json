@@ -1,6 +1,6 @@
 {
   "name": "elearning",
-  "version": "2.0.3",
+  "version": "2.1.7",
   "description": "A Masteriyo theme",
   "main": "gulpfile.js",
   "repository": {
@@ -15,6 +15,9 @@
   "homepage": "https://gitlab.com/themegrill/elearning#README",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.26.10",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^20.14.0",
+    "@wordpress/env": "^10.19.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
     "@babel/runtime": "^7.27.0",
@@ -87,7 +90,9 @@
     "prettier": "prettier --ignore-path .gitignore --check \"**/*.+(ts|tsx)\"",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(ts|tsx)\"",
     "prettier:fix": "prettier --write \"**/*.+(ts|tsx)\"",
-    "release": "pnpm build && gulp build"
+    "release": "pnpm build && gulp build",
+    "wp-env": "wp-env",
+    "test:e2e": "playwright test --config e2e-tests/playwright.config.ts"
   },
   "lint-staged": {
     "*.php": [

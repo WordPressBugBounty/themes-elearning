@@ -115,3 +115,63 @@ if ( ! class_exists( 'eLearnning_WooCommerce' ) ) {
 }
 
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+
+/**
+ * Opening element for filter wrapper at the top of WC pages.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function elearning_woocommerce_filter_wrapper_before() {
+	echo '<div class="tg-wc-filter">';
+}
+
+/**
+ * Closing element for filter wrapper at the top of WC pages.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function elearning_woocommerce_filter_wrapper_after() {
+	echo '</div><!-- /.tg-wc-filter -->';
+}
+
+// Add filter wrapper.
+add_action( 'woocommerce_before_shop_loop', 'elearning_woocommerce_filter_wrapper_before', 10 );
+add_action( 'woocommerce_before_shop_loop', 'elearning_woocommerce_filter_wrapper_after', 30 );
+
+
+/**
+ * Ensure WooCommerce icon font is available when WC styles are disabled.
+ * Registers an @font-face for the 'WooCommerce' font from the WooCommerce plugin
+ * and injects it as an inline stylesheet so icon CSS that uses `font-family: WooCommerce`
+ * continues to work.
+ */
+function elearning_enqueue_woocommerce_icon_font() {
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
+	// Prefer WC_PLUGIN_FILE if available, otherwise fall back to plugins_url().
+	if ( defined( 'WC_PLUGIN_FILE' ) ) {
+		$plugin_url = plugin_dir_url( WC_PLUGIN_FILE );
+	} else {
+		$plugin_url = plugins_url( '/', 'woocommerce/woocommerce.php' );
+	}
+
+	// Font files shipped with WooCommerce plugin.
+	$woff2 = esc_url( $plugin_url . 'assets/fonts/woocommerce.woff2' );
+	$woff  = esc_url( $plugin_url . 'assets/fonts/woocommerce.woff' );
+	$ttf   = esc_url( $plugin_url . 'assets/fonts/woocommerce.ttf' );
+
+	$css = "@font-face{font-family:'WooCommerce';src: url('{$woff2}') format('woff2'), url('{$woff}') format('woff'), url('{$ttf}') format('truetype');font-weight:400;font-style:normal;font-display:swap;}";
+
+	// Register an empty handle and add inline style so the @font-face is printed in the head.
+	wp_register_style( 'elearning-woocommerce-fonts', false );
+	wp_enqueue_style( 'elearning-woocommerce-fonts' );
+	wp_add_inline_style( 'elearning-woocommerce-fonts', $css );
+}
+add_action( 'wp_enqueue_scripts', 'elearning_enqueue_woocommerce_icon_font', 20 );

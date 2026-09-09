@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = apply_filters(
 	'elearning_footer_bottom_bar_options',
 	array(

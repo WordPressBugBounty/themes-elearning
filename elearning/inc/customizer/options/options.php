@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 require __DIR__ . '/global/colors.php';
 require __DIR__ . '/additional/performance.php';
 require __DIR__ . '/content/blog-archive.php';

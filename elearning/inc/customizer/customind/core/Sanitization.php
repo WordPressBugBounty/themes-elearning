@@ -5,6 +5,9 @@
 
 namespace Customind\Core;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 use Customind\Core\Traits\Hook;
 
 class Sanitization {

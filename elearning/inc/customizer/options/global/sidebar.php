@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $sidebar_layout_choices = apply_filters(
 	'elearning_site_layout_choices',
 	array(

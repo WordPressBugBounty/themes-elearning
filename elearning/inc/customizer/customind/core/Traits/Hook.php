@@ -5,6 +5,9 @@
 
 namespace Customind\Core\Traits;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 trait Hook {
 
 	public static $hook_name = 'customind:';

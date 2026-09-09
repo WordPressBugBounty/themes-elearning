@@ -1,4 +1,8 @@
-<?php return [
+<?php
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+return [
 	[
 		'name'  => 'Glass',
 		'class' => 'fa fa-glass',

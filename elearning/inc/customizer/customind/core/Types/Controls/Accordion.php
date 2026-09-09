@@ -2,6 +2,9 @@
 
 namespace Customind\Core\Types\Controls;
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 class Accordion extends AbstractGroupControl {
 	public $type = 'customind-accordion';
 

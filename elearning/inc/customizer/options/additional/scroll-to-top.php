@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $options = array(
 	'elearning_scroll_to_top'                  => array(
 		'title'    => esc_html__( 'Enable Scroll to top', 'elearning' ),

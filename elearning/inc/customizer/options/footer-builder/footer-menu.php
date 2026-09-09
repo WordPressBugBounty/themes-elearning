@@ -1,4 +1,8 @@
 <?php
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $menus        = wp_get_nav_menus();
 $menu_choices = array();
 

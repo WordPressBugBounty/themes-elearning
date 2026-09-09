@@ -52,6 +52,21 @@ class eLearning_Meta_Box {
 		add_action( 'elearning_process_page_settings_meta', 'elearning_Meta_Box_Page_Settings::save', 10, 2 );
 	}
 
+	/**
+	 * Auth callback for the theme's post meta fields.
+	 *
+	 * Only allow writing these fields via the REST API to users who are
+	 * already allowed to edit the post they belong to.
+	 *
+	 * @param bool   $allowed  Whether the user can add the object meta.
+	 * @param string $meta_key The meta key.
+	 * @param int    $post_id  Object ID.
+	 * @return bool
+	 */
+	public function meta_auth_callback( $allowed, $meta_key, $post_id ) {
+		return current_user_can( 'edit_post', $post_id );
+	}
+
 	private function is_classic_editor_active() {
 
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -75,7 +90,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 'tg-site-layout--default',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -86,7 +101,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 'tg-site-layout--default',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -97,7 +112,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 0,
 				'type'          => 'boolean',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -108,7 +123,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 'default',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -119,7 +134,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 'customizer',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -130,7 +145,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 0,
 				'type'          => 'integer',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -141,7 +156,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 'default',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -152,7 +167,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => '',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -163,7 +178,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => '',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -174,7 +189,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => '',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -185,7 +200,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => '',
 				'type'          => 'string',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 		register_post_meta(
@@ -196,7 +211,7 @@ class eLearning_Meta_Box {
 				'single'        => true,
 				'default'       => 1,
 				'type'          => 'boolean',
-				'auth_callback' => '__return_true',
+				'auth_callback' => array( $this, 'meta_auth_callback' ),
 			)
 		);
 	}

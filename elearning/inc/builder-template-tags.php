@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! function_exists( 'elearning_header_default_builder' ) ) {
 	/**
 	 * Header builder markup for this theme

@@ -1,4 +1,8 @@
-<?php return array(
+<?php
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+return array(
 	array(
 		'family'     => 'Inherit',
 		'variants'   => array( '100', '200', '300', '400', '500', '600', '700', '800', '900' ),

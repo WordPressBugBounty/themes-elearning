@@ -1,5 +1,9 @@
 <?php
 
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $panel_options_id = array(
 	'elearning_global'         => array(
 		'title'    => esc_html__( 'Global', 'elearning' ),
