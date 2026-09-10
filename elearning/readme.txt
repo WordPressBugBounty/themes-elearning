@@ -1,11 +1,11 @@
 === elearning ===
 Contributors: masteriyo
 Author: Masteriyo
-Version: 2.1.7
+Version: 2.1.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires at least: 5.0
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, news, education, rtl-language-support
@@ -60,6 +60,10 @@ License: GNU GPL, Version 3, https://www.gnu.org/licenses/gpl-3.0.html
 Unless otherwise specified, all the theme files, scripts and images including the screenshot image are licensed under [GNU GPL] (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+= Version 2.1.8 - 2026-09-10 =
+* Fix - Corrected WordPress capitalization flagged by automated theme review.
+* Update - Reduced package size by excluding development and build files from the release package.
+
 = Version 2.1.7 - 2026-09-09 =
 * Update - WooCommerce layout compatibility.
 * Fix - Renamed global helper functions to prevent naming conflicts with other plugins or themes.
