@@ -192,6 +192,53 @@ class Sanitization {
 	}
 
 	/**
+	 * Sanitize header/footer builder layout.
+	 *
+	 * Strips component ids that are no longer registered (e.g. the Cart
+	 * component after WooCommerce is deactivated) from the saved layout,
+	 * so a stale id can never reach the control and crash the builder.
+	 *
+	 * @param mixed                 $value Value from customizer.
+	 * @param \WP_Customize_Setting $setting Settings.
+	 * @return mixed
+	 */
+	public static function sanitize_builder_layout( $value, $setting ) {
+		if ( ! is_array( $value ) ) {
+			return $setting->default;
+		}
+
+		$control    = $setting->manager->get_control( $setting->id );
+		$components = $control->components ?? [];
+
+		foreach ( $value as $device => $areas ) {
+			if ( 'offset' === $device ) {
+				$valid_ids       = isset( $components['mobile'] ) ? wp_list_pluck( $components['mobile'], 'id' ) : [];
+				$value['offset'] = is_array( $areas ) ? array_values( array_intersect( $areas, $valid_ids ) ) : $areas;
+				continue;
+			}
+
+			if ( ! is_array( $areas ) || ! isset( $components[ $device ] ) ) {
+				continue;
+			}
+
+			$valid_ids = wp_list_pluck( $components[ $device ], 'id' );
+
+			foreach ( $areas as $area_id => $positions ) {
+				if ( ! is_array( $positions ) ) {
+					continue;
+				}
+				foreach ( $positions as $position_id => $ids ) {
+					if ( is_array( $ids ) ) {
+						$value[ $device ][ $area_id ][ $position_id ] = array_values( array_intersect( $ids, $valid_ids ) );
+					}
+				}
+			}
+		}
+
+		return $value;
+	}
+
+	/**
 	 * Get sanitization callback.
 	 *
 	 * @param string $control
@@ -224,6 +271,8 @@ class Sanitization {
 			'customind-divider'       => null,
 			'customind-gradient'      => null,
 			'customind-color-palette' => null,
+			'customind-header-builder'     => [ __CLASS__, 'sanitize_builder_layout' ],
+			'customind-footer-builder'     => [ __CLASS__, 'sanitize_builder_layout' ],
 		];
 		$sanitization_callbacks = self::instance()->apply_filters( 'sanitization:callbacks', $sanitization_callbacks );
 

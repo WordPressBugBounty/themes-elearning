@@ -5,58 +5,7 @@ defined( 'ABSPATH' ) || exit;
 class eLearning_Welcome_Notice {
 
 	public function __construct() {
-		add_action( 'admin_notices', array( $this, 'welcome_notice_markup' ) );
 		add_action( 'wp_ajax_elearning-install-tdi-plugin', array( $this, 'install_tdi_plugin' ) );
-		add_action( 'wp_ajax_elearning-dismiss-notice', array( $this, 'dismiss_notice' ) );
-	}
-
-	/**
-	 * Show welcome notice.
-	 */
-	public function welcome_notice_markup() {
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		if ( get_option( 'elearning_hide_welcome_notice' ) ) {
-			return;
-		}
-		?>
-		<div id="message" class="notice notice-success elearning-welcome-notice elearning-notice">
-			<a class="elearning-message-close notice-dismiss" href="#"></a>
-			<div class="elearning-message__content">
-				<div class="elearning-message__image">
-					<img class="elearning-screenshot" src="<?php echo esc_url( get_template_directory_uri() . '/screenshot.jpg' ); ?>" alt="<?php esc_attr_e( 'elearning', 'elearning' ); ?>" />
-				</div>
-				<div class="elearning-message__text">
-					<h2 class="elearning-message__heading">
-						<?php
-						printf(
-						/* translators: 1: welcome page link starting html tag, 2: welcome page link ending html tag. */
-							esc_html__( 'Welcome! Thank you for choosing eLearning! To fully take advantage of the best our theme can offer, please make sure you visit our %1$swelcome page%2$s.', 'elearning' ),
-							'<a href="' . esc_url( admin_url( 'themes.php?page=elearning-options' ) ) . '">',
-							'</a>'
-						);
-						?>
-					</h2>
-					<div class="elearning-message__cta">
-						<a href="#" class="btn-get-started button button-primary button-hero" data-name="<?php echo esc_attr( 'themegrill-demo-importer' ); ?>" data-slug="<?php echo esc_attr( 'themegrill-demo-importer' ); ?>" aria-label="<?php echo esc_attr( eLearning_Admin::btn_text( false ) ); ?>">
-							<?php echo esc_html__( 'Get started with eLearning', 'elearning' ); ?>
-						</a>
-						<span class="plugin-install-notice"><?php esc_html_e( 'Clicking the button will install and activate the ThemeGrill Demo Importer plugin.', 'elearning' ); ?></span>
-					</div>
-				</div>
-			</div>
-		</div> <!-- /.elearning-message__content -->
-		<?php
-	}
-
-	public function dismiss_notice() {
-		check_ajax_referer( 'elearning_dismiss_notice_nonce', 'security' );
-		update_option( 'elearning_hide_welcome_notice', 1 );
-		wp_send_json_success();
-		exit();
 	}
 
 	public function install_tdi_plugin() {
@@ -71,8 +20,6 @@ class eLearning_Welcome_Notice {
 			);
 			exit;
 		}
-
-		update_option( 'elearning_hide_welcome_notice', 1 );
 
 		$state = '';
 

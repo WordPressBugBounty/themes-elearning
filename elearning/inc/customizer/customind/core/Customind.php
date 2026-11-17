@@ -414,6 +414,13 @@ class Customind {
 				'sanitize_callback' => Sanitization::get_sanitization_callback( $args['type'] ),
 			]
 		);
+
+		// Reconcile the saved layout against currently registered components so a
+		// stale id (e.g. Cart after WooCommerce is deactivated) can never crash
+		// the builder's JS when the Customizer loads it.
+		if ( in_array( $args['type'], [ 'customind-header-builder', 'customind-footer-builder' ], true ) ) {
+			add_filter( "customize_sanitize_js_{$id}", [ Sanitization::class, 'sanitize_builder_layout' ], 10, 2 );
+		}
 	}
 
 	/**

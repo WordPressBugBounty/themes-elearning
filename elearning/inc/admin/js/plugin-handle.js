@@ -17,20 +17,4 @@ jQuery( document ).ready( function( $ ) {
 			}
 		} );
 	} );
-
-	$( '.elearning-welcome-notice .notice-dismiss' ).on( 'click', function ( e ) {
-		e.preventDefault();
-		$( e.target ).parent().hide();
-		$.ajax( {
-			type: 'POST',
-			url: ajaxurl,
-			data: {
-				action: 'elearning-dismiss-notice',
-				security: elearningRedirectDemoPage.dismissNonce
-			},
-			error: function( xhr, ajaxOptions, thrownError ){
-				console.log( thrownError );
-			}
-		} )
-	} )
 } );
